@@ -9,7 +9,8 @@ Prototype. Not yet tested with real users. Not deployed. The product brief is in
 
 ## What is here
 
-- `index.html`, `css/`, `js/`: a static page, vanilla ES modules, no build step.
+- `site/index.html`, `css/site.css`, `js/site.js`: the site, served at `/`. A dark room, one lamp, and the light comes toward you as you scroll; the last section is the app's first question. Concept in `docs/site-concept.md`, build log in `docs/site-build-log.md`.
+- `index.html`, `css/teamwork.css`, `js/`: the app, served at `/app/`. Vanilla ES modules, no build step.
 - `server/app.py`: a standard-library Python server. Serves the page and answers `POST /api/step` by
   calling the Claude API with the protocol in `server/protocol.md`. Keeps nothing, logs no content.
 - `server/library.json`: the principle library drawn from the website's six force cards and the thirty
@@ -27,7 +28,7 @@ With the model:
 
     ANTHROPIC_API_KEY=sk-ant-... python3 server/app.py
 
-Then open http://localhost:8975. `PORT` changes the port. `TEAMWORK_MODEL` changes the model (default
+Then open http://localhost:8975 for the site and http://localhost:8975/app/ for the app. `PORT` changes the port. `TEAMWORK_MODEL` changes the model (default
 `claude-opus-5-5`).
 
 Tests:

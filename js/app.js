@@ -93,6 +93,13 @@ const STEPS = ["who", "what", "need"];
 function home() {
   draft = { who: null, what: null, need: null, detail: "" };
   delete document.body.dataset.lit;
+  const pre = new URLSearchParams(location.search).get("who");
+  const match = pre && COPY.home.who.options.find(([k]) => k === pre);
+  if (match) {
+    history.replaceState(null, "", location.pathname);
+    draft.who = match[0]; draft.whoLabel = match[1];
+    return homeStep(1);
+  }
   homeStep(0);
 }
 function rows(options, chosen, onPick, quietKeys) {

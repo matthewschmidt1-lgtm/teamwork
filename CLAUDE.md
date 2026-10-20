@@ -6,7 +6,8 @@ the advisor's protocol is `server/protocol.md`. Read both before changing behavi
 
 ## Shape
 
-- `index.html`, `css/teamwork.css`, `js/*.js` as ES modules. No build step, no framework, no npm.
+- The site: `site/index.html`, `css/site.css`, `js/site.js`, served at `/`. Concept in `docs/site-concept.md`.
+- The app: `index.html`, `css/teamwork.css`, `js/*.js` as ES modules, served at `/app/` (asset paths are absolute). No build step, no framework, no npm.
 - `js/content.js` holds every line of copy. `js/store.js` is `localStorage` under the key `teamwork.v1`.
 - `server/app.py` is a standard-library HTTP server: serves the static files and answers `POST /api/step`
   by calling the Claude API over raw HTTPS (this Mac has Python 3.9 and the SDK needs 3.10, and the family

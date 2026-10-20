@@ -179,6 +179,8 @@ def safe_static_path(url_path):
     """Map a URL path to a file under ROOT, or None. Never serves server/ or dotfiles."""
     path = url_path.split("?", 1)[0].split("#", 1)[0]
     if path == "/" or path == "":
+        path = "/site/index.html"
+    if path in ("/app", "/app/"):
         path = "/index.html"
     parts = [p for p in path.split("/") if p]
     if any(p in ("..", "") or p.startswith(".") for p in parts):

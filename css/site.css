@@ -1,0 +1,114 @@
+/* The Teamwork site. A dark room, one lamp, and the light comes toward you as you scroll. */
+
+:root {
+  --ground: #15110F;
+  --text: #F3E9DA;
+  --text-2: #BFAE98;
+  --hair: rgba(243, 233, 218, 0.14);
+  --amber: #F2A33A;
+  --sage: #7FB0A3;
+  --rose: #D98C7A;
+  --pool: #3A2D22;
+  --pool-alpha: rgba(242, 163, 58, 0.18);
+  --serif: "Fraunces", "Iowan Old Style", "Palatino", Georgia, serif;
+  --sans: "DM Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --gutter: clamp(20px, 6vw, 120px);
+  --measure: 26ch;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --progress: 0; /* 0 at arrival, 1 at the start section; set by js/site.js */
+}
+
+* { box-sizing: border-box; }
+html { background: var(--ground); scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; color: var(--text); background: var(--ground); font-family: var(--sans); font-size: 18px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+@media (min-width: 60rem) { body { font-size: 20px; } }
+
+/* The lamp. Size and warmth follow --progress. It switches on at load. */
+.lamp {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(
+    calc(52rem + 60rem * var(--progress)) calc(30rem + 34rem * var(--progress)) at 50% calc(-16rem + 4rem * var(--progress)),
+    var(--pool) 0%, var(--pool-alpha) 40%, transparent 72%);
+  opacity: 0; animation: switch-on 1600ms var(--ease) 200ms forwards;
+}
+@keyframes switch-on { to { opacity: 1; } }
+
+.skip { position: absolute; left: -999px; top: 16px; background: var(--text); color: var(--ground); padding: 8px 16px; border-radius: 6px; z-index: 10; }
+.skip:focus { left: 16px; }
+
+.top { position: absolute; top: 0; left: 0; right: 0; z-index: 2; display: flex; justify-content: space-between; align-items: center; padding: 20px var(--gutter); }
+.mark { font-family: var(--serif); font-variation-settings: "opsz" 36, "SOFT" 50; font-weight: 450; font-size: 18px; color: var(--text); text-decoration: none; }
+.open { color: var(--text-2); text-decoration: none; font-size: 16px; min-height: 44px; display: inline-flex; align-items: center; padding: 0 4px; }
+.open:hover { color: var(--amber); }
+:is(a, button):focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
+
+main { position: relative; z-index: 1; }
+.scene { min-height: 92vh; display: flex; flex-direction: column; justify-content: center; padding: 18vh var(--gutter) 10vh; }
+.arrival { min-height: 100vh; justify-content: flex-end; padding-bottom: 16vh; }
+.start { min-height: 100vh; }
+
+/* Type: the big line, the section line, the account, the body. */
+.big { font-family: var(--serif); font-variation-settings: "opsz" 144, "SOFT" 50; font-weight: 340; font-size: clamp(44px, 9vw, 96px); line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 0.4em; max-width: 12ch; }
+.line { font-family: var(--serif); font-variation-settings: "opsz" 72, "SOFT" 50; font-weight: 360; font-size: clamp(30px, 4.6vw, 56px); line-height: 1.12; letter-spacing: -0.01em; margin: 0 0 0.6em; max-width: 18ch; }
+h2.line { margin-bottom: 0.9em; }
+.line.small { font-size: clamp(22px, 2.6vw, 32px); color: var(--text-2); margin-top: 1.4em; max-width: 26ch; }
+.label { font-family: var(--sans); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: var(--text-2); margin: 0 0 1.2em; }
+.label.sage { color: var(--sage); } .label.rose { color: var(--rose); }
+.quiet { color: var(--text-2); font-size: 16px; margin: 0; }
+.body { max-width: 34ch; margin: 0; color: var(--text); }
+.muted { color: var(--text-2); }
+
+/* The set piece: the account, then its sentences take their colour, then the blocks. */
+.account { font-family: var(--serif); font-variation-settings: "opsz" 36, "SOFT" 50; font-size: clamp(22px, 2.8vw, 30px); line-height: 1.45; max-width: 30ch; margin: 0 0 1.6em; }
+.account .s { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 7px; text-decoration-color: transparent; transition: text-decoration-color 400ms var(--ease), color 400ms var(--ease); }
+.sort.lit .s.happened { text-decoration-color: var(--sage); }
+.sort.lit .s.concluded { text-decoration-color: var(--rose); color: var(--text-2); }
+.sort.lit .s:nth-child(1) { transition-delay: 100ms; } .sort.lit .s:nth-child(2) { transition-delay: 260ms; }
+.sort.lit .s:nth-child(3) { transition-delay: 420ms; } .sort.lit .s:nth-child(4) { transition-delay: 580ms; }
+.blocks { display: grid; gap: 28px; grid-template-columns: 1fr; max-width: 56rem; }
+@media (min-width: 60rem) { .blocks { grid-template-columns: 1fr 1fr 1fr; } }
+.block { border-left: 3px solid var(--hair); padding-left: 18px; }
+.block.happened { border-left-color: var(--sage); } .block.concluded { border-left-color: var(--rose); }
+.block p { margin: 0 0 0.5em; }
+.block .label { margin-bottom: 0.8em; }
+.blocks .reveal { transition-delay: 900ms; }
+.blocks .reveal:nth-child(2) { transition-delay: 1050ms; } .blocks .reveal:nth-child(3) { transition-delay: 1200ms; }
+
+/* Two readings */
+.panels { display: grid; gap: 32px; grid-template-columns: 1fr; max-width: 56rem; }
+@media (min-width: 60rem) { .panels { grid-template-columns: 1fr 1fr; } }
+.panel { border-left: 3px solid var(--hair); padding-left: 18px; }
+.panel.sage { border-left-color: var(--sage); } .panel.rose { border-left-color: var(--rose); }
+.panel p { margin: 0; max-width: 30ch; }
+.panels .reveal:nth-child(2) { transition-delay: 180ms; }
+
+/* What you leave with */
+.step { font-family: var(--serif); font-variation-settings: "opsz" 48, "SOFT" 50; font-size: clamp(26px, 3.2vw, 36px); margin: 0 0 0.6em; }
+.quote { margin: 0 0 0.8em; padding-left: 22px; border-left: 3px solid var(--amber); max-width: 30ch; }
+.quote p { font-family: var(--serif); font-variation-settings: "opsz" 36, "SOFT" 50; font-size: clamp(24px, 3vw, 34px); line-height: 1.35; margin: 0; }
+.date { color: var(--amber); font-size: 16px; margin: 0 0 1.6em; }
+
+/* The start: the app's first question, with the answers as the way in. */
+.rows { list-style: none; margin: 0 0 32px; padding: 0; max-width: 34rem; border-top: 1px solid var(--hair); }
+.row { display: flex; align-items: center; gap: 16px; padding: 18px 0; min-height: 60px; border-bottom: 1px solid var(--hair); color: var(--text); text-decoration: none; font-size: clamp(19px, 2.2vw, 24px); transition: color 220ms var(--ease); }
+.row::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: transparent; flex: 0 0 9px; transition: background 220ms var(--ease); }
+.row:hover::before, .row:focus-visible::before { background: var(--amber); }
+.row:hover { color: var(--amber); }
+
+.foot { position: relative; z-index: 1; padding: 24px var(--gutter) 40px; color: var(--text-2); font-size: 15px; }
+.foot p { margin: 0; }
+
+/* Reveals: lines arrive as they enter view. Without JavaScript, everything is simply visible. */
+.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity 600ms var(--ease), transform 600ms var(--ease); }
+.js .reveal.in { opacity: 1; transform: none; }
+.js .named .reveal:nth-child(2) { transition-delay: 90ms; } .js .named .reveal:nth-child(3) { transition-delay: 180ms; }
+.js .wont .reveal:nth-child(3) { transition-delay: 90ms; } .js .wont .reveal:nth-child(4) { transition-delay: 180ms; } .js .wont .reveal:nth-child(5) { transition-delay: 270ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .lamp { animation: none; opacity: 1; --progress: 0.6; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .account .s { transition: none; }
+  .sort .s.happened { text-decoration-color: var(--sage); }
+  .sort .s.concluded { text-decoration-color: var(--rose); color: var(--text-2); }
+}

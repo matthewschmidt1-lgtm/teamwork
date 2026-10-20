@@ -80,8 +80,10 @@ class Request(unittest.TestCase):
 
 
 class Static(unittest.TestCase):
-    def test_root_is_index(self):
-        self.assertEqual(app.safe_static_path("/").name, "index.html")
+    def test_root_is_the_site_and_app_is_the_app(self):
+        self.assertEqual(app.safe_static_path("/").relative_to(app.ROOT).as_posix(), "site/index.html")
+        self.assertEqual(app.safe_static_path("/app/").relative_to(app.ROOT).as_posix(), "index.html")
+        self.assertEqual(app.safe_static_path("/app").relative_to(app.ROOT).as_posix(), "index.html")
 
     def test_server_folder_and_dotfiles_hidden(self):
         self.assertIsNone(app.safe_static_path("/server/protocol.md"))
@@ -89,7 +91,7 @@ class Static(unittest.TestCase):
         self.assertIsNone(app.safe_static_path("/../etc/passwd"))
 
     def test_query_string_ignored(self):
-        self.assertEqual(app.safe_static_path("/?x=1").name, "index.html")
+        self.assertEqual(app.safe_static_path("/app/?who=manager").relative_to(app.ROOT).as_posix(), "index.html")
 
 
 class Copy(unittest.TestCase):
