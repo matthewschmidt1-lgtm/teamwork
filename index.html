@@ -4,12 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Teamwork</title>
-<meta name="description" content="Think through a difficult situation with someone at work. See what happened as separate from what you concluded, hold more than one explanation, leave with one step and one sentence to check later.">
-<meta name="theme-color" content="#F4EEE4">
+<meta name="description" content="Think through a difficult situation with someone at work. See what happened as separate from what you concluded, hold two explanations, leave with one step and one sentence to check later.">
+<meta name="theme-color" content="#1F1A17">
+<meta name="color-scheme" content="dark light">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script>try{var t=localStorage.getItem("teamwork.theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=DM+Sans:opsz,wght@9..40,400..600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..600,0..100&family=DM+Sans:opsz,wght@9..40,400..600&display=swap">
 <link rel="stylesheet" href="css/teamwork.css">
 </head>
 <body>
@@ -17,7 +19,10 @@
 <a class="skip" href="#app">Skip to content</a>
 <header class="top">
   <a class="mark" href="./" aria-label="Teamwork, start">Teamwork</a>
-  <span class="top-note" id="topNote"></span>
+  <div class="top-right">
+    <div class="wick" id="wick" aria-hidden="true"></div>
+    <button class="theme" id="theme" type="button"></button>
+  </div>
 </header>
 <main id="app" class="app" tabindex="-1"></main>
 <p id="status" class="visually-hidden" role="status" aria-live="polite"></p>
