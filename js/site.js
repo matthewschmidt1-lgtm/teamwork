@@ -1,4 +1,4 @@
-// The site's only script: reveal lines as they enter view, light the set piece, and tie the lamp to scroll.
+// The site's only script: reveal lines as they enter view and colour the set piece when it arrives.
 // Without it the page is complete and fully visible.
 (function () {
   document.documentElement.classList.add("js");
@@ -21,20 +21,4 @@
     var s = document.querySelector(".sort"); if (s) s.classList.add("lit");
   }
 
-  // The lamp follows scroll: dim at arrival, full at the start section.
-  var start = document.getElementById("start");
-  var root = document.documentElement;
-  var ticking = false;
-  function light() {
-    ticking = false;
-    if (!start) return;
-    var end = start.offsetTop - window.innerHeight * 0.5;
-    var p = end > 0 ? Math.min(1, Math.max(0, window.scrollY / end)) : 1;
-    root.style.setProperty("--progress", p.toFixed(3));
-  }
-  if (!reduced) {
-    window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(light); } }, { passive: true });
-    window.addEventListener("resize", light);
-    light();
-  }
 })();

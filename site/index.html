@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Teamwork</title>
 <meta name="description" content="Something happened at work today. Teamwork helps you see what happened as separate from what you concluded, hold two explanations, and leave with one step and one sentence to check later.">
-<meta name="theme-color" content="#0B1020">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#F3EDE2">
+<meta name="color-scheme" content="light">
 <link rel="canonical" href="https://teamwork-production-team.up.railway.app/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Teamwork">
@@ -23,12 +23,16 @@
 </script>
 </head>
 <body>
-<div class="lamp" aria-hidden="true"></div>
 <a class="skip" href="#start">Skip to the start</a>
 
 <header class="top">
   <a class="mark" href="/">Teamwork</a>
-  <a class="open" href="/app/">Open the app</a>
+  <nav class="nav" aria-label="Site">
+    <a href="#sort">How it works</a>
+    <a href="#wont">What it won't do</a>
+    <a href="/docs/question-map.html">How it reasons</a>
+    <a class="open" href="/app/">Open the app</a>
+  </nav>
 </header>
 
 <main>
@@ -37,7 +41,7 @@
     <p class="quiet reveal">Scroll. We'll think it through.</p>
   </section>
 
-  <section class="scene named" aria-labelledby="named-1">
+  <section class="scene named band-green" aria-labelledby="named-1">
     <p class="line reveal" id="named-1">You know something is wrong.</p>
     <p class="line reveal">You don't yet know what it is.</p>
     <p class="line reveal">That is the right place to start.</p>
@@ -85,7 +89,7 @@
     <p class="line small reveal">The facts fit both. One question would tell them apart.</p>
   </section>
 
-  <section class="scene wont" aria-labelledby="wont-title">
+  <section class="scene wont band-ink" id="wont" aria-labelledby="wont-title">
     <h2 class="label reveal" id="wont-title">What it won't do</h2>
     <p class="line reveal">Take your side by default.</p>
     <p class="line reveal">Tell you what the other person is thinking.</p>
@@ -106,7 +110,7 @@
     <p class="body reveal">What you write stays in your browser. It goes to the advisor only when you ask for a read, and is not kept there. No account.</p>
   </section>
 
-  <section class="scene start" id="start" aria-labelledby="start-title">
+  <section class="scene start band-green" id="start" aria-labelledby="start-title">
     <h2 class="big reveal" id="start-title">Who is this about?</h2>
     <ul class="rows reveal">
       <li><a class="row" href="/app/?who=manager">My manager</a></li>
@@ -120,7 +124,33 @@
 </main>
 
 <footer class="foot">
-  <p>Teamwork. Made by Matthew Schmidt.</p>
+  <div class="cols">
+    <div>
+      <a class="mark" href="/">Teamwork</a>
+      <p>An evidence-first way to think through a difficult situation with someone at work. One step, one sentence you'd see if it worked, one date.</p>
+    </div>
+    <div>
+      <p class="label">Teamwork</p>
+      <ul>
+        <li><a href="/app/">Open the app</a></li>
+        <li><a href="#sort">How it works</a></li>
+        <li><a href="#wont">What it won't do</a></li>
+        <li><a href="/docs/question-map.html">How it reasons</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="label">Made by</p>
+      <ul>
+        <li><a href="https://matthew-schmidt-production.up.railway.app/" rel="noopener">Matthew Schmidt</a></li>
+        <li><a href="https://friction-production.up.railway.app/" rel="noopener">Friction</a></li>
+        <li><a href="https://stillward-production.up.railway.app/" rel="noopener">Stillward</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fine">
+    <p>What you write stays in your browser. It goes to the advisor only when you ask for a read, and is not kept there.</p>
+    <p>Prototype. Not yet tested with real users.</p>
+  </div>
 </footer>
 <script src="/js/site.js" defer></script>
 </body>

@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Teamwork</title>
 <meta name="description" content="Think through a difficult situation with someone at work. See what happened as separate from what you concluded, hold two explanations, leave with one step and one sentence to check later.">
-<meta name="theme-color" content="#111730">
-<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#F3EDE2">
+<meta name="color-scheme" content="light dark">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>try{var t=localStorage.getItem("teamwork.theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,11 +15,11 @@
 <link rel="stylesheet" href="/css/teamwork.css">
 </head>
 <body>
-<div class="lamp" aria-hidden="true"></div>
 <a class="skip" href="#app">Skip to content</a>
 <header class="top">
   <a class="mark" href="/app/" aria-label="Teamwork, start">Teamwork</a>
   <div class="top-right">
+    <nav class="top-nav" aria-label="Teamwork"><a href="/">Site</a><a href="/docs/question-map.html">How it reasons</a></nav>
     <div class="wick" id="wick" aria-hidden="true"></div>
     <button class="theme" id="theme" type="button"></button>
   </div>
@@ -28,6 +28,7 @@
 <p id="status" class="visually-hidden" role="status" aria-live="polite"></p>
 <footer class="foot">
   <p id="privacy"></p>
+  <nav aria-label="Footer"><a href="/">Site</a><a href="/docs/question-map.html">How it reasons</a><a href="https://matthew-schmidt-production.up.railway.app/" rel="noopener">Matthew Schmidt</a></nav>
 </footer>
 <script type="module" src="/js/app.js"></script>
 </body>

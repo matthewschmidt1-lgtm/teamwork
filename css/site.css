@@ -1,84 +1,80 @@
-/* The Teamwork site. A dark room, one lamp, and the light comes toward you as you scroll. */
+/* The Teamwork site. Flat, printed, editorial. No gradients, no glow. Rhythm comes from solid colour bands. */
 
 :root {
-  --ground: #0B1020;
-  --text: #F4EBDD;
-  --text-2: #A9B2CC;
-  --hair: rgba(244, 235, 221, 0.14);
-  --amber: #FFB84D;
-  --ember: #D9622B;
-  --core: 255, 193, 94;      /* #FFC15E, the lamp's hot core */
-  --core-warm: 255, 213, 138; /* #FFD58A, where the core eases to by the end */
-  --shadow: 27, 42, 92;      /* #1B2A5C, the cool wash around the light */
-  --sage: #6FD3C0;
-  --rose: #F08FAE;
+  --paper: #F3EDE2;
+  --ink: #17201B;
+  --ink-2: #5A625C;
+  --rule: #D6CCBB;
+  --green: #1E4D3B;
+  --green-text: #F3EDE2;
+  --green-2: #BFD3C8;
+  --moss: #3F7D6E;
+  --brick: #A9533F;
   --serif: "Fraunces", "Iowan Old Style", "Palatino", Georgia, serif;
   --sans: "DM Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   --gutter: clamp(20px, 6vw, 120px);
-  --measure: 26ch;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --progress: 0; /* 0 at arrival, 1 at the start section; set by js/site.js */
 }
 
 * { box-sizing: border-box; }
-html { background: var(--ground); scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-body { margin: 0; color: var(--text); background: var(--ground); font-family: var(--sans); font-size: 18px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+html { background: var(--paper); scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); font-size: 18px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
 @media (min-width: 60rem) { body { font-size: 20px; } }
 
-/* The lamp: a hot core, an ember mid, a cool wash, and a faint floor bounce. Size and warmth follow --progress. */
-.lamp {
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background:
-    radial-gradient(calc(18rem + 12rem * var(--progress)) calc(10rem + 7rem * var(--progress)) at 50% -4rem,
-      rgba(var(--core), calc(0.55 * (1 - var(--progress)))) 0%, transparent 100%),
-    radial-gradient(calc(18rem + 12rem * var(--progress)) calc(10rem + 7rem * var(--progress)) at 50% -4rem,
-      rgba(var(--core-warm), calc(0.6 * var(--progress))) 0%, transparent 100%),
-    radial-gradient(calc(40rem + 34rem * var(--progress)) calc(26rem + 20rem * var(--progress)) at 50% -6rem,
-      rgba(217, 98, 43, 0.22) 0%, transparent 70%),
-    radial-gradient(calc(90rem + 30rem * var(--progress)) calc(55rem + 22rem * var(--progress)) at 50% 8rem,
-      rgba(var(--shadow), 0.45) 0%, transparent 70%),
-    radial-gradient(30rem 12rem at 50% 100%, rgba(var(--core), 0.06) 0%, transparent 70%);
-  opacity: 0; animation: switch-on 1600ms var(--ease) 200ms forwards;
-}
-@keyframes switch-on { to { opacity: 1; } }
-
-.skip { position: absolute; left: -999px; top: 16px; background: var(--text); color: var(--ground); padding: 8px 16px; border-radius: 6px; z-index: 10; }
+.skip { position: absolute; left: -999px; top: 16px; background: var(--ink); color: var(--paper); padding: 8px 16px; border-radius: 6px; z-index: 10; }
 .skip:focus { left: 16px; }
+:is(a, button):focus-visible { outline: 2px solid var(--brick); outline-offset: 4px; }
 
-.top { position: absolute; top: 0; left: 0; right: 0; z-index: 2; display: flex; justify-content: space-between; align-items: center; padding: 20px var(--gutter); }
-.mark { font-family: var(--serif); font-variation-settings: "opsz" 36, "SOFT" 50; font-weight: 450; font-size: 18px; color: var(--text); text-decoration: none; }
-.open { color: var(--text-2); text-decoration: none; font-size: 16px; min-height: 44px; display: inline-flex; align-items: center; padding: 0 4px; }
-.open:hover { color: var(--amber); }
-:is(a, button):focus-visible { outline: 2px solid var(--ember); outline-offset: 4px; }
-:is(a, button):focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
+/* Header: a real one. Wordmark, four links, the app. */
+.top { position: sticky; top: 0; z-index: 3; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 14px var(--gutter); background: var(--paper); border-bottom: 1px solid var(--rule); }
+.mark { font-family: var(--serif); font-variation-settings: "opsz" 36, "SOFT" 50; font-weight: 500; font-size: 20px; color: var(--ink); text-decoration: none; }
+.nav { display: flex; align-items: center; gap: 22px; }
+.nav a { color: var(--ink-2); text-decoration: none; font-size: 15px; min-height: 44px; display: inline-flex; align-items: center; }
+.nav a:hover { color: var(--ink); }
+.nav a.open { color: var(--paper); background: var(--ink); padding: 0 16px; border-radius: 999px; }
+.nav a.open:hover { background: var(--green); }
+@media (max-width: 44rem) { .nav a:not(.open) { display: none; } }
 
-main { position: relative; z-index: 1; }
-.scene { min-height: 92vh; display: flex; flex-direction: column; justify-content: center; padding: 18vh var(--gutter) 10vh; }
-.arrival { min-height: 100vh; justify-content: flex-end; padding-bottom: 16vh; }
+main { position: relative; }
+.scene { min-height: 88vh; display: flex; flex-direction: column; justify-content: center; padding: 14vh var(--gutter) 12vh; }
+.arrival { min-height: calc(100vh - 73px); justify-content: flex-end; padding-bottom: 14vh; }
 .start { min-height: 100vh; }
 
+/* Bands: solid colour fields. Green for the lines you are meant to feel; ink for the refusals. */
+.band-green { background: var(--green); color: var(--green-text); }
+.band-green .line, .band-green .big, .band-green h2 { color: var(--green-text); }
+.band-green .quiet, .band-green .line.small, .band-green .muted { color: var(--green-2); }
+.band-green .rows { border-top-color: rgba(243, 237, 226, 0.25); }
+.band-green .row { color: var(--green-text); border-bottom-color: rgba(243, 237, 226, 0.25); }
+.band-green .row:hover { color: #FFFFFF; }
+.band-green .row::before { background: var(--green-2); }
+.band-green .label { color: var(--green-2); }
+.band-ink { background: var(--ink); color: var(--paper); }
+.band-ink .line, .band-ink h2 { color: var(--paper); }
+.band-ink .label { color: rgba(243, 237, 226, 0.6); }
+
 /* Type: the big line, the section line, the account, the body. */
-.big { font-family: var(--serif); font-variation-settings: "opsz" 144, "SOFT" 50; font-weight: 340; font-size: clamp(44px, 9vw, 96px); line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 0.4em; max-width: 12ch; }
-.line { font-family: var(--serif); font-variation-settings: "opsz" 72, "SOFT" 50; font-weight: 360; font-size: clamp(30px, 4.6vw, 56px); line-height: 1.12; letter-spacing: -0.01em; margin: 0 0 0.6em; max-width: 18ch; }
+.big { font-family: var(--serif); font-variation-settings: "opsz" 144, "SOFT" 50; font-weight: 340; font-size: clamp(44px, 9vw, 96px); line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 0.4em; max-width: 12ch; color: var(--ink); }
+.line { font-family: var(--serif); font-variation-settings: "opsz" 72, "SOFT" 50; font-weight: 360; font-size: clamp(30px, 4.6vw, 56px); line-height: 1.12; letter-spacing: -0.01em; margin: 0 0 0.6em; max-width: 18ch; color: var(--ink); }
 h2.line { margin-bottom: 0.9em; }
-.line.small { font-size: clamp(22px, 2.6vw, 32px); color: var(--text-2); margin-top: 1.4em; max-width: 26ch; }
-.label { font-family: var(--sans); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: var(--text-2); margin: 0 0 1.2em; }
-.label.sage { color: var(--sage); } .label.rose { color: var(--rose); }
-.quiet { color: var(--text-2); font-size: 16px; margin: 0; }
-.body { max-width: 34ch; margin: 0; color: var(--text); }
-.muted { color: var(--text-2); }
+.line.small { font-size: clamp(22px, 2.6vw, 32px); color: var(--ink-2); margin-top: 1.4em; max-width: 26ch; }
+.label { font-family: var(--sans); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: var(--ink-2); margin: 0 0 1.2em; }
+.label.sage { color: var(--moss); } .label.rose { color: var(--brick); }
+.quiet { color: var(--ink-2); font-size: 16px; margin: 0; }
+.body { max-width: 34ch; margin: 0; }
+.muted { color: var(--ink-2); }
 
 /* The set piece: the account, then its sentences take their colour, then the blocks. */
 .account { font-family: var(--serif); font-variation-settings: "opsz" 36, "SOFT" 50; font-size: clamp(22px, 2.8vw, 30px); line-height: 1.45; max-width: 30ch; margin: 0 0 1.6em; }
 .account .s { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 7px; text-decoration-color: transparent; transition: text-decoration-color 400ms var(--ease), color 400ms var(--ease); }
-.sort.lit .s.happened { text-decoration-color: var(--sage); }
-.sort.lit .s.concluded { text-decoration-color: var(--rose); color: var(--text-2); }
+.sort.lit .s.happened { text-decoration-color: var(--moss); }
+.sort.lit .s.concluded { text-decoration-color: var(--brick); color: var(--ink-2); }
 .sort.lit .s:nth-child(1) { transition-delay: 100ms; } .sort.lit .s:nth-child(2) { transition-delay: 260ms; }
 .sort.lit .s:nth-child(3) { transition-delay: 420ms; } .sort.lit .s:nth-child(4) { transition-delay: 580ms; }
 .blocks { display: grid; gap: 28px; grid-template-columns: 1fr; max-width: 56rem; }
 @media (min-width: 60rem) { .blocks { grid-template-columns: 1fr 1fr 1fr; } }
-.block { border-left: 3px solid var(--hair); padding-left: 18px; }
-.block.happened { border-left-color: var(--sage); } .block.concluded { border-left-color: var(--rose); }
+.block { border-left: 3px solid var(--rule); padding-left: 18px; }
+.block.happened { border-left-color: var(--moss); } .block.concluded { border-left-color: var(--brick); }
 .block p { margin: 0 0 0.5em; }
 .block .label { margin-bottom: 0.8em; }
 .blocks .reveal { transition-delay: 900ms; }
@@ -87,26 +83,37 @@ h2.line { margin-bottom: 0.9em; }
 /* Two readings */
 .panels { display: grid; gap: 32px; grid-template-columns: 1fr; max-width: 56rem; }
 @media (min-width: 60rem) { .panels { grid-template-columns: 1fr 1fr; } }
-.panel { border-left: 3px solid var(--hair); padding-left: 18px; }
-.panel.sage { border-left-color: var(--sage); } .panel.rose { border-left-color: var(--rose); }
+.panel { border-left: 3px solid var(--rule); padding-left: 18px; }
+.panel.sage { border-left-color: var(--moss); } .panel.rose { border-left-color: var(--brick); }
 .panel p { margin: 0; max-width: 30ch; }
 .panels .reveal:nth-child(2) { transition-delay: 180ms; }
 
 /* What you leave with */
 .step { font-family: var(--serif); font-variation-settings: "opsz" 48, "SOFT" 50; font-size: clamp(26px, 3.2vw, 36px); margin: 0 0 0.6em; }
-.quote { margin: 0 0 0.8em; padding-left: 22px; border-left: 3px solid var(--amber); max-width: 30ch; }
+.quote { margin: 0 0 0.8em; padding-left: 22px; border-left: 3px solid var(--ink); max-width: 30ch; }
 .quote p { font-family: var(--serif); font-variation-settings: "opsz" 36, "SOFT" 50; font-size: clamp(24px, 3vw, 34px); line-height: 1.35; margin: 0; }
-.date { color: var(--amber); font-size: 16px; margin: 0 0 1.6em; }
+.date { color: var(--brick); font-size: 16px; margin: 0 0 1.6em; }
 
 /* The start: the app's first question, with the answers as the way in. */
-.rows { list-style: none; margin: 0 0 32px; padding: 0; max-width: 34rem; border-top: 1px solid var(--hair); }
-.row { display: flex; align-items: center; gap: 16px; padding: 18px 0; min-height: 60px; border-bottom: 1px solid var(--hair); color: var(--text); text-decoration: none; font-size: clamp(19px, 2.2vw, 24px); transition: color 220ms var(--ease); }
-.row::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: transparent; flex: 0 0 9px; transition: background 220ms var(--ease); }
-.row:hover::before, .row:focus-visible::before { background: var(--amber); }
-.row:hover { color: var(--amber); }
+.rows { list-style: none; margin: 0 0 32px; padding: 0; max-width: 34rem; border-top: 1px solid var(--rule); }
+.row { display: flex; align-items: center; gap: 16px; padding: 18px 0; min-height: 60px; border-bottom: 1px solid var(--rule); color: var(--ink); text-decoration: none; font-size: clamp(19px, 2.2vw, 24px); transition: padding-left 220ms var(--ease); }
+.row::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--rule); flex: 0 0 9px; transition: background 220ms var(--ease); }
+.row:hover::before, .row:focus-visible::before { background: var(--brick); }
+.row:hover { padding-left: 6px; }
 
-.foot { position: relative; z-index: 1; padding: 24px var(--gutter) 40px; color: var(--text-2); font-size: 15px; }
-.foot p { margin: 0; }
+/* Footer: a real one. */
+.foot { background: var(--ink); color: var(--paper); padding: 56px var(--gutter) 40px; }
+.foot .cols { display: grid; gap: 32px; grid-template-columns: 1fr; max-width: 70rem; }
+@media (min-width: 48rem) { .foot .cols { grid-template-columns: 2fr 1fr 1fr; } }
+.foot .mark { color: var(--paper); font-size: 22px; }
+.foot p { margin: 8px 0 0; color: rgba(243, 237, 226, 0.7); font-size: 15px; max-width: 40ch; }
+.foot .label { color: rgba(243, 237, 226, 0.55); margin-bottom: 10px; }
+.foot ul { list-style: none; margin: 0; padding: 0; }
+.foot li { margin: 0 0 8px; }
+.foot a { color: var(--paper); text-decoration: none; font-size: 16px; min-height: 32px; display: inline-flex; align-items: center; }
+.foot a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.foot .fine { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(243, 237, 226, 0.18); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; color: rgba(243, 237, 226, 0.55); font-size: 14px; }
+.foot .fine p { margin: 0; }
 
 /* Reveals: lines arrive as they enter view. Without JavaScript, everything is simply visible. */
 .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity 600ms var(--ease), transform 600ms var(--ease); }
@@ -116,9 +123,8 @@ h2.line { margin-bottom: 0.9em; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .lamp { animation: none; opacity: 1; --progress: 0.6; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .account .s { transition: none; }
-  .sort .s.happened { text-decoration-color: var(--sage); }
-  .sort .s.concluded { text-decoration-color: var(--rose); color: var(--text-2); }
+  .sort .s.happened { text-decoration-color: var(--moss); }
+  .sort .s.concluded { text-decoration-color: var(--brick); color: var(--ink-2); }
 }

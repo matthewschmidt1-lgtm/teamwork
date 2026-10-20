@@ -11,14 +11,14 @@ let s = null;            // the current situation
 
 document.getElementById("privacy").textContent = COPY.privacy;
 
-// ---------- Theme: night by default, paper as the alternate ----------
+// ---------- Theme: paper by default, night as the alternate ----------
 const themeBtn = document.getElementById("theme");
-function themeName() { return document.documentElement.getAttribute("data-theme") === "paper" ? "paper" : "night"; }
+function themeName() { return document.documentElement.getAttribute("data-theme") === "night" ? "night" : "paper"; }
 function paintTheme() { themeBtn.textContent = COPY.theme[themeName()]; }
 themeBtn.addEventListener("click", () => {
   const next = themeName() === "paper" ? "night" : "paper";
-  if (next === "paper") document.documentElement.setAttribute("data-theme", "paper"); else document.documentElement.removeAttribute("data-theme");
-  try { localStorage.setItem("teamwork.theme", next === "paper" ? "paper" : ""); } catch (e) { /* fine */ }
+  if (next === "night") document.documentElement.setAttribute("data-theme", "night"); else document.documentElement.removeAttribute("data-theme");
+  try { localStorage.setItem("teamwork.theme", next === "night" ? "night" : ""); } catch (e) { /* fine */ }
   paintTheme();
 });
 paintTheme();

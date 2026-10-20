@@ -13,9 +13,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..600,0..100&family=DM+Sans:opsz,wght@9..40,400..600&display=swap">
 <style>
   :root {
-    --ground:#0B1020; --surface:#161D38; --surface-2:#1D2647; --text:#F4EBDD; --text-2:#A9B2CC; --hair:rgba(244,235,221,.16);
-    --amber:#FFB84D; --teal:#6FD3C0; --orchid:#F08FAE; --violet:#C9B6FF; --blue:#8FB8FF;
-    --ds:#6FD3C0; --ob:#FFB84D; --sh:#C9B6FF;
+    --ground:#F3EDE2; --surface:#FBF7EF; --surface-2:#EFE7D8; --text:#17201B; --text-2:#5A625C; --hair:rgba(23,32,27,.16);
+    --amber:#A9533F; --teal:#3F7D6E; --orchid:#A9533F; --violet:#5B4B8A; --blue:#2C4A7A;
+    --ds:#2F6F5E; --ob:#A9533F; --sh:#5B4B8A;
     --focus:#FFFFFF;
   }
   * { box-sizing:border-box; }
@@ -73,7 +73,7 @@
   .opts { display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:0; list-style:none; }
   .opt { display:flex; align-items:center; gap:8px; background:var(--surface-2); border:1px solid var(--hair); border-radius:999px; padding:7px 14px; font-size:15px; line-height:1.3; }
   .opt:hover { border-color:var(--text-2); }
-  .opt[aria-pressed="true"] { border-color:var(--amber); background:#2a2f55; }
+  .opt[aria-pressed="true"] { border-color:var(--amber); background:#E6DCC8; }
   .dots { display:inline-flex; gap:3px; flex:none; }
   .dot { width:7px; height:7px; border-radius:50%; background:var(--c); }
   .hint { color:var(--text-2); font-size:14px; margin:0 0 12px; }
@@ -89,7 +89,7 @@
   .kind { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-2); margin:10px 0 4px; }
   .chip { display:flex; align-items:flex-start; gap:7px; width:100%; margin:0 0 6px; background:var(--surface-2); border:1px solid var(--hair); border-left:4px solid var(--c); border-radius:8px; padding:6px 9px; font-size:14px; line-height:1.3; }
   .chip:hover { border-color:var(--c); }
-  .chip.on { background:#2a2f55; border-color:var(--text); }
+  .chip.on { background:#E6DCC8; border-color:var(--text); }
   .chip.rel { background:#26305c; }
   .chip.dim { opacity:.3; }
   .chip .g { flex:none; font-size:11px; padding-top:3px; color:var(--text-2); }
