@@ -108,6 +108,13 @@ button:active { transform: translateY(1px); }
 .chip { background: var(--paper); border: 1px solid var(--hair); color: var(--ink); }
 .chip:hover, .chip[aria-pressed="true"] { border-color: var(--ink); }
 
+/* One-tap choices: the tap itself advances. */
+.choices { display: grid; gap: var(--s2); margin: var(--s3) 0 var(--s4); }
+.choice { width: 100%; text-align: left; background: var(--paper); border: 1px solid var(--hair); border-radius: 12px; padding: 0.9rem 1.1rem; font-size: 1.08rem; line-height: 1.4; color: var(--ink); box-shadow: 0 1px 2px rgba(34,31,27,0.05); }
+.choice:hover { border-color: var(--stone); }
+.choice[aria-pressed="true"] { border-color: var(--amber); box-shadow: 0 0 0 1px var(--amber) inset; }
+h2.first { margin-top: var(--s4); font-size: 1.5rem; }
+
 /* Lists of lines on the reflect screen */
 .group { margin-bottom: var(--s4); padding-top: var(--s3); border-top: 1px solid var(--hair); }
 .group h3 { margin-top: 0; }

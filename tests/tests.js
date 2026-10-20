@@ -1,7 +1,7 @@
 // Browser tests for the pure modules. Open /tests/run.html; the title reads PASS n/n or FAIL.
 import { COPY } from "../js/content.js";
 import * as store from "../js/store.js";
-import { pageText, icsFor, moveLine, cleanSorted, addDays, toISODate } from "../js/text.js";
+import { pageText, icsFor, moveLine, cleanSorted, addDays, toISODate, composeAccount } from "../js/text.js";
 import { payload } from "../js/api.js";
 
 const out = document.getElementById("out");
@@ -14,7 +14,10 @@ function test(name, fn) {
 const eq = (a, b, m) => { if (JSON.stringify(a) !== JSON.stringify(b)) throw new Error((m || "") + " expected " + JSON.stringify(b) + " got " + JSON.stringify(a)); };
 const ok = (v, m) => { if (!v) throw new Error(m || "not ok"); };
 
+// The tests share the app's origin, so keep whatever the person has saved and put it back at the end.
+const saved = localStorage.getItem(store.KEY);
 localStorage.removeItem(store.KEY);
+window.addEventListener("load", () => { if (saved) localStorage.setItem(store.KEY, saved); else localStorage.removeItem(store.KEY); });
 
 const sample = {
   id: "s1", created: "2026-10-19T00:00:00Z", account: "My boss cut me off twice and gave my project to Dana.",
@@ -86,8 +89,17 @@ test("ics is a valid all-day event", () => {
 });
 test("payload sends only what the step needs", () => {
   const p = payload(sample, { post: sample.post });
-  eq(Object.keys(p).sort(), ["account", "answer", "post", "question", "sorted", "want"]);
-  eq(p.question, null);
+  eq(Object.keys(p).sort(), ["account", "answer", "choices", "detail", "post", "question", "sorted", "want"]);
+  eq(p.question, null); eq(p.choices, null);
+});
+test("composeAccount reads as a sentence from three taps and a line", () => {
+  const t = composeAccount({ who: "My manager", what: "They keep missing what they agreed to", need: "To decide what to do" }, "He missed Friday's handoff.");
+  eq(t, "This is about my manager. They keep missing what they agreed to. Right now I need to decide what to do. He missed Friday's handoff.");
+  eq(composeAccount({ who: "A colleague", what: "Something else", need: null }, ""), "This is about a colleague. Something else.");
+});
+test("every opening choice has a key and a label", () => {
+  for (const k of ["who", "what", "need"]) for (const o of COPY.home[k].options) ok(Array.isArray(o) && o.length === 2 && o[0] && o[1], k);
+  ok(COPY.home.what.options.some(([k]) => k === "conduct"));
 });
 
 document.getElementById("title").textContent = (pass === total ? "PASS " : "FAIL ") + pass + "/" + total;

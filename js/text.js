@@ -73,6 +73,17 @@ export function icsFor(s) {
   ].join("\r\n");
 }
 
+// The opening account, built from three taps and an optional line.
+export function composeAccount(labels, detail) {
+  const lc = (t) => t.charAt(0).toLowerCase() + t.slice(1);
+  const parts = [];
+  if (labels.who) parts.push("This is about " + lc(labels.who) + ".");
+  if (labels.what) parts.push(labels.what + ".");
+  if (labels.need) parts.push("Right now I need " + lc(labels.need) + ".");
+  if (detail && detail.trim()) parts.push(detail.trim());
+  return parts.join(" ");
+}
+
 // Moving a line between the three groups on the reflect screen. Returns a new sorted object.
 export function moveLine(sorted, from, index, to) {
   const next = { happened: [...sorted.happened], told: [...sorted.told], concluded: [...sorted.concluded] };

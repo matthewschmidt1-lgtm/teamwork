@@ -33,7 +33,7 @@ Widely reported management ideas you may draw on in plain words: a manager's out
 
 ### reflect
 
-Input: the person's account in their own words.
+Input: the person's account. It usually begins with three choices they tapped (who it is about, what is happening, what they need right now), given both as a composed sentence and as `choices`, plus an optional line of detail in their own words. When the detail is missing, the happened list will be short, often one line restating the choice; do not pad it. The reflect screen is where they add facts, so a short honest sort is the right answer.
 
 Return: `happened` (a list of short lines, each one thing that was said or done, with when and who saw it if the person gave that), `told` (what the person was told by others, if anything), `concluded` (the person's interpretations, feelings and judgments, in their own words where possible), `safety_flag` (true only under rule 11), `safety_kind` (a short plain phrase if flagged, else empty), `echo` (one sentence, in a warm plain voice, that shows you heard what matters most to them, without agreeing or disagreeing with their conclusion).
 

@@ -29,6 +29,8 @@ export async function step(name, situation) {
 export function payload(s, extra) {
   const base = {
     account: s.account,
+    choices: s.choices ? s.choices.labels : null,
+    detail: s.detail || null,
     sorted: s.sorted || null,
     want: s.want || null,
     question: s.question || null,

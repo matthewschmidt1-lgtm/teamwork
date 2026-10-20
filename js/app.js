@@ -1,7 +1,7 @@
 // Teamwork. One screen at a time. The protocol runs on the server; the person stays in control here.
 import { COPY } from "./content.js";
 import * as store from "./store.js";
-import { pageText, icsFor, moveLine, cleanSorted, addDays, fmtDate, todayISO } from "./text.js";
+import { pageText, icsFor, moveLine, cleanSorted, addDays, fmtDate, todayISO, composeAccount } from "./text.js";
 import { step as callStep, payload, AdvisorError } from "./api.js";
 
 const app = document.getElementById("app");
@@ -69,28 +69,62 @@ async function withAdvisor(kind, fn, retry) {
   }
 }
 
-// ---------- Home ----------
+// ---------- Home: three taps, then an optional line ----------
+let draft = { who: null, what: null, need: null, detail: "" };
+const STEPS = ["who", "what", "need"];
+
 function home() {
   screen = "home";
-  const data = store.load();
-  const list = data.situations;
-  const ta = el("textarea.account.yours", { id: "account", placeholder: COPY.home.placeholder, "aria-describedby": "accountHelp", autocomplete: "off" });
-  const go = btn(COPY.home.go, "primary", () => {
-    const text = ta.value.trim();
-    if (text.split(/\s+/).length < 4) { say(COPY.home.tooShort); hint.textContent = COPY.home.tooShort; ta.focus(); return; }
-    s = { id: store.newId(), created: new Date().toISOString(), account: text };
+  draft = { who: null, what: null, need: null, detail: "" };
+  homeStep(0);
+}
+function choiceList(options, chosen, onPick) {
+  const list = el("div.choices", { role: "list" });
+  options.forEach(([key, label]) => list.append(el("div", { role: "listitem" },
+    btn(label, "choice", () => onPick(key, label), { "aria-pressed": chosen === key ? "true" : "false" }))));
+  return list;
+}
+function homeStep(i) {
+  screen = "home";
+  const key = STEPS[i]; const C = COPY.home[key];
+  const node = el("div", null,
+    i === 0 ? el("h1", null, COPY.home.question) : null,
+    i === 0 ? el("p.help", null, COPY.home.help) : null,
+    el("p.eyebrow", null, (i + 1) + " " + COPY.home.stepOf + " 3"),
+    el(i === 0 ? "h2.first" : "h1", null, C.title),
+    C.help ? el("p.help", null, C.help) : null,
+    choiceList(C.options, draft[key], (k, label) => {
+      draft[key] = k; draft[key + "Label"] = label;
+      if (key === "what" && k === "conduct") return startConduct();
+      if (i < 2) homeStep(i + 1); else homeDetail();
+    }),
+  );
+  if (i > 0) node.append(el("div.actions", null, btn(COPY.nav.back, "secondary", () => homeStep(i - 1))));
+  if (i === 0) homeLists(node);
+  show(node, i === 0 ? "h1" : "h1");
+}
+function homeDetail() {
+  const C = COPY.home.detail;
+  const ta = el("textarea.yours", { id: "detail", rows: 3, placeholder: C.placeholder, "aria-labelledby": "detailLabel", "aria-describedby": "detailHelp" }, draft.detail || "");
+  const start = (skip) => {
+    draft.detail = skip ? "" : ta.value.trim();
+    const labels = { who: draft.whoLabel, what: draft.whatLabel, need: draft.needLabel };
+    s = { id: store.newId(), created: new Date().toISOString(), choices: { who: draft.who, what: draft.what, need: draft.need, labels }, detail: draft.detail, account: composeAccount(labels, draft.detail) };
     persist();
     reflect();
-  });
-  const hint = el("p.quiet", { id: "hint", role: "status" });
-  const node = el("div", null,
-    el("h1", { id: "accountLabel" }, COPY.home.question),
-    el("p.help", { id: "accountHelp" }, COPY.home.help),
-    el("div.field", null, (ta.setAttribute("aria-labelledby", "accountLabel"), ta)),
-    hint,
-    el("div.actions", null, go),
-  );
-
+  };
+  show(el("div", null, el("p.eyebrow", null, "Optional"), el("h1", { id: "detailLabel" }, C.title), el("p.help", { id: "detailHelp" }, C.help),
+    el("div.field", null, ta),
+    el("div.actions", null, btn(COPY.nav.back, "secondary", () => homeStep(2)), btn(C.go, "primary", () => start(false)), btn(C.skip, "link", () => start(true)))), "#detail");
+}
+function startConduct() {
+  const labels = { who: draft.whoLabel, what: draft.whatLabel, need: null };
+  s = { id: store.newId(), created: new Date().toISOString(), choices: { who: draft.who, what: draft.what, need: null, labels }, detail: "", account: composeAccount(labels, ""), conduct: true, safety: true };
+  persist();
+  conduct();
+}
+function homeLists(node) {
+  const list = store.load().situations;
   const unfinished = store.unfinished(list);
   const due = store.dueForLookback(list);
   const open = store.openOnes(list);
@@ -115,7 +149,6 @@ function home() {
   if (list.length) {
     node.append(el("div.actions", null, btn(COPY.home.deleteAll, "link", () => { if (confirm(COPY.home.deleteAllConfirm)) { store.clearAll(); home(); } })));
   }
-  show(node, "#account");
 }
 const stat = (n, l) => el("div", null, el("span.n", null, String(n)), el("span.l", null, l));
 function card(sit, action, meta) {
@@ -175,10 +208,21 @@ function lineRow(key, i, line, groups) {
 function want() {
   screen = "want";
   const C = COPY.want;
-  const ta = el("textarea.yours", { id: "want", placeholder: C.placeholder, "aria-labelledby": "wantLabel", "aria-describedby": "wantHelp" }, s.want || "");
-  const next = (skip) => { s.want = skip ? "" : ta.value.trim(); persist(); question(); };
-  show(el("div", null, el("h1", { id: "wantLabel" }, C.title), el("p.help", { id: "wantHelp" }, C.help), el("div.field", null, ta),
-    nav(renderReflect, [btn(C.next, "primary", () => next(false)), btn(C.skip, "link", () => next(true))])), "#want");
+  const picked = new Set(s.wantPicks || []);
+  const chips = el("div.chips", { role: "group", "aria-label": C.title });
+  C.options.forEach((o) => chips.append(btn(o, "chip", (e) => {
+    if (picked.has(o)) picked.delete(o); else { if (picked.size >= 2) picked.delete([...picked][0]); picked.add(o); }
+    chips.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", picked.has(c.textContent) ? "true" : "false"));
+  }, { "aria-pressed": picked.has(o) ? "true" : "false" })));
+  const other = el("input", { type: "text", id: "wantOther", placeholder: C.placeholder, "aria-label": C.otherLabel, value: s.wantOther || "" });
+  const next = (skip) => {
+    s.wantPicks = skip ? [] : [...picked]; s.wantOther = skip ? "" : other.value.trim();
+    s.want = skip ? "" : [...picked, s.wantOther].filter(Boolean).join(". ");
+    persist(); question();
+  };
+  show(el("div", null, el("h1", null, C.title), el("p.help", null, C.help), el("div.field", null, chips),
+    el("div.field", null, el("label", { for: "wantOther" }, C.otherLabel), other),
+    nav(renderReflect, [btn(C.next, "primary", () => next(false)), btn(C.skip, "link", () => next(true))])));
 }
 
 // ---------- Question ----------
@@ -325,19 +369,27 @@ function conduct() {
 function lookback(sit) {
   s = sit; screen = "lookback";
   const C = COPY.lookback;
-  const expected = el("textarea.yours", { id: "expected", rows: 3, "aria-labelledby": "expLabel" }, (s.lookback && s.lookback.expected) || "");
-  const happened = el("textarea.yours", { id: "happened", rows: 3, "aria-labelledby": "hapLabel" }, (s.lookback && s.lookback.happened) || "");
+  const pick = { expected: null, happened: null };
+  const chipGroup = (name, options) => {
+    const g = el("div.chips", { role: "group", "aria-labelledby": name + "Label" });
+    options.forEach((o) => g.append(btn(o, "chip", () => { pick[name] = o; g.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", c.textContent === o ? "true" : "false")); }, { "aria-pressed": "false" })));
+    return g;
+  };
+  const expected = chipGroup("expected", C.expectedOptions);
+  const happened = chipGroup("happened", C.happenedOptions);
+  const detail = el("input", { type: "text", id: "lbDetail", "aria-label": C.detailLabel, placeholder: "Optional" });
   const reveal = btn(C.reveal, "primary", async () => {
-    if (!expected.value.trim() || !happened.value.trim()) { (expected.value.trim() ? happened : expected).focus(); return; }
-    s.lookback = { expected: expected.value.trim(), happened: happened.value.trim() };
+    if (!pick.expected || !pick.happened) { say(C.blindHelp); (pick.expected ? happened : expected).querySelector("button").focus(); return; }
+    s.lookback = { expected: pick.expected, happened: [pick.happened, detail.value.trim()].filter(Boolean).join(". ") };
     persist();
     const r = await withAdvisor("lookback", () => callStep("lookback", payload(s, { post: s.post, lookback: s.lookback, read_summary: s.read ? { step: s.read.step.name, explanations: s.read.explanations.map((e) => e.text) } : null })), () => lookback(s));
     if (!r) return;
     s.lookback.result = r; persist(); lookbackResult();
   });
   show(el("div", null, el("h1", null, C.title), el("p.help", null, C.blindHelp),
-    el("div.field", null, el("label", { id: "expLabel", for: "expected" }, C.expected), expected),
-    el("div.field", null, el("label", { id: "hapLabel", for: "happened" }, C.happened), happened),
+    el("div.field", null, el("h3", { id: "expectedLabel" }, C.expected), expected),
+    el("div.field", null, el("h3", { id: "happenedLabel" }, C.happened), happened),
+    el("div.field", null, el("label", { for: "lbDetail" }, C.detailLabel), detail),
     nav(() => { s = null; home(); }, [reveal])));
 }
 function lookbackResult() {
