@@ -1,0 +1,2 @@
+# Teamwork uses only the Python standard library.
+# This file exists so Railway detects a Python app.

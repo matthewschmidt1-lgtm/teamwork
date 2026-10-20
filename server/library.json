@@ -1,0 +1,906 @@
+{
+ "note": "Principle library for Teamwork. 'forces' come from the website's Path to Agency cards (Matthew Schmidt/index.html, ideaData). 'cases' are the thirty Module 3 management cases from Decision OS (decision-os/js/scenarios3.js); 'lens' and 'tension' name the book each lesson draws on. 'habits' are Module 3's habit families. Book-derived lines are the author of Decision OS's own readings of the books, not quotations. Status of every entry: synthesis.",
+ "books": {
+  "HGW": "How Google Works",
+  "CCL": "The 15 Commitments of Conscious Leadership",
+  "TDC": "Trillion Dollar Coach",
+  "CEO": "What the CEO Wants You to Know",
+  "PCA": "Poor Charlie's Almanack",
+  "HOM": "High Output Management"
+ },
+ "before_questions": [
+  "Am I trying to solve the problem, or prove that I'm right?",
+  "What am I avoiding saying because it's uncomfortable?",
+  "What part of this have I contributed to?",
+  "Am I confusing accountability with punishment?",
+  "Can I hold a high standard and genuinely want this person to succeed?"
+ ],
+ "forces": {
+  "awareness": {
+   "name": "Awareness",
+   "tag": "See your own part.",
+   "healthy": "People examine their own assumptions and contribution before diagnosing others.",
+   "warning": "Blame increases. Defensiveness increases. The same problem keeps happening despite repeated attempts to fix other people.",
+   "pattern": "The organization is treating problems as something other people have rather than something the system is producing.",
+   "move": "Before solving the problem, examine your own role in creating or maintaining it.",
+   "ask": "What might I be contributing that I can't currently see?"
+  },
+  "trust": {
+   "name": "Trust",
+   "tag": "Create the conditions for people to do their best work.",
+   "healthy": "People tell the truth, ask for help, challenge ideas, take risks, and recover from mistakes.",
+   "warning": "People stay quiet in meetings. Problems surface late. Everyone agrees publicly and disagrees privately.",
+   "pattern": "People are managing their relationship with authority rather than focusing entirely on the work.",
+   "move": "Reward candor, especially when the information is uncomfortable.",
+   "ask": "What truth are people least likely to tell me?"
+  },
+  "conditions": {
+   "name": "Conditions",
+   "tag": "Design the environment, not just the behavior.",
+   "healthy": "The environment makes the desired behavior relatively easy and the right priorities visible.",
+   "warning": "People are constantly told to communicate better, take ownership, or prioritize, but the system keeps producing the opposite.",
+   "pattern": "The organization is trying to change people without changing the conditions around them.",
+   "move": "Change the environment that produces the behavior.",
+   "ask": "What are our current conditions making almost inevitable?"
+  },
+  "value": {
+   "name": "Value",
+   "tag": "Know what actually creates value.",
+   "healthy": "People understand who they serve, what matters to them, and how their work contributes to the outcome.",
+   "warning": "More activity, more meetings, more reports, but little movement in meaningful outcomes.",
+   "pattern": "Activity has become a proxy for value.",
+   "move": "Trace work all the way to the customer or business outcome.",
+   "ask": "If we stopped doing this, who would actually lose value?"
+  },
+  "incentives": {
+   "name": "Incentives",
+   "tag": "Look at what the system actually rewards.",
+   "healthy": "The behaviors that get rewarded are broadly aligned with what the organization says it values.",
+   "warning": "People optimize metrics, protect their territory, avoid risk, or pursue short-term wins despite the stated strategy.",
+   "pattern": "The real strategy is being communicated through consequences, not words.",
+   "move": "Examine what gets rewarded, promoted, measured, celebrated, and tolerated.",
+   "ask": "What behavior are we unintentionally paying people to produce?"
+  },
+  "leverage": {
+   "name": "Leverage",
+   "tag": "Find where effort multiplies.",
+   "healthy": "A decision, process improvement, relationship, or coaching intervention improves outcomes far beyond the initial effort.",
+   "warning": "Leaders are busy everywhere but progress is slow. More people and more effort aren't producing proportional results.",
+   "pattern": "Effort is being applied to symptoms instead of constraints or high-leverage points.",
+   "move": "Find the point where changing one thing changes many things.",
+   "ask": "Where would one hour of attention create the greatest downstream impact?"
+  }
+ },
+ "habits": {
+  "rescue": {
+   "name": "Rescuing",
+   "coach": "You step in and fix it, or give the answer before you have asked. It works today and teaches the team to wait for you."
+  },
+  "avoid": {
+   "name": "Avoiding",
+   "coach": "You wait, soften, or hand it off. The conversation you skip is usually the one that matters."
+  },
+  "control": {
+   "name": "Controlling",
+   "coach": "You reach for a rule, a check or a consequence where a conversation would do."
+  },
+  "please": {
+   "name": "Pleasing",
+   "coach": "You protect how people feel about you, or decide what they can handle."
+  },
+  "promise": {
+   "name": "Over-promising",
+   "coach": "You commit, or cheer a commitment, past what the evidence supports."
+  },
+  "blame": {
+   "name": "Defending",
+   "coach": "You explain or point elsewhere before saying what is yours."
+  },
+  "grind": {
+   "name": "Grinding",
+   "coach": "You answer pressure with more hours and call it dedication."
+  },
+  "narrow": {
+   "name": "One explanation",
+   "coach": "You settle on the first story that fits and stop looking."
+  }
+ },
+ "skills": {
+  "standard": {
+   "name": "Standards",
+   "blurb": "Say what good looks like, and hold it for everyone.",
+   "strong": "You set the bar in plain words and hold it, including for people you like.",
+   "watch": "You let a standard bend for people you like or numbers you need."
+  },
+  "candor": {
+   "name": "Candor",
+   "blurb": "Say the true thing, early, and kindly.",
+   "strong": "You say the hard thing early and plainly, and stay kind.",
+   "watch": "You soften or delay the hard thing until it is harder."
+  },
+  "system": {
+   "name": "Systems",
+   "blurb": "Build it so results don't depend on a hero.",
+   "strong": "You fix the process, not just the problem.",
+   "watch": "You fix it yourself, or lean on the one person who delivers."
+  },
+  "trust": {
+   "name": "Trust and verify",
+   "blurb": "Give trust freely. Check what matters, the same way for everyone.",
+   "strong": "You trust the person and check the work, and say so.",
+   "watch": "You take confidence for evidence, or check people in ways they feel."
+  },
+  "self": {
+   "name": "Leading yourself",
+   "blurb": "Own your reactions, your fears and your rest.",
+   "strong": "You name your part first and protect the rest you need.",
+   "watch": "You defend, push through, or hold on to the work you love."
+  },
+  "across": {
+   "name": "Up and across",
+   "blurb": "Carry the truth up, the context down, and a fair view sideways.",
+   "strong": "You bring the range, the drivers and the ask.",
+   "watch": "You promise upward, stay quiet across, or see only your own function."
+  },
+  "grow": {
+   "name": "Growing people",
+   "blurb": "Ask first. Help them get better, not just get it done.",
+   "strong": "You ask before you answer and stay beside people as they decide.",
+   "watch": "You answer fast, rescue, or take the quiet for the answer."
+  }
+ },
+ "friction_states": [
+  "direction",
+  "economics",
+  "capability",
+  "trust",
+  "loss",
+  "pressure",
+  "focus",
+  "information",
+  "decision_rights",
+  "conflict_avoidance",
+  "blame",
+  "centralized",
+  "execution",
+  "leverage",
+  "talent"
+ ],
+ "cases": [
+  {
+   "id": "loved-not-delivering",
+   "skill": "standard",
+   "theme": "follow-through",
+   "trade": [
+    "candor",
+    "loyalty"
+   ],
+   "lens": {
+    "book": "Trillion Dollar Coach",
+    "lesson": "Give honest feedback and build trust."
+   },
+   "tension": {
+    "book": "High Output Management",
+    "lesson": "Useful metrics keep misses visible."
+   },
+   "pause": "Who should tell Dana: you now, or your director in January?",
+   "principle": "Delayed kindness is a loan she repays with interest.",
+   "next_move": "Compare commit and actual for every rep. Book the talk.",
+   "strong_move": "Walk her through her three quarters, side by side.",
+   "weak_habits": [
+    "rule",
+    "wait"
+   ]
+  },
+  {
+   "id": "top-rep-cuts-corners",
+   "skill": "standard",
+   "theme": "values",
+   "trade": [
+    "results",
+    "integrity"
+   ],
+   "lens": {
+    "book": "High Output Management",
+    "lesson": "Clear expectations matter more than one person's results."
+   },
+   "tension": {
+    "book": "Trillion Dollar Coach",
+    "lesson": "Honest feedback only works inside trust."
+   },
+   "pause": "What will the team learn from your next move?",
+   "principle": "What you allow in your best rep becomes everyone's rule.",
+   "next_move": "Walk three “executed” displays you haven't seen.",
+   "strong_move": "Tell Marcus today the rule is the same for everyone.",
+   "weak_habits": [
+    "pass",
+    "wait"
+   ]
+  },
+  {
+   "id": "inherited-slack-habits",
+   "skill": "standard",
+   "theme": "follow-through",
+   "trade": [
+    "follow",
+    "flex"
+   ],
+   "lens": {
+    "book": "High Output Management",
+    "lesson": "Effective processes start from clear expectations and a measure someone uses."
+   },
+   "tension": {
+    "book": "How Google Works",
+    "lesson": "Give people context to decide."
+   },
+   "pause": "Could you explain this rule, or only enforce it?",
+   "principle": "A standard with a reason survives its first bad Friday.",
+   "next_move": "Pick one inherited routine. Cut every unused field.",
+   "strong_move": "Say what the report is for, and cut it to three fields.",
+   "weak_habits": [
+    "rule"
+   ]
+  },
+  {
+   "id": "exception-request",
+   "skill": "standard",
+   "theme": "teamwork",
+   "trade": [
+    "flex",
+    "team"
+   ],
+   "lens": {
+    "book": "High Output Management",
+    "lesson": "Fix the process, not just the one exception."
+   },
+   "tension": {
+    "book": "How Google Works",
+    "lesson": "Autonomy and context let strong people act."
+   },
+   "pause": "Would your answer change for a middle performer?",
+   "principle": "A rule only your best person can skip is a perk.",
+   "next_move": "Ask each rep: what is Monday's call for?",
+   "strong_move": "Rebuild the call around one real problem first.",
+   "weak_habits": [
+    "please"
+   ]
+  },
+  {
+   "id": "veteran-gone-quiet",
+   "skill": "candor",
+   "theme": "love",
+   "trade": [
+    "candor",
+    "patience"
+   ],
+   "lens": {
+    "book": "Trillion Dollar Coach",
+    "lesson": "Ask good questions and build trust before deciding what is wrong."
+   },
+   "tension": {
+    "book": "The 15 Commitments of Conscious Leadership",
+    "lesson": "Stay curious; your story may be a reaction."
+   },
+   "pause": "What would Ray want you to ask him?",
+   "principle": "Say what you've seen, then ask what's changed.",
+   "next_move": "Book a long lunch with the person who changed.",
+   "strong_move": "Take Ray to lunch and ask what's changed.",
+   "weak_habits": [
+    "wait"
+   ]
+  },
+  {
+   "id": "spouse-is-ill",
+   "skill": "candor",
+   "theme": "values",
+   "trade": [
+    "kindness",
+    "team"
+   ],
+   "lens": {
+    "book": "The 15 Commitments of Conscious Leadership",
+    "lesson": "Stay curious and own your reaction before you assume."
+   },
+   "tension": {
+    "book": "How Google Works",
+    "lesson": "Transparency helps a team decide together."
+   },
+   "pause": "What do you know Tom needs, and what do you assume?",
+   "principle": "Ask what someone needs before deciding what's kind.",
+   "next_move": "Learn today what leave and flexible-schedule options exist.",
+   "strong_move": "Ask Tom what he needs, before you plan around him.",
+   "weak_habits": [
+    "please",
+    "rule"
+   ]
+  },
+  {
+   "id": "promoted-over-friend",
+   "skill": "candor",
+   "theme": "trust",
+   "trade": [
+    "loyalty",
+    "team"
+   ],
+   "lens": {
+    "book": "The 15 Commitments of Conscious Leadership",
+    "lesson": "Notice guilt and ego in your reactions before you act."
+   },
+   "tension": {
+    "book": "Trillion Dollar Coach",
+    "lesson": "Honest feedback builds trust, even between friends."
+   },
+   "pause": "Which costs more: some friendship, or the team's belief you're fair?",
+   "principle": "How you hold a friend to a rule shows your word's worth.",
+   "next_move": "List the three people you go easiest on. Book one talk.",
+   "strong_move": "Meet privately and name the lateness and the jokes.",
+   "weak_habits": [
+    "friend",
+    "punish"
+   ]
+  },
+  {
+   "id": "distributor-rep-slipped",
+   "skill": "candor",
+   "theme": "teamwork",
+   "trade": [
+    "candor",
+    "trust"
+   ],
+   "lens": {
+    "book": "Trillion Dollar Coach",
+    "lesson": "Give honest feedback and build trust."
+   },
+   "tension": {
+    "book": "What the CEO Wants You to Know",
+    "lesson": "Know how the other side makes money."
+   },
+   "pause": "What do you owe someone you depend on and underpay?",
+   "principle": "Be honest soonest with those you depend on most.",
+   "next_move": "Learn what's on your key distributor reps' plates first.",
+   "strong_move": "Call Mike and ask what's behind the two misses.",
+   "weak_habits": [
+    "please",
+    "punish"
+   ]
+  },
+  {
+   "id": "ready-for-promotion",
+   "skill": "candor",
+   "theme": "dedication",
+   "trade": [
+    "candor",
+    "loyalty"
+   ],
+   "lens": {
+    "book": "Trillion Dollar Coach",
+    "lesson": "Give honest feedback and help talented people grow."
+   },
+   "tension": {
+    "book": "The 15 Commitments of Conscious Leadership",
+    "lesson": "Take responsibility for your part."
+   },
+   "pause": "What did Lena hear in “next cycle”? What did you mean?",
+   "principle": "A vague promise is a debt. Pay it with specifics.",
+   "next_move": "List every “next cycle” you've said. Make each a date or a no.",
+   "strong_move": "Tell her now: not this cycle, and here's why.",
+   "weak_habits": [
+    "soften",
+    "wait"
+   ]
+  },
+  {
+   "id": "you-keep-rescuing",
+   "skill": "system",
+   "theme": "love",
+   "trade": [
+    "speed",
+    "growth"
+   ],
+   "lens": {
+    "book": "High Output Management",
+    "lesson": "Strong outcomes shouldn't depend on one person rescuing a broken process."
+   },
+   "tension": {
+    "book": "Trillion Dollar Coach",
+    "lesson": "Helping people perform can mean being slower today."
+   },
+   "pause": "Whose proposal is this, and what does the team learn?",
+   "principle": "Weekly fixes are a process problem, not a favor.",
+   "next_move": "List the last five things you fixed. Write a checklist for the commonest.",
+   "strong_move": "Sit with her at the keyboard and fix this one together.",
+   "weak_habits": [
+    "drop",
+    "rescue"
+   ]
+  },
+  {
+   "id": "hero-holds-the-account",
+   "skill": "system",
+   "theme": "dedication",
+   "trade": [
+    "loyalty",
+    "systems"
+   ],
+   "lens": {
+    "book": "High Output Management",
+    "lesson": "Strong outcomes shouldn't depend on one person."
+   },
+   "tension": {
+    "book": "Trillion Dollar Coach",
+    "lesson": "Trust built over years earns the right to ask for more."
+   },
+   "pause": "Is it loyal to leave him carrying this alone?",
+   "principle": "One-person dependence isn't loyalty. It's a risk he carries alone.",
+   "next_move": "List your five biggest accounts and who else could run each.",
+   "strong_move": "Ask Sam to design his own backup, starting with why.",
+   "weak_habits": [
+    "hero"
+   ]
+  },
+  {
+   "id": "metrics-reward-the-wrong-thing",
+   "skill": "system",
+   "theme": "values",
+   "trade": [
+    "results",
+    "candor"
+   ],
+   "lens": {
+    "book": "What the CEO Wants You to Know",
+    "lesson": "Know what drives profit and cash before celebrating a number."
+   },
+   "tension": {
+    "book": "Poor Charlie's Almanack",
+    "lesson": "Pay shapes behavior; bring psychology and economics."
+   },
+   "pause": "What does telling your director now risk, and what does waiting risk?",
+   "principle": "People do what the number pays for. Fix yours first.",
+   "next_move": "For each number you pay on, ask how a clever rep could game it.",
+   "strong_move": "Ask your director to pay you on retail, not shipments.",
+   "weak_habits": [
+    "blame",
+    "hope"
+   ]
+  },
+  {
+   "id": "context-not-permission",
+   "skill": "system",
+   "theme": "trust",
+   "trade": [
+    "trust",
+    "verify"
+   ],
+   "lens": {
+    "book": "How Google Works",
+    "lesson": "Give people context to decide without waiting for permission."
+   },
+   "tension": {
+    "book": "High Output Management",
+    "lesson": "Useful metrics let you check what was decided."
+   },
+   "pause": "What are you protecting by approving $900?",
+   "principle": "Give context and a limit, not permission case by case.",
+   "next_move": "Ask a rep what they skipped for fear of not being allowed.",
+   "strong_move": "Give everyone the budget and a $2,000 limit.",
+   "weak_habits": [
+    "drop",
+    "rule"
+   ]
+  },
+  {
+   "id": "says-all-set",
+   "skill": "trust",
+   "theme": "trust",
+   "trade": [
+    "trust",
+    "verify"
+   ],
+   "lens": {
+    "book": "Trillion Dollar Coach",
+    "lesson": "Ask good questions and give honest feedback, so the truth reaches you."
+   },
+   "tension": {
+    "book": "High Output Management",
+    "lesson": "Clear expectations and useful metrics apply to everyone."
+   },
+   "pause": "Can you check his work without him hearing that you doubt him?",
+   "principle": "Trust the person, check the work, check everyone alike.",
+   "next_move": "Pick one status you accept on someone's word. Spot-check it.",
+   "strong_move": "Visit two stores and ask which were hardest.",
+   "weak_habits": [
+    "check"
+   ]
+  },
+  {
+   "id": "lock-that-isnt",
+   "skill": "trust",
+   "theme": "overconfidence",
+   "trade": [
+    "trust",
+    "verify"
+   ],
+   "lens": {
+    "book": "Poor Charlie's Almanack",
+    "lesson": "Statistics and incentives keep a confident story from passing as the whole picture."
+   },
+   "tension": {
+    "book": "Trillion Dollar Coach",
+    "lesson": "Building trust helps talented people do their best."
+   },
+   "pause": "Would Dave bet his own money on it?",
+   "principle": "Confidence is a feeling. Evidence is what the buyer did.",
+   "next_move": "Tally each rep's “locks” against closes. Show them quarterly.",
+   "strong_move": "Count Safeway at half until the buyer sets a date.",
+   "weak_habits": [
+    "cheer"
+   ]
+  },
+  {
+   "id": "team-agrees",
+   "skill": "trust",
+   "theme": "fears",
+   "trade": [
+    "openness",
+    "speed"
+   ],
+   "lens": {
+    "book": "How Google Works",
+    "lesson": "Build an environment where speaking up is safe."
+   },
+   "tension": {
+    "book": "Poor Charlie's Almanack",
+    "lesson": "More perspectives keep you from missing the whole picture."
+   },
+   "pause": "What does disagreeing with you cost a rep?",
+   "principle": "Silence isn't agreement. Ask what disagreeing with you costs.",
+   "next_move": "Ask “what's the weakest part of this plan?” and wait.",
+   "strong_move": "Reopen the plan by owning how you cut off pushback.",
+   "weak_habits": [
+    "assume"
+   ]
+  },
+  {
+   "id": "one-explanation",
+   "skill": "trust",
+   "theme": "fears",
+   "trade": [
+    "patience",
+    "results"
+   ],
+   "lens": {
+    "book": "Poor Charlie's Almanack",
+    "lesson": "Check economics, incentives and behavior before settling on a story about a person."
+   },
+   "tension": {
+    "book": "The 15 Commitments of Conscious Leadership",
+    "lesson": "Stay curious; notice when ego writes the story."
+   },
+   "pause": "What would you see if it weren't effort?",
+   "principle": "Before you explain a person, rule out the situation.",
+   "next_move": "When numbers move, list three causes that aren't the person.",
+   "strong_move": "Check her numbers against the re-cut and pay plan.",
+   "weak_habits": [
+    "label"
+   ]
+  },
+  {
+   "id": "q4-fatigue",
+   "skill": "self",
+   "theme": "rest",
+   "trade": [
+    "drive",
+    "rest"
+   ],
+   "lens": {
+    "book": "The 15 Commitments of Conscious Leadership",
+    "lesson": "How you show up while getting results matters as much as the results."
+   },
+   "tension": {
+    "book": "How Google Works",
+    "lesson": "A team with context can carry some of the load."
+   },
+   "pause": "What would you tell a friend running on five hours' sleep?",
+   "principle": "Tired is a business risk. Protect rest like a key account.",
+   "next_move": "Block next week's non-negotiables first: sleep, one evening, one meal.",
+   "strong_move": "Sleep seven hours a night until the 31st.",
+   "weak_habits": [
+    "grind"
+   ]
+  },
+  {
+   "id": "defensive-in-review",
+   "skill": "self",
+   "theme": "overconfidence",
+   "trade": [
+    "confidence",
+    "humility"
+   ],
+   "lens": {
+    "book": "The 15 Commitments of Conscious Leadership",
+    "lesson": "Take responsibility, and notice when defensiveness drives you."
+   },
+   "tension": {
+    "book": "Trillion Dollar Coach",
+    "lesson": "A good leader welcomes honest feedback."
+   },
+   "pause": "What would your best rep say first?",
+   "principle": "Own it in one sentence before you explain it.",
+   "next_move": "Write the one sentence you'd say after a miss.",
+   "strong_move": "Say: “I championed this program, and it missed.”",
+   "weak_habits": [
+    "defend"
+   ]
+  },
+  {
+   "id": "miss-the-field",
+   "skill": "self",
+   "theme": "love",
+   "trade": [
+    "joy",
+    "growth"
+   ],
+   "lens": {
+    "book": "High Output Management",
+    "lesson": "A manager creates leverage by developing the people around them."
+   },
+   "tension": {
+    "book": "The 15 Commitments of Conscious Leadership",
+    "lesson": "How you show up matters; notice what drives you."
+   },
+   "pause": "Who pays when your hours go to what you love?",
+   "principle": "Keep what you love, and use it to make someone better.",
+   "next_move": "Book the two overdue one-on-ones first.",
+   "strong_move": "Keep one store morning a month, with a rep leading.",
+   "weak_habits": [
+    "grind",
+    "rule"
+   ]
+  },
+  {
+   "id": "vacation-text",
+   "skill": "self",
+   "theme": "rest",
+   "trade": [
+    "rest",
+    "speed"
+   ],
+   "lens": {
+    "book": "How Google Works",
+    "lesson": "Give people context and autonomy so they act without permission."
+   },
+   "tension": {
+    "book": "The 15 Commitments of Conscious Leadership",
+    "lesson": "Notice whether your reaction serves the work or your ego."
+   },
+   "pause": "If you never replied, who would decide?",
+   "principle": "Rest works when the team knows who decides.",
+   "next_move": "Before time off, write who decides what and who covers.",
+   "strong_move": "Reply once: “Inside your limit. Your call.”",
+   "weak_habits": [
+    "drop",
+    "grind"
+   ]
+  },
+  {
+   "id": "sure-of-the-plan",
+   "skill": "self",
+   "theme": "overconfidence",
+   "trade": [
+    "confidence",
+    "openness"
+   ],
+   "lens": {
+    "book": "Poor Charlie's Almanack",
+    "lesson": "More perspectives and statistics keep a familiar pattern from passing as the whole picture."
+   },
+   "tension": {
+    "book": "Trillion Dollar Coach",
+    "lesson": "Ask good questions so the team can improve the plan."
+   },
+   "pause": "What would show you were wrong in 30 days?",
+   "principle": "When you're most sure, look hardest for how you're wrong.",
+   "next_move": "Before a big plan, write what you'd see in 30 days if wrong.",
+   "strong_move": "Pilot 15% of effort in three markets for six weeks.",
+   "weak_habits": [
+    "defend"
+   ]
+  },
+  {
+   "id": "friday-6pm-email",
+   "skill": "across",
+   "theme": "rest",
+   "trade": [
+    "rest",
+    "drive"
+   ],
+   "lens": {
+    "book": "The 15 Commitments of Conscious Leadership",
+    "lesson": "Stay curious and own your reaction."
+   },
+   "tension": {
+    "book": "How Google Works",
+    "lesson": "Context helps people decide, and a request's purpose is context."
+   },
+   "pause": "What is the deadline for? Do you know?",
+   "principle": "Ask what a deadline is for before giving up a weekend.",
+   "next_move": "When a deadline lands late, ask what decision it supports.",
+   "strong_move": "Reply: “What decision does Monday make?”",
+   "weak_habits": [
+    "grind",
+    "please"
+   ]
+  },
+  {
+   "id": "number-you-cant-hit",
+   "skill": "across",
+   "theme": "fears",
+   "trade": [
+    "candor",
+    "team"
+   ],
+   "lens": {
+    "book": "What the CEO Wants You to Know",
+    "lesson": "Know the drivers behind your number: customers, cash, margin."
+   },
+   "tension": {
+    "book": "The 15 Commitments of Conscious Leadership",
+    "lesson": "Notice fear or defensiveness before it writes your answer."
+   },
+   "pause": "What would your VP want to know, and when?",
+   "principle": "Bad news worsens weekly. Bring the range, the drivers, the ask.",
+   "next_move": "Write today's honest range and its drivers. Send it first.",
+   "strong_move": "Give her your honest range now: likely 94, best 96.",
+   "weak_habits": [
+    "overpromise"
+   ]
+  },
+  {
+   "id": "reorg-rumor",
+   "skill": "across",
+   "theme": "trust",
+   "trade": [
+    "candor",
+    "follow"
+   ],
+   "lens": {
+    "book": "How Google Works",
+    "lesson": "Transparency is part of the environment you create."
+   },
+   "tension": {
+    "book": "Poor Charlie's Almanack",
+    "lesson": "Think through what each person will do when they hear it."
+   },
+   "pause": "Will they remember what you said, or that you said it?",
+   "principle": "Say what you can and can't. Never say what isn't so.",
+   "next_move": "Write three sentences: what you can say, can't, and when you'll update.",
+   "strong_move": "Say you can't confirm it, and will tell them when you can.",
+   "weak_habits": [
+    "please",
+    "soften"
+   ]
+  },
+  {
+   "id": "win-that-costs-supply",
+   "skill": "across",
+   "theme": "teamwork",
+   "trade": [
+    "results",
+    "team"
+   ],
+   "lens": {
+    "book": "What the CEO Wants You to Know",
+    "lesson": "Judge a win by what it does to margin, cash and other functions."
+   },
+   "tension": {
+    "book": "How Google Works",
+    "lesson": "Share context early so affected people can decide with you."
+   },
+   "pause": "Whose call is it which one runs?",
+   "principle": "A win that costs another team isn't yet the company's win.",
+   "next_move": "Before closing a big deal, ask who else needs what it uses.",
+   "strong_move": "Bring supply chain and West's lead to one table.",
+   "weak_habits": [
+    "lock"
+   ]
+  },
+  {
+   "id": "rookie-overpromises",
+   "skill": "grow",
+   "theme": "follow-through",
+   "trade": [
+    "growth",
+    "results"
+   ],
+   "lens": {
+    "book": "Trillion Dollar Coach",
+    "lesson": "Help talented people do their best by asking and staying beside them."
+   },
+   "tension": {
+    "book": "High Output Management",
+    "lesson": "Clear expectations keep outcomes from depending on one person."
+   },
+   "pause": "Whose call is this, and who learns most from it?",
+   "principle": "Whoever made the promise fixes it, with you beside them.",
+   "next_move": "Write three questions to ask before promising a date or display.",
+   "strong_move": "Have Jamal call the buyer himself, with you sitting in.",
+   "weak_habits": [
+    "drop",
+    "rule"
+   ]
+  },
+  {
+   "id": "quiet-says-fine",
+   "skill": "grow",
+   "theme": "fears",
+   "trade": [
+    "patience",
+    "candor"
+   ],
+   "lens": {
+    "book": "Trillion Dollar Coach",
+    "lesson": "Good questions and real attention show what is going on with people."
+   },
+   "tension": {
+    "book": "The 15 Commitments of Conscious Leadership",
+    "lesson": "Stay curious about what you have avoided asking."
+   },
+   "pause": "What haven't you asked because you fear the answer?",
+   "principle": "A rep who says “fine” five times is telling you something.",
+   "next_move": "Ask a rep you've only asked “how are you?”: “What's the least fun part of your week?”",
+   "strong_move": "Ask her what's behind her question about moving.",
+   "weak_habits": [
+    "assume",
+    "pass"
+   ]
+  },
+  {
+   "id": "ask-dont-answer",
+   "skill": "grow",
+   "theme": "trust",
+   "trade": [
+    "speed",
+    "growth"
+   ],
+   "lens": {
+    "book": "Trillion Dollar Coach",
+    "lesson": "Lead by asking good questions, not by having every answer."
+   },
+   "tension": {
+    "book": "High Output Management",
+    "lesson": "Develop people so your time reaches further."
+   },
+   "pause": "Which would Ben remember: your answer, or his?",
+   "principle": "Ask first, answer second, and only if they're stuck.",
+   "next_move": "Next five times he asks, answer “what do you think?” first.",
+   "strong_move": "Ask him to bring you his own answer by tomorrow.",
+   "weak_habits": [
+    "lecture"
+   ]
+  },
+  {
+   "id": "burned-out-star",
+   "skill": "grow",
+   "theme": "dedication",
+   "trade": [
+    "results",
+    "rest"
+   ],
+   "lens": {
+    "book": "Trillion Dollar Coach",
+    "lesson": "Honest feedback, with trust behind it, helps talented people perform."
+   },
+   "tension": {
+    "book": "The 15 Commitments of Conscious Leadership",
+    "lesson": "Take responsibility for how your own reactions land, praise included."
+   },
+   "pause": "What are you teaching the team about what you notice?",
+   "principle": "Celebrate results, not hours.",
+   "next_move": "Check the timestamps on your team's emails and yours.",
+   "strong_move": "Tell Zoe what you've seen, including your own praise.",
+   "weak_habits": [
+    "applaud"
+   ]
+  }
+ ]
+}

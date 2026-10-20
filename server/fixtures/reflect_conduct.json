@@ -1,0 +1,15 @@
+{
+ "happened": [
+  "Your manager has commented on what you wear more than once",
+  "He suggested discussing your review over drinks",
+  "You said no",
+  "You were then taken off the client account"
+ ],
+ "told": [],
+ "concluded": [
+  "The account change is because you said no"
+ ],
+ "safety_flag": true,
+ "safety_kind": "comments on appearance, a social invitation tied to a review, and a change in your work after you refused",
+ "echo": "You said no to something that should never have been asked, and your work changed right after. That matters, and it is not a conversation-skills problem."
+}

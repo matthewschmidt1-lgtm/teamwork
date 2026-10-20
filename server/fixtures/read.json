@@ -1,0 +1,34 @@
+{
+ "explanations": [
+  {
+   "text": "He is not valuing your work. Two interruptions and a reassignment in one meeting fit that story, and the fact that he gave no reason leaves it open.",
+   "kind": "person",
+   "supports": ["He interrupted you twice", "He gave the project to Dana", "No reason was given"],
+   "distinguishing": "Whether he interrupts other presenters the same way, and what he says when you ask him directly why the project moved"
+  },
+  {
+   "text": "The meeting was running against a decision deadline and he was managing the clock, not you. Dana's team may have had capacity this quarter and yours is carrying the launch. In that story the interruptions and the reassignment are about time and load, and the silence about the reason is a habit, not a message.",
+   "kind": "system",
+   "supports": ["It was a planning meeting with the whole team present", "The project moved at the end of the meeting"],
+   "distinguishing": "What he says about your current load and Dana's when you ask, and whether the launch is on his list of your priorities"
+  }
+ ],
+ "self_question": "One thing worth asking yourself: did he know, before the meeting, how much that project mattered to you?",
+ "influence": "You can decide how and when to ask him, and what you say about what you want to work on. You cannot decide the order of his priorities or undo what happened in the room.",
+ "step": {
+  "name": "Ask the reason, privately",
+  "what": "Ask for ten minutes with him this week. Ask one question: what went into moving the project, and where he sees you spending the quarter.",
+  "why": "The only fact that separates the two stories is the reason he did not give, and he is the only source for it.",
+  "assumes": "That he will give you a straight answer in private when he did not give one in public.",
+  "backfires": "If you open with how the meeting felt, he may hear a complaint and defend the decision instead of explaining it.",
+  "alternative": "If you do not want to raise the project itself, ask instead what he wants from you this quarter and listen for whether the project comes up."
+ },
+ "words": [
+  "I wanted to understand the thinking behind moving the Q1 project to Dana, so I can plan the quarter.",
+  "Where do you see me spending my time between now and March?",
+  "If there is something about how I ran that piece you want done differently, I'd rather hear it from you."
+ ],
+ "post": "Within two weeks I will have heard his reason for moving the project, in his own words, and I will know whether I am on the launch or off it.",
+ "manager_questions": false,
+ "tension": "Wanting an answer now and wanting the relationship to survive the asking pull in different directions here."
+}

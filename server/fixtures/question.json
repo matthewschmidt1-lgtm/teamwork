@@ -1,0 +1,6 @@
+{
+ "ask": true,
+ "question": "When he gave the project to Dana, what reason did he give, in his words?",
+ "why": "If he gave a reason about capacity or timing, this is a priorities conversation; if he gave none, the read changes.",
+ "options": ["He gave no reason", "He said something about my workload or timing", "He said something about Dana", "I don't remember exactly"]
+}

@@ -1,0 +1,16 @@
+{
+ "happened": [
+  "In Tuesday's planning meeting he interrupted you twice while you were presenting",
+  "At the end of the meeting he gave the Q1 project to Dana",
+  "This was in front of the whole team"
+ ],
+ "told": [],
+ "concluded": [
+  "He doesn't respect you",
+  "He thinks Dana is better than you",
+  "You felt humiliated in front of everyone"
+ ],
+ "safety_flag": false,
+ "safety_kind": "",
+ "echo": "Being cut off twice and then losing the project in the same meeting, in front of the team, is a hard hour to sit through."
+}

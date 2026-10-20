@@ -1,0 +1,107 @@
+"""Tests for the Teamwork server. Run: python3 -m unittest discover -s server -p 'test_*.py'"""
+import json
+import unittest
+from pathlib import Path
+
+import app
+
+HERE = Path(__file__).resolve().parent
+
+
+def validate(value, schema, path="$"):
+    """A small JSON Schema checker for the subset the server uses."""
+    t = schema.get("type")
+    if "enum" in schema:
+        assert value in schema["enum"], "%s not in enum" % path
+    if t == "object":
+        assert isinstance(value, dict), "%s not object" % path
+        for k in schema.get("required", []):
+            assert k in value, "%s missing %s" % (path, k)
+        if schema.get("additionalProperties") is False:
+            extra = set(value) - set(schema["properties"])
+            assert not extra, "%s extra keys %s" % (path, extra)
+        for k, v in value.items():
+            validate(v, schema["properties"][k], path + "." + k)
+    elif t == "array":
+        assert isinstance(value, list), "%s not array" % path
+        for i, v in enumerate(value):
+            validate(v, schema["items"], "%s[%d]" % (path, i))
+    elif t == "string":
+        assert isinstance(value, str), "%s not string" % path
+    elif t == "boolean":
+        assert isinstance(value, bool), "%s not boolean" % path
+
+
+class Fixtures(unittest.TestCase):
+    def test_every_fixture_matches_its_schema(self):
+        for f in sorted((HERE / "fixtures").glob("*.json")):
+            step = f.stem.split("_")[0]
+            validate(json.loads(f.read_text()), app.SCHEMAS[step], f.name)
+
+    def test_mock_routes_conduct_cases(self):
+        r = app.mock_answer("reflect", {"account": "He suggested we discuss my review over drinks"})
+        self.assertTrue(r["safety_flag"])
+        r = app.mock_answer("reflect", {"account": "My boss cut me off twice"})
+        self.assertFalse(r["safety_flag"])
+
+    def test_read_fixture_keeps_a_non_character_explanation(self):
+        r = json.loads((HERE / "fixtures" / "read.json").read_text())
+        self.assertTrue(any(e["kind"] == "system" for e in r["explanations"]))
+
+
+class Request(unittest.TestCase):
+    def test_build_request_shape(self):
+        body = app.build_request("read", {"account": "x"})
+        self.assertEqual(body["model"], app.MODEL)
+        self.assertEqual(body["output_config"]["format"]["type"], "json_schema")
+        self.assertEqual(body["output_config"]["effort"], "high")
+        self.assertEqual(body["fallbacks"], "default")
+        self.assertIn("cache_control", body["system"][-1])
+        self.assertIn("Step: read", body["messages"][0]["content"])
+        self.assertNotIn("thinking", body)
+        self.assertNotIn("tool_choice", body)
+
+    def test_unknown_step_rejected(self):
+        with self.assertRaises(ValueError):
+            app.build_request("diagnose", {})
+
+    def test_parse_response_reads_first_text_block(self):
+        data = {"stop_reason": "end_turn", "content": [{"type": "thinking", "thinking": ""}, {"type": "text", "text": "{\"a\": 1}"}]}
+        self.assertEqual(app.parse_response(data), {"a": 1})
+
+    def test_parse_response_raises_on_refusal(self):
+        with self.assertRaises(RuntimeError):
+            app.parse_response({"stop_reason": "refusal", "content": []})
+
+    def test_library_digest_mentions_forces_and_cases(self):
+        d = app.library_digest()
+        self.assertIn("Awareness", d)
+        self.assertIn("Before you explain a person, rule out the situation.", d)
+
+
+class Static(unittest.TestCase):
+    def test_root_is_index(self):
+        self.assertEqual(app.safe_static_path("/").name, "index.html")
+
+    def test_server_folder_and_dotfiles_hidden(self):
+        self.assertIsNone(app.safe_static_path("/server/protocol.md"))
+        self.assertIsNone(app.safe_static_path("/.gitignore"))
+        self.assertIsNone(app.safe_static_path("/../etc/passwd"))
+
+    def test_query_string_ignored(self):
+        self.assertEqual(app.safe_static_path("/?x=1").name, "index.html")
+
+
+class Copy(unittest.TestCase):
+    def test_no_em_dashes_in_protocol_or_fixtures(self):
+        for f in [HERE / "protocol.md"] + list((HERE / "fixtures").glob("*.json")):
+            self.assertNotIn("—", f.read_text(), f.name)
+
+    def test_protocol_has_the_standing_rules(self):
+        p = (HERE / "protocol.md").read_text()
+        for phrase in ("Never diagnose the absent person", "rule out the situation", "safety flag", "can't tell"):
+            self.assertIn(phrase, p)
+
+
+if __name__ == "__main__":
+    unittest.main()

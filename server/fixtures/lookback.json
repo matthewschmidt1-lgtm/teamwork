@@ -1,0 +1,7 @@
+{
+ "matched": "partly",
+ "comparison": "You wrote that you would hear his reason in his own words. You did ask, and he gave one about the launch taking your time. What you expected before looking, that he would avoid the question, did not happen. Your memory of the goal shifted a little toward wanting the project back, which was not what you wrote.",
+ "inference": "One conversation tells you he had a reason and would say it when asked privately. It cannot tell you whether the reason is the whole story, or whether asking is what made the difference rather than the week that passed.",
+ "lesson_prompt": "What would you tell yourself the next time a decision about your work is made in a room without an explanation?",
+ "pattern_tags": ["decision without a reason", "interrupted in meetings", "project reassigned"]
+}
