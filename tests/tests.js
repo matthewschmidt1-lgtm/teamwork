@@ -26,7 +26,7 @@ const sample = {
   post: { sentence: "Within two weeks I will have heard his reason.", date: "2026-11-02" },
 };
 
-test("copy has no em dashes", () => { ok(!JSON.stringify(COPY).includes("—")); });
+test("copy has no em dashes", () => { ok(!JSON.stringify(COPY).includes(String.fromCharCode(8212))); });
 test("copy has no leftover duplicate keys", () => { ok(!("conculdedHelp" in COPY.reflect)); });
 
 test("store saves and loads a situation", () => {
@@ -78,7 +78,7 @@ test("toISODate pads", () => { eq(toISODate(new Date(2026, 0, 5)), "2026-01-05")
 test("pageText carries the person's words, the edited openers and the post", () => {
   const t = pageText(sample);
   ok(t.includes(sample.account)); ok(t.includes("one edited")); ok(!t.includes("\n  one\n"));
-  ok(t.includes(sample.post.sentence)); ok(t.includes(COPY.page.post)); ok(!t.includes("—"));
+  ok(t.includes(sample.post.sentence)); ok(t.includes(COPY.page.post)); ok(!t.includes(String.fromCharCode(8212)));
 });
 test("ics is a valid all-day event", () => {
   const i = icsFor(sample);

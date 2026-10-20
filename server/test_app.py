@@ -95,7 +95,7 @@ class Static(unittest.TestCase):
 class Copy(unittest.TestCase):
     def test_no_em_dashes_in_protocol_or_fixtures(self):
         for f in [HERE / "protocol.md"] + list((HERE / "fixtures").glob("*.json")):
-            self.assertNotIn("—", f.read_text(), f.name)
+            self.assertNotIn(chr(8212), f.read_text(), f.name)
 
     def test_protocol_has_the_standing_rules(self):
         p = (HERE / "protocol.md").read_text()
