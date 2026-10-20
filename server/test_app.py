@@ -94,6 +94,14 @@ class Static(unittest.TestCase):
         self.assertEqual(app.safe_static_path("/app/?who=manager").relative_to(app.ROOT).as_posix(), "index.html")
 
 
+class Headers(unittest.TestCase):
+    def test_security_headers_present(self):
+        for k in ("Content-Security-Policy", "X-Frame-Options", "X-Content-Type-Options", "Referrer-Policy", "Permissions-Policy"):
+            self.assertIn(k, app.Handler.SECURITY)
+        self.assertIn("fonts.gstatic.com", app.Handler.SECURITY["Content-Security-Policy"])
+        self.assertTrue(hasattr(app.Handler, "do_HEAD"))
+
+
 class Copy(unittest.TestCase):
     def test_no_em_dashes_in_protocol_or_fixtures(self):
         for f in [HERE / "protocol.md"] + list((HERE / "fixtures").glob("*.json")):
