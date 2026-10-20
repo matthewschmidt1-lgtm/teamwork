@@ -105,5 +105,39 @@ class Copy(unittest.TestCase):
             self.assertIn(phrase, p)
 
 
+class LibraryV2(unittest.TestCase):
+    def setUp(self):
+        self.lib = json.loads((HERE / "library.json").read_text())
+
+    def test_new_keys_and_old_keys(self):
+        for k in ("forces", "cases", "habits", "skills", "before_questions", "books", "friction_states",
+                  "loops", "lenses", "path", "books_takeaways", "stillward_lines", "algorithms",
+                  "decision_science", "steps", "relations", "principles"):
+            self.assertIn(k, self.lib)
+        self.assertEqual(self.lib["version"], 2)
+        self.assertEqual(len(self.lib["decision_science"]), 10)
+        self.assertGreaterEqual(len(self.lib["relations"]), 40)
+
+    def test_every_link_points_at_a_principle(self):
+        ids = {p["id"] for p in self.lib["principles"]}
+        for s in self.lib["steps"]:
+            for l in s["links"] + [x for o in s["options"] for x in o["links"]]:
+                self.assertIn(l["id"], ids)
+                self.assertTrue(l["why"])
+        for r in self.lib["relations"]:
+            self.assertIn(r["from"], ids)
+            self.assertIn(r["to"], ids)
+            self.assertIn(r["kind"], ("supports", "tension", "specializes"))
+        for d in self.lib["decision_science"]:
+            self.assertIn(d["status"], ("owner_reading", "widely_reported", "synthesis"))
+
+    def test_no_em_dash_in_library(self):
+        self.assertNotIn(chr(8212), (HERE / "library.json").read_text())
+
+    def test_stillward_quotes_are_short(self):
+        for q in self.lib["stillward_lines"]["lines"]:
+            self.assertLess(len(q["text"].split()), 15)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -1,5 +1,5 @@
 {
- "note": "Principle library for Teamwork. 'forces' come from the website's Path to Agency cards (Matthew Schmidt/index.html, ideaData). 'cases' are the thirty Module 3 management cases from Decision OS (decision-os/js/scenarios3.js); 'lens' and 'tension' name the book each lesson draws on. 'habits' are Module 3's habit families. Book-derived lines are the author of Decision OS's own readings of the books, not quotations. Status of every entry: synthesis.",
+ "note": "Principle library for Teamwork, version 2. The original keys are unchanged so server/app.py's library_digest() still works: 'forces' are the website's Path to Agency cards (ideaData); 'cases' are the thirty Module 3 management cases from Decision OS (scenarios3.js); 'habits', 'skills', 'before_questions', 'books' and 'friction_states' as before. Added in version 2: loops, lenses, path, books_takeaways, books_unsourced, algorithms, decision_science, friction, stillward_lines, dos_practice, rules, steps, relations and a flat 'principles' index. Every entry carries a status: owner_reading (the owner's own words or readings, from the website, Decision OS, Friction or Stillward), widely_reported (a widely reported idea, not checked against a text), or synthesis (Teamwork's own reasoning). Book ideas are never quotations and carry no page numbers. Stillward quotes are as attributed inside Stillward and are not workplace evidence.",
  "books": {
   "HGW": "How Google Works",
   "CCL": "The 15 Commitments of Conscious Leadership",
@@ -901,6 +901,4509 @@
    "weak_habits": [
     "applaud"
    ]
+  }
+ ],
+ "version": 2,
+ "loops": {
+  "source": "Matthew Schmidt site, The Blind Spot section and its modal (variable loopStages). Copy is the owner's own, quoted as written.",
+  "status": "owner_reading",
+  "intro": "Sometimes the hardest thing to see is what everyone has learned to accept.",
+  "activity": {
+   "id": "loop.activity",
+   "name": "The Activity Loop",
+   "shape": "Data -> Deck -> Meeting -> Deck -> Meeting",
+   "heading": "More activity. Same problem.",
+   "text": "More data, more decks, more meetings. Information moves, presentations multiply, meetings repeat. Yet decisions stall, the same issues return, and the organization risks confusing the visibility of work with its impact.",
+   "blind_spot": "Activity can look like progress yet results remain unchanged."
+  },
+  "learning": {
+   "id": "loop.learning",
+   "name": "The Learning Loop",
+   "shape": "Signal -> Understanding -> Decision -> Action -> Learning",
+   "stages": [
+    "Signal",
+    "Understanding",
+    "Decision",
+    "Action",
+    "Learning"
+   ],
+   "heading": "Signal becomes understanding.",
+   "text": "A loop where every decision makes the next one better. Actions generate outcomes, and outcomes create learning that shapes what happens next.",
+   "advantage": "Each cycle builds on the last, turning better decisions into better results over time."
+  },
+  "insight": {
+   "heading": "The Difference Is What Happens Next.",
+   "text": "It's not the amount of activity that creates progress. It's whether that activity changes what happens next. Information must change understanding. Understanding must inform decisions. Decisions must lead to action. And action must generate learning that improves the next cycle. One loop repeats the work. The other builds on it.",
+   "final": "That's the difference between staying busy and getting better."
+  },
+  "teamwork_use": "A hard conversation can be activity (the same argument again) or learning (a stated expectation, a dated check, a lesson kept). Teamwork is built so that every pass ends in a written expectation and a look-back, which is the only thing that turns the second conversation into something other than a repeat of the first."
+ },
+ "lenses": {
+  "source": "Matthew Schmidt site, The Three Lenses section and its modal (variable vennStages). Copy is the owner's own, quoted as written.",
+  "status": "owner_reading",
+  "rule": "Look at the same situation three ways: how the business creates value, how the system creates leverage, and how people are helped to do their best work.",
+  "business": {
+   "id": "lens.business",
+   "heading": "Create Value",
+   "text": "Every organization exists to create value. The question is whether its strategy, priorities, and measures of success are aligned around the value that matters most.",
+   "blind_spot": "Optimizing individual results without understanding how they contribute to the whole.",
+   "connection": "Business defines the value to pursue. Systems determine how that value can be delivered, and people bring it to life."
+  },
+  "system": {
+   "id": "lens.system",
+   "heading": "Create Leverage",
+   "text": "A system determines how work flows, how decisions get made, and how effort translates into results. The right system makes it easier for people to create value consistently.",
+   "blind_spot": "Expecting better results from people while leaving the conditions that shape their work unchanged.",
+   "connection": "Systems turn business intent into an operating reality. Their effectiveness depends on both the value they serve and the people working within them."
+  },
+  "people": {
+   "id": "lens.people",
+   "heading": "Create Capability",
+   "text": "People bring the judgment, knowledge, creativity, and ability that turn strategy and systems into real outcomes. Their potential is realized when they have the clarity, support, and conditions to do their best work.",
+   "blind_spot": "Expecting people to compensate indefinitely for systems that make good performance difficult.",
+   "connection": "People give the organization its capability to act, adapt, and improve. What they can accomplish depends on how the business and system enable them."
+  },
+  "overlaps": {
+   "leadership": {
+    "id": "lens.leadership",
+    "between": "Business + People",
+    "heading": "A clear direction only matters when it changes what the organization does.",
+    "text": "Connecting business direction with the systems and decisions that turn intent into action."
+   },
+   "capability": {
+    "id": "lens.capability",
+    "between": "System + People",
+    "heading": "Potential becomes performance when people have the conditions to apply what they know.",
+    "text": "Connecting people's abilities with the systems, tools, and conditions that enable effective performance."
+   },
+   "scale": {
+    "id": "lens.scale",
+    "between": "Business + System",
+    "heading": "Growth becomes sustainable when the organization can reproduce results without reproducing the same problems.",
+    "text": "Connecting value creation, repeatable systems, and human capability so results can grow without depending on heroic individual effort."
+   },
+   "multiplier": {
+    "id": "lens.multiplier",
+    "between": "Business + System + People",
+    "heading": "The whole is greater when the parts work together.",
+    "text": "Business defines the value worth creating. Systems make that value repeatable. People bring the capability to deliver it.",
+    "final": "The question isn't whether your business, systems, and people are strong individually. It's whether they're making one another stronger."
+   }
+  },
+  "teamwork_use": "The three lenses are why the advisor always carries a cause that is not about anyone's character. A situation read only through People produces blame; read only through Business it produces pressure; read only through System it can excuse conduct. Teamwork holds all three open until a fact rules one out."
+ },
+ "path": {
+  "source": "Matthew Schmidt site, The Path to Agency section. Copy is the owner's own.",
+  "status": "owner_reading",
+  "heading": "The Path to Agency",
+  "tagline": "The Path helps you see beneath the complexity.",
+  "text": "Complexity becomes clearer when we learn to see the patterns and relationships that shape it. Complex problems rarely yield to a single perspective. The lenses help us see, the forces help us understand, the ideas that follow help us develop better judgment, and judgment is what turns knowledge into agency.",
+  "strip": [
+   "Knowledge",
+   "Understanding",
+   "Judgment",
+   "Agency"
+  ],
+  "stages": {
+   "knowledge": {
+    "id": "path.knowledge",
+    "teamwork": "What happened, what was told, what was concluded: sorted and checked with the person."
+   },
+   "understanding": {
+    "id": "path.understanding",
+    "teamwork": "Two or three readings held open, including one about the setup, with the fact that would tell them apart."
+   },
+   "judgment": {
+    "id": "path.judgment",
+    "teamwork": "One next step with its assumption, its risk and an alternative, chosen by the person."
+   },
+   "agency": {
+    "id": "path.agency",
+    "teamwork": "The person acts, writes what they expect, and later compares it with what happened."
+   }
+  },
+  "forces_note": "The six forces (Awareness, Trust, Conditions, Value, Incentives, Leverage) are the website's ideaData cards and live in `forces`.",
+  "friction_section": {
+   "title": "The Friction",
+   "lead": "The strategy is sound. So why aren't the results there?",
+   "body": [
+    "The priorities are set. The processes are in place. The people are capable.",
+    "And yet, progress stalls. The same problems return. Results depend on constant intervention.",
+    "Something is getting lost between what the organization intends and what it actually delivers."
+   ],
+   "diagram": [
+    "Intention",
+    "The gap",
+    "Results"
+   ],
+   "room_line": "Friction is the symptom. The Gap is Where To Focus.",
+   "teamwork_use": "In one person's situation the gap is between what was intended, said or promised and what then happened. Teamwork asks the person to name both ends in observable words, then looks at what sits between them."
+  }
+ },
+ "books_takeaways": {
+  "source": "Matthew Schmidt site, Reading section ('Books That Shaped How I Lead'): the card line, and the modal behind 'Read the takeaway'. The network section's core-idea lines are included as `network_core_idea`. All of it is the owner's reading of the books. None of it is a quotation from the books.",
+  "status": "owner_reading",
+  "items": [
+   {
+    "id": "book.hgw",
+    "key": "HGW",
+    "title": "How Google Works",
+    "author": "Eric Schmidt & Jonathan Rosenberg",
+    "card_line": "The environments we create matter as much as who we hire. Transparency, autonomy, and context help people act without waiting for permission.",
+    "takeaway_heading": "Culture is an operating system",
+    "takeaway": "How Google Works made me think more deeply about the environments we create for people. Hiring well matters, but so do transparency, autonomy, psychological safety, and giving people enough context to make good decisions without waiting for permission.",
+    "network_heading": "See the System",
+    "network_core_idea": "Outcomes are shaped by the environment around people. Culture, information, autonomy, incentives, talent, and decision-making systems determine what an organization is capable of. Don't just manage the output. Design the conditions that produce it.",
+    "teamwork_role": "Conditions vocabulary for the setup explanation: context over control, transparency, decision rights."
+   },
+   {
+    "id": "book.ccl",
+    "key": "CCL",
+    "title": "The 15 Commitments of Conscious Leadership",
+    "author": "Dethmer, Chapman & Klemp",
+    "card_line": "Leadership is as much about how you show up, staying curious and owning your reactions, as what you actually accomplish.",
+    "takeaway_heading": "Self-awareness is a professional skill",
+    "takeaway": "The 15 Commitments of Conscious Leadership challenged me to look at leadership not just in terms of what gets accomplished, but how I show up while accomplishing it. Taking responsibility, staying curious, and recognizing when ego or defensiveness is driving a reaction are practical skills, not just personal development concepts.",
+    "network_heading": "See Yourself",
+    "network_core_idea": "Awareness precedes choice. Notice your assumptions, emotions, stories, and patterns before they shape your decisions. The prerequisite to better thinking is recognizing that you are part of the system you're trying to understand.",
+    "teamwork_role": "The stance behind the self question: curiosity over being right, responsibility without blame. Separating fact from story is a practice in this book as widely reported."
+   },
+   {
+    "id": "book.tdc",
+    "key": "TDC",
+    "title": "Trillion Dollar Coach",
+    "author": "Schmidt, Rosenberg & Eagle",
+    "card_line": "The best leaders spend less time having answers and more time asking good questions and building trust.",
+    "takeaway_heading": "Your job is to make the people around you better",
+    "takeaway": "Trillion Dollar Coach influenced my view of leadership as something less about having all the answers and more about asking good questions, giving honest feedback, building trust, and helping talented people perform at their best.",
+    "network_heading": "See People",
+    "network_core_idea": "People perform better when they feel trusted, challenged, and supported. Leadership isn't primarily about having answers. It's about creating the conditions for other people to think, grow, and perform at their best.",
+    "teamwork_role": "Relational moves: honest feedback early, asked before told, trust and challenge together. Governs the step when the person manages the other party."
+   },
+   {
+    "id": "book.ceo",
+    "key": "CEO",
+    "title": "What the CEO Wants You to Know",
+    "author": "Ram Charan",
+    "card_line": "Every function lives inside a business. Understanding how value actually gets created makes you better at almost any role.",
+    "takeaway_heading": "Understand the business underneath the job",
+    "takeaway": "This book reinforces how every role exists as an interconnected network, and understanding how that network creates value makes you better at what you do. Knowing your customers, cash flow, margins, and the drivers of profitability helps you see beyond your function and understand how your work contributes to the bigger picture.",
+    "network_heading": "See Value",
+    "network_core_idea": "Every organization is a system for creating value. Understand customers, revenue, costs, cash, and the basic mechanics of a business. Once you understand how value moves through the organization, your own work becomes part of a larger picture.",
+    "teamwork_role": "The business reading: the other person may be reacting to a number you cannot see."
+   },
+   {
+    "id": "book.pca",
+    "key": "PCA",
+    "title": "Poor Charlie's Almanack",
+    "author": "Charlie Munger",
+    "card_line": "The more disciplines you bring to a problem, the less likely you are to mistake a familiar pattern for the whole picture.",
+    "takeaway_heading": "Think in models, not formulas",
+    "takeaway": "Poor Charlie's Almanack reinforced my appreciation for mental models and multidisciplinary thinking. The more perspectives you bring to a problem, whether economics, psychology, incentives, statistics, or human behavior, the less likely you are to mistake a familiar pattern for the whole picture.",
+    "network_heading": "See the Pattern",
+    "network_core_idea": "No single mental model explains reality. Use incentives, inversion, first principles, probability, opportunity cost, and other models to look at the same problem from different angles. The goal isn't to collect frameworks. It's to recognize patterns.",
+    "teamwork_role": "The reason the advisor never settles on one story: more than one model, incentives first, inversion, and the first-conclusion tendency."
+   },
+   {
+    "id": "book.hom",
+    "key": "HOM",
+    "title": "High Output Management",
+    "author": "Andrew S. Grove",
+    "card_line": "Good outcomes shouldn't depend on one person's heroics. Real leverage comes from the systems built around them.",
+    "takeaway_heading": "Build systems, not heroics",
+    "takeaway": "High Output Management changed how I think about management. Strong outcomes shouldn't depend on one person constantly rescuing a broken process. Good managers create leverage through clear expectations, effective processes, useful metrics, and developing the people around them.",
+    "network_heading": "See the Leverage",
+    "network_core_idea": "The best results don't always come from doing more. They come from improving the system. Find the bottleneck. Improve the process. Delegate. Multiply the effectiveness of others. Focus your effort where a small intervention can create a much larger outcome.",
+    "teamwork_role": "Output over activity, clear expectations, useful metrics; a process problem often wears a person's face."
+   }
+  ],
+  "where_they_conflict": [
+   {
+    "between": [
+     "book.hom",
+     "book.ccl"
+    ],
+    "text": "Grove measures a manager by output. The 15 Commitments looks first at how a leader shows up. When someone is delivering and also leaving damage behind, the two give different verdicts."
+   },
+   {
+    "between": [
+     "book.tdc",
+     "book.hom"
+    ],
+    "text": "Candour with care for the person against clear measures kept visible: kind and early feedback can soften a miss that the metric would have shown plainly."
+   },
+   {
+    "between": [
+     "book.hgw",
+     "book.pca"
+    ],
+    "text": "Transparency and trust as the conditions for good work against Munger's warning that incentives quietly override whatever trust was built."
+   },
+   {
+    "between": [
+     "book.tdc",
+     "book.ceo"
+    ],
+    "text": "Care for the person against the number the business must hit. The kind thing and the commercial thing differ more often than either book needs to admit."
+   }
+  ],
+  "owner_phrase_to_check": "Psychological safety appears in the owner's Google reading. It is Edmondson's concept as widely reported, not something the owner claims the book proves."
+ },
+ "books_unsourced": {
+  "book.fdt": {
+   "id": "book.fdt",
+   "title": "The Five Dysfunctions of a Team",
+   "author": "Patrick Lencioni",
+   "status": "widely_reported",
+   "thin": true,
+   "idea": "As widely reported: absence of trust, fear of conflict, lack of commitment, avoidance of accountability and inattention to results, each resting on the one before. This book is not in the owner's Reading section and no owner takeaway exists.",
+   "use": "Only as a way to name a team-level pattern in plain words (silence that looks like agreement, commitments nobody owns). Never attributed to the author on screen, never used to rank anyone."
+  }
+ },
+ "algorithms": {
+  "source": "decision-os/js/models.js (the functions) and decision-os/js/lessons/index.js (the plain rules each lesson teaches). Teamwork uses the shape of each rule and never its arithmetic: it asks for no probabilities and shows no scores.",
+  "status": "owner_reading",
+  "items": [
+   {
+    "id": "alg.bayes",
+    "name": "Bayesian updating",
+    "fn": "bayesUpdate(prior, evidence)",
+    "rule": "Start from the base rate. Let each clue move you by how much likelier it is if you are right than if you are wrong. Strong clues move you a lot, cheap talk a little. Nothing moves you to certainty.",
+    "applies_when": "Someone has a belief about another person or a situation and gets a new fact: a reply, a missed meeting, a kind word. The question is how far that fact should move them.",
+    "trap": "Reps under-move on good evidence and over-move on the last thing they heard. At work: one cold email or one warm hallway comment is read as the whole story.",
+    "flip_point": "Taught in the lesson as: a clue three times likelier under 'no' than 'yes' would pull a 75% belief back under 50%.",
+    "workplace_form": "Qualitative only. 'That is one fact and a weak one, because people say it either way' versus 'that is a fact that would be unlikely if your first story were wrong.'"
+   },
+   {
+    "id": "alg.voi",
+    "name": "Value of information",
+    "fn": "valueOfInformation(causes, actions, diagnostics, leaning)",
+    "rule": "Before any check, ask which result would make you do something different, and what that is worth. If no result would, skip the check. A check is valued against the action you are already leaning towards.",
+    "applies_when": "Deciding whether to ask the one question, wait, or gather more before acting.",
+    "trap": "Checks that only confirm what you would do anyway still cost something. The mirror trap: acting without the one cheap check whose answer would flip the move.",
+    "flip_point": "A check breaks even when its cost equals what knowing is worth over deciding now.",
+    "workplace_form": "Ask a question only if each plausible answer leads to a different next step. 'What reason did he give, in his words?' passes. 'How do you feel about it?' usually fails."
+   },
+   {
+    "id": "alg.ev",
+    "name": "Expected value",
+    "fn": "expectedValue({p, value, cost})",
+    "rule": "Chance times prize, minus the cost of chasing it. Rank options by that number, not by the size of the prize.",
+    "applies_when": "Choosing between a large unlikely win and a modest likely one, for example escalating a long shot against fixing a smaller thing that will probably work.",
+    "trap": "Big equals important. A likely small win can be worth about twice an unlikely big one. The cost of your own time is part of the cost.",
+    "flip_point": "Taught in the lesson as the odds at which the big option overtakes the small one (about 23% in the example).",
+    "workplace_form": "Used as a sorting question, never a calculation: how likely is this to work, what is it worth if it does, what does trying cost me. Teamwork never asks a user to put a number on a person."
+   },
+   {
+    "id": "alg.tree",
+    "name": "Decision tree",
+    "fn": "evaluateTree(node, payoffs)",
+    "rule": "Lay out the branches, weigh each by its odds, roll the value back to today. Then compare that with what pursuing costs. The branch that carries most of the value is the fact to verify first.",
+    "applies_when": "A choice that depends on one unknown, such as whether the other person has the information or the authority.",
+    "trap": "Precision is less important than order of magnitude, and the tree tells you which uncertainty matters most. Drawing it carefully for a minor uncertainty is wasted care.",
+    "flip_point": "Walk away once the chance of the good branch drops below the point where the expected value no longer covers the cost.",
+    "workplace_form": "The 'what would tell' line on the read screen: the single fact that decides which branch you are on."
+   },
+   {
+    "id": "alg.utility",
+    "name": "Utility and trade-offs",
+    "fn": "utilityRank(options, weights)",
+    "rule": "State what you are optimizing for before you compare options. The best option is the best option for a stated objective. When two people disagree on the answer, check whether they disagree on the weights.",
+    "applies_when": "Two people want different things from the same decision: speed against care, results against rest, the standard against the exception.",
+    "trap": "Arguing the options when the real disagreement is the objective. Also: an option that loses on every objective cannot be rescued by any weights.",
+    "flip_point": "Taught in the lesson as the weight at which a second option overtakes the first (about 76% on margin in the example).",
+    "workplace_form": "The 'tension' line: name the two good things pulling against each other and let the person pick the weighting."
+   },
+   {
+    "id": "alg.bandit",
+    "name": "Explore and exploit",
+    "fn": "ucbScores(arms, c), allocateHours(arms, hours, c)",
+    "rule": "Spend most of your time where you know it pays. Keep a slice for what you do not understand, sized by how long you will be around to use the answer. Update an estimate, do not replace it, after one bad week.",
+    "applies_when": "A person has settled into a routine with a colleague or manager and has stopped testing whether a different approach would work.",
+    "trap": "Overreacting to the last result in either direction.",
+    "flip_point": "A test pays back if there is enough time left to use what it finds.",
+    "workplace_form": "One small, cheap experiment in the next step, not a campaign."
+   },
+   {
+    "id": "alg.forecast",
+    "name": "Prediction versus decision",
+    "fn": "(lesson: prediction-vs-decision)",
+    "rule": "A forecast tells you what might happen. A decision tells you what to do about it. Break headline numbers into the drivers you can act on, then judge those drivers against the objective.",
+    "applies_when": "Someone says 'this will never change' or 'it will be fine'. Either is a forecast, and neither is a plan.",
+    "trap": "A confident prediction with a bad payoff model produces confident mistakes.",
+    "flip_point": "Not a fixed point; the lesson's example hinges on how much growth is worth against margin.",
+    "workplace_form": "Keep the person's forecast ('he will do it again') apart from their choice ('what I will say on Thursday')."
+   }
+  ]
+ },
+ "decision_science": [
+  {
+   "id": "ds.base_rates",
+   "name": "Base rates",
+   "lane": "decision_science",
+   "idea": "Before the details of this case, ask how often situations like it turn out each way. The case in front of you feels unique and most are not.",
+   "applies_when": "The person is sure of a story from one angle ('he always does this', 'this will never get done') and the advisor needs a sober starting point before weighing new facts.",
+   "misleads_when": "There is no honest reference group, or the group is unlike this team. Also when it is used to wave away a person who is describing something that happened: most bosses are fine is no answer to one boss who is not.",
+   "conflicts_with": [
+    "ds.power",
+    "rule.safety_flag"
+   ],
+   "status": "owner_reading",
+   "source": "Decision OS, Bayesian Updating lesson ('Start from the base rate').",
+   "teamwork_use": "The advisor may say that a missed deadline has many ordinary causes before it names a motive. It never quotes a percentage, because Teamwork holds no workplace base-rate data."
+  },
+  {
+   "id": "ds.voi",
+   "name": "Value of information",
+   "lane": "decision_science",
+   "idea": "A question is worth asking only if some answer would change what you do. Otherwise the answer is trivia and the asking costs the person energy.",
+   "applies_when": "Deciding whether the advisor asks its one question, and whether the person should find something out before acting.",
+   "misleads_when": "Waiting costs more than knowing is worth (a deadline, a safety issue). Also when asking is itself the right act: 'what reason did you have?' is information and a gesture.",
+   "conflicts_with": [
+    "ds.power",
+    "rule.safety_flag"
+   ],
+   "status": "owner_reading",
+   "source": "Decision OS, Value of Information lesson and valueOfInformation(); Friction asks a question only if some answer could change the recommendation.",
+   "teamwork_use": "The question screen appears only when one answer would change the suggestion; otherwise it is skipped."
+  },
+  {
+   "id": "ds.hindsight_outcome",
+   "name": "Hindsight and outcome bias",
+   "lane": "decision_science",
+   "idea": "Once we know how something turned out, we remember having expected it (hindsight), and we judge the decision by its result (outcome bias).",
+   "applies_when": "At the look-back, when the person recalls what they expected after already knowing what happened.",
+   "misleads_when": "Used to dismiss a warning someone actually wrote down at the time. The written line is the guard against the bias, not a casualty of it.",
+   "conflicts_with": [
+    "ds.one_vs_pattern"
+   ],
+   "status": "widely_reported",
+   "source": "Widely reported in the judgment-and-decision literature. Not drawn from the owner's material.",
+   "teamwork_use": "The look-back asks two answers from memory before it shows what the person wrote, then shows both so drift is visible."
+  },
+  {
+   "id": "ds.decision_vs_result",
+   "name": "The decision versus the result",
+   "lane": "decision_science",
+   "idea": "A good decision can end badly and a poor one can end well. Judge the decision by what was known and how it was reasoned. Treat the result as partial evidence about it.",
+   "applies_when": "After a conversation that went badly, or went well by luck, when the person is deciding whether to repeat the approach.",
+   "misleads_when": "It becomes a way never to update. Three similar situations that end the same way are evidence about the approach, not three unlucky draws.",
+   "conflicts_with": [
+    "ds.one_vs_pattern"
+   ],
+   "status": "widely_reported",
+   "source": "Widely reported. Decision OS's prediction-versus-decision lesson is a neighbour, not the source.",
+   "teamwork_use": "The inference line at the look-back says what one outcome can and cannot tell. It never says the approach was right or wrong."
+  },
+  {
+   "id": "ds.regression_mean",
+   "name": "Regression to the mean",
+   "lane": "decision_science",
+   "idea": "Extreme days tend to be followed by more ordinary ones with no help from anyone. The worst week and the best week are poor guides to what is typical.",
+   "applies_when": "The person acted right after the worst meeting and things then improved, or reads one terrible interaction as the new normal.",
+   "misleads_when": "Something real changed (a new manager, a reorganization, a promise broken). Then the extreme is a new level, not noise.",
+   "conflicts_with": [
+    "ds.power"
+   ],
+   "status": "widely_reported",
+   "source": "Widely reported statistical idea.",
+   "teamwork_use": "A reason to ask how often it happens, not only how bad the last time was, and to avoid crediting the step for a recovery that may have come anyway."
+  },
+  {
+   "id": "ds.one_vs_pattern",
+   "name": "One observation versus a pattern",
+   "lane": "decision_science",
+   "idea": "One event is one draw. A pattern needs several, in different places and at different times. Name the behaviour you saw before you name a trait.",
+   "applies_when": "'He cut me off twice' is behaviour. 'He doesn't respect me' is a trait inferred from it. The advisor raises an own-part pattern only when the account points at it twice.",
+   "misleads_when": "The first event is serious. A single act of harassment, retaliation or a threat is enough to act on and waiting for a second is the mistake.",
+   "conflicts_with": [
+    "rule.safety_flag",
+    "ds.decision_vs_result"
+   ],
+   "status": "synthesis",
+   "source": "Teamwork's synthesis. The 'twice' threshold is a protocol choice, not a research finding.",
+   "teamwork_use": "Counts on the page are of lines and look-backs, never of people. 'Twice' is the line before an own-part question."
+  },
+  {
+   "id": "ds.fae",
+   "name": "The fundamental attribution error",
+   "lane": "organizational_behaviour",
+   "idea": "We tend to explain other people's behaviour by what they are like and our own by what we were up against. The other person is doing the same to us.",
+   "applies_when": "'She is lazy', 'he is a control freak'. Before the character explanation, ask what the situation would produce in nearly anyone.",
+   "misleads_when": "Treated as a law. Character is sometimes the answer, and how strong this tendency is varies across studies and settings. It is a reason to check the situation, not a reason to rule character out.",
+   "conflicts_with": [
+    "rule.safety_flag"
+   ],
+   "status": "widely_reported",
+   "source": "Widely reported social-psychology idea. Decision OS's 'before you explain a person, rule out the situation' case is the owner's reading of the same move.",
+   "teamwork_use": "Standing rule: always carry one explanation that is not about anyone's character."
+  },
+  {
+   "id": "ds.psych_safety",
+   "name": "Psychological safety",
+   "lane": "organizational_behaviour",
+   "idea": "People speak up, ask and admit mistakes when they believe it will not cost them. When they do not believe that, silence is a rational reply and not a sign of agreement.",
+   "applies_when": "Problems surface late, everyone agrees in the room and disagrees afterwards, or the person fears raising the issue with the other party.",
+   "misleads_when": "Read as comfort or niceness, or as proof that no one is accountable. It is also not something one person can declare for a team.",
+   "conflicts_with": [
+    "ds.power"
+   ],
+   "status": "widely_reported",
+   "source": "Widely reported (Amy Edmondson's concept). Appears in the owner's reading of How Google Works.",
+   "teamwork_use": "Explains why the fix is often 'make it cheaper to say the true thing' and why the step has to be sized to what the person can safely say."
+  },
+  {
+   "id": "ds.power",
+   "name": "Power asymmetry",
+   "lane": "organizational_behaviour",
+   "idea": "The same sentence costs different people different amounts. The person with less power risks more by speaking, and the person with more often cannot see the cost.",
+   "applies_when": "The other person controls the person's pay, project or reviews, or the person controls theirs. It changes which step is safe, not only which is wise.",
+   "misleads_when": "It makes the person feel they can do nothing, so they skip steps that are within their control. It also hides that managers are constrained from above.",
+   "conflicts_with": [
+    "ds.base_rates",
+    "ds.voi",
+    "ds.regression_mean",
+    "book.tdc"
+   ],
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from widely reported organizational behaviour. Not in the owner's material, which is mostly written from the manager's seat.",
+   "teamwork_use": "The 'who is this about' answer sets the direction of the advice: upward steps are framed as questions and records, downward steps as expectations."
+  },
+  {
+   "id": "ds.system_person",
+   "name": "Setup problem or person problem",
+   "lane": "organizational_behaviour",
+   "idea": "Before explaining a person, ask what this setup would produce in almost anyone placed in it: the workload, the number, the unclear owner, the information that never arrived.",
+   "applies_when": "The same thing happens with several people, started when something changed, or follows an incentive or a handoff.",
+   "misleads_when": "One person is the common factor across different setups, or the setup explanation lets real conduct pass. A setup reading no fact could ever test is a story, not an explanation.",
+   "conflicts_with": [
+    "rule.safety_flag",
+    "book.tdc"
+   ],
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from the Three Lenses, Friction's states and Decision OS's one-explanation case.",
+   "teamwork_use": "The read screen carries at least one setup explanation, and names the fact that would separate it from the person explanation."
+  }
+ ],
+ "friction": {
+  "source": "Friction/js/content.js: HYPOTHESES, NETWORK, SELF_REPORT, the questions marked required, CONFIDENCE_LABELS, LOW_FRICTION and LOW_MIXED. Weights and priors are the owner's design choices in that model. This library does not claim they were fitted to data.",
+  "status": "owner_reading",
+  "states": [
+   {
+    "id": "direction",
+    "lens": "Business",
+    "name": "Leadership isn't aligned on what matters most",
+    "caused_by": []
+   },
+   {
+    "id": "economics",
+    "lens": "Business",
+    "name": "Priorities aren't tied to what creates value",
+    "caused_by": []
+   },
+   {
+    "id": "capability",
+    "lens": "People",
+    "name": "People haven't been given the capability to decide well",
+    "caused_by": []
+   },
+   {
+    "id": "trust",
+    "lens": "People",
+    "name": "It isn't safe to raise problems or disagree",
+    "caused_by": []
+   },
+   {
+    "id": "loss",
+    "lens": "People",
+    "name": "The organization is carrying a loss it hasn't processed",
+    "caused_by": []
+   },
+   {
+    "id": "pressure",
+    "lens": "System",
+    "name": "Targets and incentives reward the wrong behaviour",
+    "caused_by": []
+   },
+   {
+    "id": "focus",
+    "lens": "Business",
+    "name": "Too many priorities, nothing formally stopped",
+    "caused_by": [
+     "direction",
+     "economics"
+    ]
+   },
+   {
+    "id": "information",
+    "lens": "System",
+    "name": "Decisions wait on information that doesn't reach them",
+    "caused_by": [
+     "economics",
+     "trust",
+     "pressure"
+    ]
+   },
+   {
+    "id": "decision_rights",
+    "lens": "System",
+    "name": "Decision rights are unclear",
+    "caused_by": [
+     "direction",
+     "trust"
+    ]
+   },
+   {
+    "id": "conflict_avoidance",
+    "lens": "People",
+    "name": "Disagreement is avoided rather than worked through",
+    "caused_by": [
+     "trust"
+    ]
+   },
+   {
+    "id": "blame",
+    "lens": "People",
+    "name": "Problems are met with blame rather than ownership",
+    "caused_by": [
+     "trust",
+     "pressure"
+    ]
+   },
+   {
+    "id": "centralized",
+    "lens": "People",
+    "name": "Decision authority is more centralized than the business requires",
+    "caused_by": [
+     "decision_rights",
+     "capability",
+     "trust"
+    ]
+   },
+   {
+    "id": "execution",
+    "lens": "System",
+    "name": "Agreed priorities don't reliably happen",
+    "caused_by": [
+     "focus",
+     "decision_rights",
+     "information",
+     "conflict_avoidance"
+    ]
+   },
+   {
+    "id": "leverage",
+    "lens": "System",
+    "name": "Performance depends on people working around the system",
+    "caused_by": [
+     "execution",
+     "decision_rights"
+    ]
+   },
+   {
+    "id": "talent",
+    "lens": "People",
+    "name": "The best people aren't on the highest-value problems",
+    "caused_by": [
+     "leverage",
+     "focus"
+    ]
+   }
+  ],
+  "causal_note": "In Friction the states form a network: each state can be caused by others (trust feeds information, blame and conflict avoidance, which feed execution). Teamwork borrows the idea that a visible problem usually sits downstream of a quieter one, and the vocabulary, but it does not run the network.",
+  "weights": {
+   "reassuring_impression": 0.6,
+   "admission_about_own_part": 1.25,
+   "something_that_actually_happened": 1.2,
+   "meaning": "Reassuring answers about a general impression count for less than reassuring answers about something that happened. Admissions about your own part, and problems described through an event, count for more."
+  },
+  "required_questions": [
+   {
+    "id": "overrule",
+    "short": "When a manager's call differs from yours"
+   },
+   {
+    "id": "trust",
+    "short": "The last time you heard something you didn't want to"
+   },
+   {
+    "id": "trust_last",
+    "short": "The last time someone raised a serious problem"
+   },
+   {
+    "id": "conflict",
+    "short": "The last open disagreement between leaders"
+   },
+   {
+    "id": "self",
+    "short": "Your own part"
+   },
+   {
+    "id": "loss",
+    "short": "A loss in the last year"
+   },
+   {
+    "id": "missed",
+    "short": "The last missed number"
+   }
+  ],
+  "required_note": "Always asked before the engine may stop. Six of the seven ask about something that happened last time, which is why Teamwork asks 'what happened' before 'what do you think'.",
+  "confidence_labels": [
+   {
+    "label": "High confidence",
+    "meaning": "Several independent answers point the same way and nothing you said cuts against it."
+   },
+   {
+    "label": "Strong pattern",
+    "meaning": "The evidence leans clearly one way. One or two answers could still move it."
+   },
+   {
+    "label": "Emerging pattern",
+    "meaning": "A pattern is forming but a competing explanation is still live. The open question below is how to tell them apart."
+   },
+   {
+    "label": "Early signal",
+    "meaning": "This is the strongest of several weak signals. Treat it as a hypothesis to test, not a finding."
+   }
+  ],
+  "honest_null": {
+   "name": "No clear constraint",
+   "summary": "Your answers didn't point to a constraint.",
+   "detail": "That doesn't rule one out. It means nothing you described rose above a weak signal, and this is a reading of your own answers.",
+   "mixed_detail": "Leaders tend to describe their organizations more favourably than the people who work in them do. That isn't a flaw in you; it is where you sit.",
+   "next": "Ask two or three people the same questions and compare."
+  }
+ },
+ "stillward_lines": {
+  "rules": {
+   "source": "Quotes are as attributed inside Stillward (index.html data). Teamwork has not checked them against the teachers' own texts, so they are shown with the teacher's name and never as workplace evidence. Each is under fifteen words.",
+   "status": "owner_reading",
+   "not_evidence": true
+  },
+  "lines": [
+   {
+    "id": "still.arrival",
+    "teacher": "Ram Dass",
+    "text": "The quieter you become, the more you can hear.",
+    "moment": "arrival",
+    "screen": "who",
+    "gloss": "Stillward's own gloss, paraphrased: when the chatter slows you notice more of what is actually happening.",
+    "fits": "The first screen, for someone who arrives worn down. One line, no instruction attached.",
+    "avoid": "Never shown on the conduct path, and never offered as a reason to wait out a situation that needs action."
+   },
+   {
+    "id": "still.after_step",
+    "teacher": "Peter Crone",
+    "text": "Awareness is the beginning of change.",
+    "moment": "after the step",
+    "screen": "kept",
+    "gloss": "Stillward's own gloss, paraphrased: you do not need to have solved this yet; noticing is already movement.",
+    "fits": "After the person has chosen a step and written what they expect, as relief from having to solve everything at once.",
+    "avoid": "Not offered as evidence that the step will work."
+   },
+   {
+    "id": "still.lookback",
+    "teacher": "A.H. Almaas",
+    "text": "Inquiry is not a technique. It is a way of being.",
+    "moment": "the look-back",
+    "screen": "lookback_blind",
+    "gloss": "Stillward's own gloss, paraphrased: staying honestly curious about your own experience, not defensive or reactive.",
+    "fits": "Before the blind answers, when memory is most likely to bend towards the result. It asks for curiosity about what happened, not a verdict.",
+    "avoid": "Not shown when the person has marked 'Worse'; a worse outcome needs the plain sentence, not a teacher."
+   }
+  ]
+ },
+ "dos_practice": {
+  "source": "decision-os/js/scenarios3.js and js/pages/home.js",
+  "status": "owner_reading",
+  "pre_meeting_line": "The quality of your accountability is set by the quality of your self-awareness before the conversation begins.",
+  "pre_meeting_then": "Then walk in with clarity, evidence, a direct expectation, and a willingness to listen.",
+  "home_questions": [
+   "What matters and what doesn't matter?",
+   "What evidence should you trust?",
+   "What tradeoffs are you making?",
+   "What would change your decision?"
+  ],
+  "principles": [
+   {
+    "id": "dos.commit",
+    "idea": "Commit before you see. Write the call, then see the reasoning.",
+    "teamwork": "The blind look-back and the written expectation."
+   },
+   {
+    "id": "dos.pause",
+    "idea": "One pause question before the choice, asked of yourself.",
+    "teamwork": "The self question on the read screen."
+   },
+   {
+    "id": "dos.before",
+    "idea": "Five questions a manager asks before a hard performance conversation.",
+    "teamwork": "The manager questions on the step screen."
+   },
+   {
+    "id": "dos.tension",
+    "idea": "Every management case is two good values pulling apart, with the lesson behind the strong move and the lesson pulling the other way.",
+    "teamwork": "The tension line on the read screen."
+   },
+   {
+    "id": "dos.habits",
+    "idea": "Eight habit families: rescuing, avoiding, controlling, pleasing, over-promising, defending, grinding, one explanation.",
+    "teamwork": "Own-part questions, raised only when the account points at one twice."
+   }
+  ]
+ },
+ "rules": [
+  {
+   "id": "rule.happened_told",
+   "name": "Happened, told, concluded",
+   "text": "Keep what happened, what was told and what was concluded apart. Happened counts in full, told at a discount, concluded as a hypothesis.",
+   "protocol_rule": 1,
+   "lane": "decision_science",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 1 (server/protocol.md)"
+  },
+  {
+   "id": "rule.no_diagnosis",
+   "name": "Never diagnose the absent person",
+   "text": "One account from one side. Describe reported behaviour. Do not assign motives, traits or diagnoses to someone who is not there.",
+   "protocol_rule": 2,
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 2 (server/protocol.md)"
+  },
+  {
+   "id": "rule.non_character",
+   "name": "Always carry a non-character cause",
+   "text": "At least one explanation is about the setup, not anyone's character, until facts rule it out.",
+   "protocol_rule": 3,
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 3 (server/protocol.md)"
+  },
+  {
+   "id": "rule.own_part",
+   "name": "The person's part is a question",
+   "text": "Raised as a question the person can ask themselves. Never a verdict, never a clean bill.",
+   "protocol_rule": 4,
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 4 (server/protocol.md)"
+  },
+  {
+   "id": "rule.one_question",
+   "name": "One question, only if it changes the advice",
+   "text": "Ask nothing if nothing would change. Ask about facts, not judgments.",
+   "protocol_rule": 5,
+   "lane": "decision_science",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 5 (server/protocol.md)"
+  },
+  {
+   "id": "rule.one_step",
+   "name": "One step, with its assumption, its risk and an alternative",
+   "text": "A single next move, the words, and honest costs. No menu.",
+   "protocol_rule": 6,
+   "lane": "shared",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 6 (server/protocol.md)"
+  },
+  {
+   "id": "rule.define_outcome",
+   "name": "Define the outcome before acting",
+   "text": "One observable sentence and a date, written before the person acts.",
+   "protocol_rule": 7,
+   "lane": "decision_science",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 7 (server/protocol.md)"
+  },
+  {
+   "id": "rule.honest_inference",
+   "name": "Honest inference at the look-back",
+   "text": "One outcome cannot prove an approach worked or failed. Two or three similar situations can start to tell.",
+   "protocol_rule": 8,
+   "lane": "decision_science",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 8 (server/protocol.md)"
+  },
+  {
+   "id": "rule.say_cant_tell",
+   "name": "Say 'can't tell'",
+   "text": "Uncertainty stated plainly is more useful than confidence invented.",
+   "protocol_rule": 9,
+   "lane": "decision_science",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 9 (server/protocol.md)"
+  },
+  {
+   "id": "rule.books_plain",
+   "name": "Books enter as plain ideas",
+   "text": "Lightly attributed if at all, never as proof, never quoted, never cited by page.",
+   "protocol_rule": 10,
+   "lane": "shared",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 10 (server/protocol.md)"
+  },
+  {
+   "id": "rule.safety_flag",
+   "name": "The safety flag",
+   "text": "Harassment, retaliation, threats, pressure to do something illegal or unsafe: stop giving conversation advice, help record facts, keep copies outside work systems, find who has the duty to act.",
+   "protocol_rule": 11,
+   "lane": "shared",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 11 (server/protocol.md)"
+  },
+  {
+   "id": "rule.plain_voice",
+   "name": "Plain voice",
+   "text": "Short sentences, plain words, no jargon, no therapy voice, no em dashes. Speak as a calm, exact colleague.",
+   "protocol_rule": 12,
+   "lane": "shared",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 12 (server/protocol.md)"
+  },
+  {
+   "id": "rule.one_thing",
+   "name": "One thing per screen, always a way back and a way to stop",
+   "text": "Every screen asks one thing. Every screen has a way back and a way to stop that keeps what exists.",
+   "protocol_rule": null,
+   "lane": "shared",
+   "status": "synthesis",
+   "source": "Teamwork CLAUDE.md rules; one-thing and counts rules follow Stillward's practice"
+  },
+  {
+   "id": "rule.counts",
+   "name": "Counts, never scores",
+   "text": "Counts only grow. No streaks, no reminders from us, no score on a person or on the user.",
+   "protocol_rule": null,
+   "lane": "shared",
+   "status": "synthesis",
+   "source": "Teamwork CLAUDE.md rules; one-thing and counts rules follow Stillward's practice"
+  },
+  {
+   "id": "rule.private",
+   "name": "It stays in this browser",
+   "text": "The server stores nothing and logs no content. The only copy is the person's.",
+   "protocol_rule": null,
+   "lane": "shared",
+   "status": "synthesis",
+   "source": "Teamwork CLAUDE.md rules; one-thing and counts rules follow Stillward's practice"
+  }
+ ],
+ "steps": [
+  {
+   "id": "who",
+   "phase": "Arrive",
+   "title": "Who is this about?",
+   "app": "home.who: five seats.",
+   "trust": {
+    "knows": "Which seat the person says the other party holds. Nothing more.",
+    "cannot": "How the other person sees the relationship, or whether a seat says anything about fault.",
+    "controls": "Whether to answer at all. 'Someone else' is always there and Back returns."
+   },
+   "links": [
+    {
+     "id": "ds.power",
+     "why": "Who holds power over whom decides which next steps are safe, so it is asked before anything else."
+    },
+    {
+     "id": "rule.no_diagnosis",
+     "why": "The answer names a seat, never a person's character, so nothing here labels the absent party."
+    },
+    {
+     "id": "rule.one_thing",
+     "why": "One tap on one screen, with a way back and a way to stop that keeps what exists."
+    },
+    {
+     "id": "still.arrival",
+     "why": "This is where a worn-down person lands, so it carries one quiet line and no instruction."
+    }
+   ],
+   "options": [
+    {
+     "id": "manager",
+     "label": "My manager",
+     "links": [
+      {
+       "id": "ds.power",
+       "why": "Upward, the person has more to lose by speaking, so later steps lean on questions and written records rather than confrontation."
+      },
+      {
+       "id": "ds.psych_safety",
+       "why": "A manager's reaction decides how costly the truth is to say, so the step is sized to what the person can safely raise."
+      }
+     ]
+    },
+    {
+     "id": "report",
+     "label": "Someone I manage",
+     "links": [
+      {
+       "id": "book.tdc",
+       "why": "The owner's reading of Trillion Dollar Coach, asking before telling and honest feedback early, governs the step when the person manages the other party."
+      },
+      {
+       "id": "dos.before",
+       "why": "A manager gets the five pre-conversation questions before the step."
+      },
+      {
+       "id": "ds.system_person",
+       "why": "A manager's output is the team's output, so a report's miss is first read as a possible setup problem the manager helped build."
+      }
+     ]
+    },
+    {
+     "id": "colleague",
+     "label": "A colleague",
+     "links": [
+      {
+       "id": "ds.power",
+       "why": "With no formal power either way, direct candour is more often safe and the step can ask more of the person."
+      },
+      {
+       "id": "force.incentives",
+       "why": "Peers often pull against each other because of what each is measured on, so check the number before the person."
+      }
+     ]
+    },
+    {
+     "id": "team",
+     "label": "My team",
+     "links": [
+      {
+       "id": "case.team-agrees",
+       "why": "With a group, silence is the thing to read: it is not agreement until someone has been asked what disagreeing would cost."
+      },
+      {
+       "id": "ds.psych_safety",
+       "why": "A quiet team is first a question about whether speaking is safe, not about willingness."
+      },
+      {
+       "id": "book.fdt",
+       "why": "Team-level patterns such as avoided conflict can be named in plain words, widely reported, never attributed or used as a verdict."
+      }
+     ]
+    },
+    {
+     "id": "other",
+     "label": "Someone else",
+     "links": [
+      {
+       "id": "rule.one_thing",
+       "why": "A catch-all, so nobody is forced into a box that does not fit. The protocol works without this answer."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what",
+   "phase": "Arrive",
+   "title": "What's happening?",
+   "app": "home.what: six patterns and a conduct line.",
+   "trust": {
+    "knows": "The line the person picks, as a first guess at the kind of trouble.",
+    "cannot": "Whether the line fits. Two people can pick the same words for different situations.",
+    "controls": "Every line can be rewritten on the sort screen. 'Something else' and the conduct line are always there, and quiet by design."
+   },
+   "links": [
+    {
+     "id": "fr.states",
+     "why": "The first five lines are behaviours that map onto the setup, own-part and team vocabularies, so none of them is a trait."
+    },
+    {
+     "id": "rule.safety_flag",
+     "why": "The last line is a door to the conduct path, which skips the explanations exercise and the openers."
+    },
+    {
+     "id": "dos.habits",
+     "why": "'I think I might be the problem' opens the own-part vocabulary, used as questions only."
+    },
+    {
+     "id": "rule.no_diagnosis",
+     "why": "Options describe what someone does ('cut me off'), not what someone is."
+    }
+   ],
+   "options": [
+    {
+     "id": "missed",
+     "label": "They keep missing deadlines",
+     "links": [
+      {
+       "id": "lens.system",
+       "why": "Missed deadlines have many setup causes (priorities, owners, information) before any character cause, so the system lens is opened first."
+      },
+      {
+       "id": "case.metrics-reward-the-wrong-thing",
+       "why": "People do what the number pays for. Check the incentive before the person."
+      }
+     ]
+    },
+    {
+     "id": "shifted",
+     "label": "They shift the goalposts, then blame me",
+     "links": [
+      {
+       "id": "ds.hindsight_outcome",
+       "why": "'The goalposts moved' is partly a memory question: after an outcome, both sides remember agreeing to more than they did."
+      },
+      {
+       "id": "book.hom",
+       "why": "The owner's Grove reading puts clear expectations first, so the first move is what was agreed, in what words, and when."
+      },
+      {
+       "id": "rule.happened_told",
+       "why": "'Then blame me' is a conclusion; what was said and when is what happened."
+      }
+     ]
+    },
+    {
+     "id": "dismissed",
+     "label": "They cut me off or dismiss my ideas",
+     "links": [
+      {
+       "id": "ds.one_vs_pattern",
+       "why": "'Cut me off' is behaviour seen once or twice; 'dismiss' is a trait inferred from it. The sort screen separates them."
+      },
+      {
+       "id": "ds.fae",
+       "why": "Dismissive is the usual shape of a trait explanation, so a situation explanation is held beside it."
+      },
+      {
+       "id": "ds.power",
+       "why": "Being cut off by someone senior and by a peer are different events with different safe responses."
+      }
+     ]
+    },
+    {
+     "id": "repeat",
+     "label": "We keep having the same argument",
+     "links": [
+      {
+       "id": "loop.activity",
+       "why": "The same argument again is the Activity Loop in one relationship: motion that does not change what happens next."
+      },
+      {
+       "id": "loop.learning",
+       "why": "The way out is the Learning Loop: a stated expectation and a dated look-back, which is what the rest of the app produces."
+      },
+      {
+       "id": "habit.narrow",
+       "why": "One explanation, the first story that fits, is the habit that keeps an argument going."
+      }
+     ]
+    },
+    {
+     "id": "me",
+     "label": "I think I might be the problem",
+     "links": [
+      {
+       "id": "force.awareness",
+       "why": "The Awareness force asks what I might be contributing that I cannot see, which is exactly this question."
+      },
+      {
+       "id": "rule.own_part",
+       "why": "It leads, but as a question; a non-self explanation is still required so it does not become self-blame."
+      },
+      {
+       "id": "book.ccl",
+       "why": "The owner's reading is that self-awareness is a professional skill, which makes this a reasonable thing to ask and not a confession."
+      }
+     ]
+    },
+    {
+     "id": "else",
+     "label": "Something else",
+     "links": [
+      {
+       "id": "rule.one_thing",
+       "why": "Quiet by design: nothing about the setup is assumed and the sort-and-two-readings protocol works without a category."
+      },
+      {
+       "id": "fr.null",
+       "why": "Friction's honest null: no category rising above a weak signal is a reading, so the advisor says so rather than forcing one."
+      }
+     ]
+    },
+    {
+     "id": "conduct",
+     "label": "I'm being harassed, or punished for saying no",
+     "links": [
+      {
+       "id": "rule.safety_flag",
+       "why": "Routes straight to the conduct path: facts recorded, copies kept outside work systems, the people with the duty to act."
+      },
+      {
+       "id": "ds.one_vs_pattern",
+       "why": "A single serious act is enough to act on, so waiting for a pattern would be the mistake here."
+      },
+      {
+       "id": "ds.power",
+       "why": "Retaliation after refusing is a power problem, which is why no conversation advice is offered."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "need",
+   "phase": "Arrive",
+   "title": "What do you need right now?",
+   "app": "home.need: five needs.",
+   "trust": {
+    "knows": "The need as stated.",
+    "cannot": "Whether it is the right need. Someone asking to prepare may first need to understand.",
+    "controls": "It changes emphasis, not the steps. Nothing is locked after this tap."
+   },
+   "links": [
+    {
+     "id": "loop.learning",
+     "why": "The five needs sit at different points on the Learning Loop: understanding, decision, action, recovery and the exit."
+    },
+    {
+     "id": "rule.one_step",
+     "why": "Whatever the need, the screen sequence ends in one step, not a menu."
+    }
+   ],
+   "options": [
+    {
+     "id": "understand",
+     "label": "To understand what's going on",
+     "links": [
+      {
+       "id": "path.understanding",
+       "why": "Wanting to understand puts the weight on the two readings and the fact that would tell them apart."
+      },
+      {
+       "id": "ds.system_person",
+       "why": "Understanding starts by asking what the setup would produce in anyone."
+      }
+     ]
+    },
+    {
+     "id": "decide",
+     "label": "To decide what to do",
+     "links": [
+      {
+       "id": "alg.utility",
+       "why": "Deciding means stating what you are optimizing for before comparing options."
+      },
+      {
+       "id": "path.judgment",
+       "why": "Judgment is the third stage of the path: weighing, not just seeing."
+      }
+     ]
+    },
+    {
+     "id": "prepare",
+     "label": "To get ready for a conversation",
+     "links": [
+      {
+       "id": "dos.before",
+       "why": "Preparing for a hard conversation is where the five pre-conversation questions belong, when the person manages the other party."
+      },
+      {
+       "id": "book.tdc",
+       "why": "Widely reported advice from the book is honest and early with care; the words step draws on it."
+      }
+     ]
+    },
+    {
+     "id": "recover",
+     "label": "To recover from one that went badly",
+     "links": [
+      {
+       "id": "ds.decision_vs_result",
+       "why": "A conversation that went badly is judged by what was known then, not only by how it ended."
+      },
+      {
+       "id": "ds.hindsight_outcome",
+       "why": "Recovery is where hindsight bends memory hardest, so the sort asks for exact words and times."
+      }
+     ]
+    },
+    {
+     "id": "escalate",
+     "label": "To decide whether to escalate or step away",
+     "links": [
+      {
+       "id": "alg.tree",
+       "why": "Escalating or leaving is a branching choice: what each path would teach you and what each costs."
+      },
+      {
+       "id": "ds.power",
+       "why": "The cost of each branch depends on who holds power over the outcome."
+      },
+      {
+       "id": "rule.safety_flag",
+       "why": "Escalation can mean the conduct path, so the account is checked for it before any advice."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "detail",
+   "phase": "Tell",
+   "title": "Anything specific?",
+   "app": "home.detail: one optional line.",
+   "trust": {
+    "knows": "Only what is typed, word for word.",
+    "cannot": "Anything it was not told. A short account gives a short sort and the advisor does not pad it.",
+    "controls": "Skip is always there and nothing is inferred from skipping."
+   },
+   "links": [
+    {
+     "id": "rule.happened_told",
+     "why": "A line in the person's own words is the raw material for the sort and is carried as written."
+    },
+    {
+     "id": "fr.required",
+     "why": "Friction always asks about the last time something happened, so the example here is an event with a day and a person."
+    },
+    {
+     "id": "rule.plain_voice",
+     "why": "The help text asks for the way you would say it to a friend, not a report."
+    }
+   ],
+   "options": [
+    {
+     "id": "line",
+     "label": "One optional line",
+     "links": [
+      {
+       "id": "ds.one_vs_pattern",
+       "why": "A day and a count ('twice on Tuesday') turn 'always' into something checkable."
+      },
+      {
+       "id": "rule.happened_told",
+       "why": "Events with who and when are what the sort needs most."
+      }
+     ]
+    },
+    {
+     "id": "go",
+     "label": "Think it through",
+     "links": [
+      {
+       "id": "rule.private",
+       "why": "Pressing this sends this text for this step only; the server stores nothing and logs no content."
+      }
+     ]
+    },
+    {
+     "id": "skip",
+     "label": "Skip",
+     "links": [
+      {
+       "id": "rule.one_thing",
+       "why": "Skipping costs nothing and changes nothing about the rest."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "reflect",
+   "phase": "Sort",
+   "title": "Did I get that right?",
+   "app": "reflect: three columns and four tap actions.",
+   "trust": {
+    "knows": "Only the words given. It sorts them and adds nothing.",
+    "cannot": "Whether a line is true, or whether it put a line in the column you would have.",
+    "controls": "Every line can be moved, edited or removed. Nothing goes on until you say 'That's right'."
+   },
+   "links": [
+    {
+     "id": "rule.happened_told",
+     "why": "The whole screen is this rule made visible and editable."
+    },
+    {
+     "id": "fr.weighting",
+     "why": "Friction counts problems described through something that happened for more than an impression, and Teamwork copies that weighting."
+    },
+    {
+     "id": "path.knowledge",
+     "why": "Knowledge comes before understanding: the facts are settled with the person first."
+    },
+    {
+     "id": "book.ccl",
+     "why": "Separating fact from story is a practice in the owner's Conscious Leadership reading and, as widely reported, in the book."
+    }
+   ],
+   "options": [
+    {
+     "id": "happened",
+     "label": "Happened",
+     "links": [
+      {
+       "id": "rule.happened_told",
+       "why": "Counts in full: what was said or done, with when and who saw it."
+      },
+      {
+       "id": "fr.weighting",
+       "why": "Events weigh more than impressions (1.2 against 0.6 for reassuring impressions in Friction)."
+      }
+     ]
+    },
+    {
+     "id": "told",
+     "label": "Told",
+     "links": [
+      {
+       "id": "rule.happened_told",
+       "why": "Counts at a discount because it reached the person through someone else."
+      },
+      {
+       "id": "ds.fae",
+       "why": "People relaying what someone else is like are explaining by trait too, so told lines about character stay light."
+      }
+     ]
+    },
+    {
+     "id": "concluded",
+     "label": "Concluded",
+     "links": [
+      {
+       "id": "rule.happened_told",
+       "why": "A hypothesis to test, not a fact. 'He doesn't respect me' lives here."
+      },
+      {
+       "id": "ds.fae",
+       "why": "Conclusions about character are the usual shape of the attribution error."
+      },
+      {
+       "id": "rule.no_diagnosis",
+       "why": "Nothing in this column is carried forward as a claim about the absent person."
+      }
+     ]
+    },
+    {
+     "id": "move",
+     "label": "Move to",
+     "links": [
+      {
+       "id": "rule.happened_told",
+       "why": "The advisor puts doubtful lines in concluded; moving a line is how the person overrules that."
+      }
+     ]
+    },
+    {
+     "id": "edit",
+     "label": "Edit",
+     "links": [
+      {
+       "id": "rule.plain_voice",
+       "why": "Edits keep the person's own words, not the advisor's."
+      }
+     ]
+    },
+    {
+     "id": "remove",
+     "label": "Remove",
+     "links": [
+      {
+       "id": "rule.private",
+       "why": "A removed line is gone from what the advisor sees next, and kept nowhere else."
+      }
+     ]
+    },
+    {
+     "id": "add",
+     "label": "Add a line",
+     "links": [
+      {
+       "id": "fr.required",
+       "why": "Missing facts arrive here; Friction's rule is to ask for the last time it happened, not for a feeling."
+      },
+      {
+       "id": "rule.happened_told",
+       "why": "The advisor does not pad a short list, so adding is the person's job."
+      }
+     ]
+    },
+    {
+     "id": "next",
+     "label": "That's right",
+     "links": [
+      {
+       "id": "path.knowledge",
+       "why": "Confirmation is what lets later steps weigh each line by its kind."
+      },
+      {
+       "id": "dos.commit",
+       "why": "The first thing the person commits to is the account, before any advice is on the page."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "want",
+   "phase": "Aim",
+   "title": "A month from now, what's different?",
+   "app": "want: six outcomes, your words, or not sure.",
+   "trust": {
+    "knows": "The change the person picks, in their words if they prefer.",
+    "cannot": "Whether that change is within their control or fair to expect.",
+    "controls": "Pick one or two, write your own, or say 'Not sure yet'."
+   },
+   "links": [
+    {
+     "id": "rule.define_outcome",
+     "why": "A target named before any advice, so the advice can be checked against something."
+    },
+    {
+     "id": "loop.learning",
+     "why": "Without a target the loop has nothing to learn against."
+    },
+    {
+     "id": "alg.utility",
+     "why": "The wanted change is the objective every later option is compared against."
+    },
+    {
+     "id": "book.hom",
+     "why": "The owner's Grove reading: output, not activity, is the measure, so the wish should be something observable."
+    }
+   ],
+   "options": [
+    {
+     "id": "know_where",
+     "label": "I know where I stand",
+     "links": [
+      {
+       "id": "book.hom",
+       "why": "Clear expectations come first in the owner's reading of Grove."
+      },
+      {
+       "id": "ds.power",
+       "why": "Not knowing where you stand is often a gap in who holds the information."
+      }
+     ]
+    },
+    {
+     "id": "do_what_said",
+     "label": "They do what they said",
+     "links": [
+      {
+       "id": "fr.states",
+       "why": "Agreed priorities that do not reliably happen is Friction's execution state, a setup word before a person word."
+      },
+      {
+       "id": "case.says-all-set",
+       "why": "Trust the person, check the work, check everyone alike."
+      }
+     ]
+    },
+    {
+     "id": "decisions_reason",
+     "label": "Decisions come with a reason",
+     "links": [
+      {
+       "id": "book.hgw",
+       "why": "The owner's reading: enough context to make good decisions without waiting for permission."
+      },
+      {
+       "id": "case.context-not-permission",
+       "why": "Give context and a limit, not permission case by case."
+      }
+     ]
+    },
+    {
+     "id": "who_decides",
+     "label": "We agree on who decides",
+     "links": [
+      {
+       "id": "fr.states",
+       "why": "Unclear decision rights is one of Friction's setup states."
+      },
+      {
+       "id": "lens.system",
+       "why": "Who decides is a system question before it is a personal one."
+      }
+     ]
+    },
+    {
+     "id": "dread",
+     "label": "I stop dreading the next meeting",
+     "links": [
+      {
+       "id": "rule.define_outcome",
+       "why": "This is a feeling, so the next screens ask what you would see or hear that tells you it has gone."
+      },
+      {
+       "id": "force.trust",
+       "why": "The Trust force's pattern: people managing their relationship with authority rather than the work."
+      }
+     ]
+    },
+    {
+     "id": "own_part",
+     "label": "I understand my own part",
+     "links": [
+      {
+       "id": "force.awareness",
+       "why": "A wish to understand your own part is the Awareness move asked in advance."
+      },
+      {
+       "id": "rule.own_part",
+       "why": "Honoured as a question the advisor will help ask, not a verdict it will hand over."
+      }
+     ]
+    },
+    {
+     "id": "other",
+     "label": "Or in your words",
+     "links": [
+      {
+       "id": "rule.plain_voice",
+       "why": "Free words are carried as written; the advisor mirrors the person's register."
+      }
+     ]
+    },
+    {
+     "id": "skip",
+     "label": "Not sure yet",
+     "links": [
+      {
+       "id": "rule.say_cant_tell",
+       "why": "Not knowing is allowed. The advisor says 'can't tell' too."
+      },
+      {
+       "id": "ds.voi",
+       "why": "The next screen asks for what it needs only if it would change the advice."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "question",
+   "phase": "Ask",
+   "title": "One thing would change my suggestion.",
+   "app": "question: shown only when an answer would change the advice.",
+   "trust": {
+    "knows": "Whether some answer would change the suggestion, judged from your words. Often none would and the screen is skipped.",
+    "cannot": "The answer, or why it was not already said. It cannot check what you tell it.",
+    "controls": "'I don't know' is always there, and you can type your own. The advice goes on either way."
+   },
+   "links": [
+    {
+     "id": "ds.voi",
+     "why": "A question earns its place only if some answer would change what the advisor says."
+    },
+    {
+     "id": "alg.voi",
+     "why": "Decision OS's rule: a check is worthless if no result would change the action."
+    },
+    {
+     "id": "fr.voi",
+     "why": "Friction simulates each answer and asks only if one could change the recommendation."
+    },
+    {
+     "id": "rule.one_question",
+     "why": "At most one, about facts, never to seem thorough."
+    }
+   ],
+   "options": [
+    {
+     "id": "ask",
+     "label": "The one question",
+     "links": [
+      {
+       "id": "alg.voi",
+       "why": "Asked only when two plausible answers lead to different next steps."
+      },
+      {
+       "id": "rule.one_question",
+       "why": "Phrased about facts ('What reason did he give, in his words?'), not judgments ('Did he mean it?')."
+      }
+     ]
+    },
+    {
+     "id": "chips",
+     "label": "Answer choices",
+     "links": [
+      {
+       "id": "rule.one_question",
+       "why": "Two to four short choices help a tired person; free text is always allowed."
+      },
+      {
+       "id": "rule.plain_voice",
+       "why": "Choices are short and plain."
+      }
+     ]
+    },
+    {
+     "id": "own",
+     "label": "Or in your words",
+     "links": [
+      {
+       "id": "rule.happened_told",
+       "why": "An answer about what was said becomes a happened line, in the person's words."
+      }
+     ]
+    },
+    {
+     "id": "idk",
+     "label": "I don't know",
+     "links": [
+      {
+       "id": "rule.say_cant_tell",
+       "why": "Not knowing is a usable answer; the advice goes on with the uncertainty named."
+      },
+      {
+       "id": "ds.voi",
+       "why": "A question you cannot answer today has no value today, and finding out can itself be the step."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "read",
+   "phase": "Read",
+   "title": "Two ways this could be true",
+   "app": "read: explanations, self question, influence, tension.",
+   "trust": {
+    "knows": "The sorted facts, what you want, and your one answer.",
+    "cannot": "Which reading is true. It never ranks them with numbers, and it has heard one side only.",
+    "controls": "Ignore a reading, ask 'Show why', or tell it what is missing. The step is yours to take or change."
+   },
+   "links": [
+    {
+     "id": "rule.non_character",
+     "why": "At least one reading is about the setup, not anyone's character, until facts rule it out."
+    },
+    {
+     "id": "rule.no_diagnosis",
+     "why": "Readings describe reported behaviour and say 'the facts fit two stories'."
+    },
+    {
+     "id": "ds.system_person",
+     "why": "Before explaining a person, ask what the setup would produce in almost anyone."
+    },
+    {
+     "id": "path.understanding",
+     "why": "Understanding is more than one reading held open."
+    },
+    {
+     "id": "book.pca",
+     "why": "The owner's reading of Munger: more than one model, so a familiar pattern is not mistaken for the whole picture."
+    }
+   ],
+   "options": [
+    {
+     "id": "person",
+     "label": "About them",
+     "links": [
+      {
+       "id": "rule.no_diagnosis",
+       "why": "Describes behaviour the person reported, never a trait or motive."
+      },
+      {
+       "id": "ds.fae",
+       "why": "The character reading comes second to the setup reading and never alone."
+      },
+      {
+       "id": "lens.people",
+       "why": "The People lens's own blind spot is expecting people to compensate for a system forever."
+      }
+     ]
+    },
+    {
+     "id": "self",
+     "label": "About your part",
+     "links": [
+      {
+       "id": "rule.own_part",
+       "why": "Offered as a live question, never a verdict and never a clean bill."
+      },
+      {
+       "id": "force.awareness",
+       "why": "The Awareness force: examine your own role before diagnosing others."
+      },
+      {
+       "id": "habit.narrow",
+       "why": "Raised only when the person's own account points at the habit twice."
+      }
+     ]
+    },
+    {
+     "id": "system",
+     "label": "About the setup",
+     "links": [
+      {
+       "id": "ds.system_person",
+       "why": "Names the setup in words a person can test: workload, number, owner, information."
+      },
+      {
+       "id": "fr.states",
+       "why": "Where it fits, the setup is named in Friction's words, such as decision rights unclear or pressure from targets."
+      },
+      {
+       "id": "lens.system",
+       "why": "The System lens's blind spot: expecting better results while the conditions stay the same."
+      },
+      {
+       "id": "force.incentives",
+       "why": "Check what the system rewards before the person."
+      }
+     ]
+    },
+    {
+     "id": "why",
+     "label": "Show why",
+     "links": [
+      {
+       "id": "rule.books_plain",
+       "why": "Reasons appear as plain ideas, lightly attributed, never as proof or a quotation."
+      },
+      {
+       "id": "rule.plain_voice",
+       "why": "Two or three short sentences; the person is tired."
+      }
+     ]
+    },
+    {
+     "id": "supports",
+     "label": "What fits",
+     "links": [
+      {
+       "id": "rule.happened_told",
+       "why": "Lists only facts from the happened or told lines, never conclusions."
+      },
+      {
+       "id": "fr.weighting",
+       "why": "What fits is weighed by kind, events first."
+      }
+     ]
+    },
+    {
+     "id": "distinguishing",
+     "label": "What would tell",
+     "links": [
+      {
+       "id": "alg.tree",
+       "why": "The one fact that says which branch you are on."
+      },
+      {
+       "id": "ds.voi",
+       "why": "Worth finding out only if it would change the step."
+      },
+      {
+       "id": "ds.base_rates",
+       "why": "'Has he done this to others?' is a base-rate question, and the fact most worth having."
+      }
+     ]
+    },
+    {
+     "id": "self_question",
+     "label": "Worth asking yourself",
+     "links": [
+      {
+       "id": "dos.pause",
+       "why": "A pause question for yourself before the choice."
+      },
+      {
+       "id": "force.awareness",
+       "why": "What might I be contributing that I cannot currently see."
+      },
+      {
+       "id": "rule.own_part",
+       "why": "Always a question, never a verdict."
+      }
+     ]
+    },
+    {
+     "id": "tension",
+     "label": "Pulling against each other",
+     "links": [
+      {
+       "id": "dos.tension",
+       "why": "Decision OS renders each case as two good values pulling apart."
+      },
+      {
+       "id": "alg.utility",
+       "why": "When the values conflict, the disagreement is often about the weights, so both are named."
+      },
+      {
+       "id": "rule.say_cant_tell",
+       "why": "Where conditions cannot decide, the advisor says so and gives the choice with both costs."
+      }
+     ]
+    },
+    {
+     "id": "influence",
+     "label": "What you can and can't affect",
+     "links": [
+      {
+       "id": "force.leverage",
+       "why": "Find the point where one change moves many, and stop spending effort where nothing can move."
+      },
+      {
+       "id": "ds.power",
+       "why": "Names any power factor that changes the frame."
+      },
+      {
+       "id": "path.judgment",
+       "why": "Judgment includes knowing what is not yours to change."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "step",
+   "phase": "Act",
+   "title": "One next step",
+   "app": "step: the move, check, why, assumes, backfires, alternative, words, manager questions.",
+   "trust": {
+    "knows": "Your sorted facts, your wish and the readings. It builds one move to fit them.",
+    "cannot": "How the other person will react, or whether the assumption holds. Any step can fail for reasons neither of you can see.",
+    "controls": "Edit the words, take the alternative, or do nothing and the page remains."
+   },
+   "links": [
+    {
+     "id": "rule.one_step",
+     "why": "One move, its assumption, its risk and an alternative. No menu."
+    },
+    {
+     "id": "alg.ev",
+     "why": "Rank by chance and worth less cost: a small step likely to work often beats a heroic one unlikely to."
+    },
+    {
+     "id": "path.judgment",
+     "why": "This is the judgment stage: choose one, say what it depends on."
+    },
+    {
+     "id": "rule.books_plain",
+     "why": "Books enter as plain ideas, never as proof, never quoted."
+    }
+   ],
+   "options": [
+    {
+     "id": "move",
+     "label": "The move",
+     "links": [
+      {
+       "id": "alg.bandit",
+       "why": "Small and cheap enough to learn from if it fails; keep a slice for what you do not yet understand."
+      },
+      {
+       "id": "force.leverage",
+       "why": "Aim at the constraint, not the loudest symptom."
+      },
+      {
+       "id": "book.hom",
+       "why": "The owner's Grove reading: improve the system before pushing harder on a person."
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "label": "Check before you do this",
+     "links": [
+      {
+       "id": "alg.voi",
+       "why": "A cheap check is offered only if its result would change whether you do the step."
+      },
+      {
+       "id": "ds.power",
+       "why": "Includes whether the step is safe given who holds power."
+      }
+     ]
+    },
+    {
+     "id": "why",
+     "label": "Why this one",
+     "links": [
+      {
+       "id": "rule.one_step",
+       "why": "One sentence tying the step to this case."
+      },
+      {
+       "id": "alg.forecast",
+       "why": "Keeps your forecast of what the other person will do apart from your decision about what you will do."
+      }
+     ]
+    },
+    {
+     "id": "assumes",
+     "label": "It assumes",
+     "links": [
+      {
+       "id": "alg.bayes",
+       "why": "Every step bets on a belief; saying it aloud lets a later fact move it by the right amount."
+      },
+      {
+       "id": "rule.say_cant_tell",
+       "why": "An assumption named is an uncertainty named."
+      }
+     ]
+    },
+    {
+     "id": "backfires",
+     "label": "How it could go wrong",
+     "links": [
+      {
+       "id": "book.pca",
+       "why": "Inversion, in the owner's Munger reading: ask first how this would fail."
+      },
+      {
+       "id": "dos.tension",
+       "why": "The risk is usually the other good value, such as speed against care."
+      }
+     ]
+    },
+    {
+     "id": "alternative",
+     "label": "If not this",
+     "links": [
+      {
+       "id": "alg.bandit",
+       "why": "A second route is the exploration slice if the first does not pan out."
+      },
+      {
+       "id": "rule.one_step",
+       "why": "One alternative, not a list."
+      }
+     ]
+    },
+    {
+     "id": "words",
+     "label": "Words you could use",
+     "links": [
+      {
+       "id": "book.tdc",
+       "why": "Honest and early, with care, as the owner reads the book."
+      },
+      {
+       "id": "case.defensive-in-review",
+       "why": "Own your part in one sentence before you explain."
+      },
+      {
+       "id": "rule.plain_voice",
+       "why": "Plain speech the person can edit, in their register."
+      }
+     ]
+    },
+    {
+     "id": "manager",
+     "label": "Before the conversation, since you manage them",
+     "links": [
+      {
+       "id": "dos.before",
+       "why": "The five questions Decision OS asks before a hard performance conversation."
+      },
+      {
+       "id": "habit.control",
+       "why": "'Am I confusing accountability with punishment?' guards against reaching for a rule where a conversation would do."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "post",
+   "phase": "Commit",
+   "title": "If this worked, what would you see?",
+   "app": "post: the sentence, edit, check-in date.",
+   "trust": {
+    "knows": "Your step and the readings; it proposes one sentence.",
+    "cannot": "Whether the sentence will come true. It is a prediction written to be checked.",
+    "controls": "Edit the sentence, choose the date, or keep nothing."
+   },
+   "links": [
+    {
+     "id": "rule.define_outcome",
+     "why": "Observable, first person, dated. Not a feeling."
+    },
+    {
+     "id": "dos.commit",
+     "why": "Written before you see what happens."
+    },
+    {
+     "id": "fr.outcome",
+     "why": "Friction's outcome step compares what was predicted with what was observed."
+    },
+    {
+     "id": "ds.hindsight_outcome",
+     "why": "The sentence guards against memory bending towards the result."
+    }
+   ],
+   "options": [
+    {
+     "id": "sentence",
+     "label": "The sentence",
+     "links": [
+      {
+       "id": "rule.define_outcome",
+       "why": "Something the person would see or hear, not a hope."
+      },
+      {
+       "id": "dos.commit",
+       "why": "Commit before you see, the order Decision OS never breaks."
+      },
+      {
+       "id": "ds.hindsight_outcome",
+       "why": "Written now so that later memory cannot rewrite it."
+      }
+     ]
+    },
+    {
+     "id": "edit",
+     "label": "Edit",
+     "links": [
+      {
+       "id": "rule.define_outcome",
+       "why": "The person is the authority on what they would actually notice."
+      }
+     ]
+    },
+    {
+     "id": "d7",
+     "label": "a week",
+     "links": [
+      {
+       "id": "ds.regression_mean",
+       "why": "Fits a change that should show fast; too short and a bad week passes for a result."
+      }
+     ]
+    },
+    {
+     "id": "d14",
+     "label": "two weeks",
+     "links": [
+      {
+       "id": "alg.bandit",
+       "why": "Early enough to change course while the experiment is still cheap."
+      }
+     ]
+    },
+    {
+     "id": "d30",
+     "label": "a month",
+     "links": [
+      {
+       "id": "ds.one_vs_pattern",
+       "why": "A longer window lets more than one event count, so the look-back is less likely to rest on a single meeting."
+      }
+     ]
+    },
+    {
+     "id": "keep",
+     "label": "Keep this",
+     "links": [
+      {
+       "id": "rule.private",
+       "why": "Kept in this browser, sent nowhere."
+      },
+      {
+       "id": "rule.counts",
+       "why": "No reminder from us; the date is the person's."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kept",
+   "phase": "Commit",
+   "title": "Kept.",
+   "app": "post.kept: copy, calendar, the whole page.",
+   "trust": {
+    "knows": "What you kept.",
+    "cannot": "Remind you or watch for the date. Nothing here is watching.",
+    "controls": "Copy it, put it in your calendar, or leave it."
+   },
+   "links": [
+    {
+     "id": "still.after_step",
+     "why": "One line of relief after the step is chosen: you do not have to have solved it yet."
+    },
+    {
+     "id": "rule.counts",
+     "why": "The only reminders are the ones the person makes: a copy, a calendar file."
+    },
+    {
+     "id": "path.agency",
+     "why": "Agency is the person acting and writing down what they expect."
+    }
+   ],
+   "options": [
+    {
+     "id": "copy",
+     "label": "Copy",
+     "links": [
+      {
+       "id": "rule.private",
+       "why": "A copy leaves the browser only because the person made it."
+      }
+     ]
+    },
+    {
+     "id": "calendar",
+     "label": "Calendar",
+     "links": [
+      {
+       "id": "rule.counts",
+       "why": "A calendar file the person owns, not a notification from us."
+      }
+     ]
+    },
+    {
+     "id": "whole",
+     "label": "See the whole page",
+     "links": [
+      {
+       "id": "rule.happened_told",
+       "why": "The page keeps happened, told and concluded in separate sections."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "feel",
+   "phase": "Close",
+   "title": "How do you feel about it now?",
+   "app": "post.feelings and exits.",
+   "trust": {
+    "knows": "The word you tap.",
+    "cannot": "Whether the situation improved. It records only how you feel about it now.",
+    "controls": "Skip it, or take one of three exits."
+   },
+   "links": [
+    {
+     "id": "still.feelings",
+     "why": "Borrowed from Stillward's done screen: a feeling is kept, not scored, and the honest negative answer opens exits."
+    },
+    {
+     "id": "rule.counts",
+     "why": "Stored as one word, never added into a mood score."
+    }
+   ],
+   "options": [
+    {
+     "id": "clearer",
+     "label": "Clearer",
+     "links": [
+      {
+       "id": "still.feelings",
+       "why": "A feeling kept as a feeling."
+      }
+     ]
+    },
+    {
+     "id": "steadier",
+     "label": "Steadier",
+     "links": [
+      {
+       "id": "still.feelings",
+       "why": "Steadier is not 'it worked'."
+      },
+      {
+       "id": "ds.decision_vs_result",
+       "why": "Feeling better after planning is not evidence about the plan."
+      }
+     ]
+    },
+    {
+     "id": "stuck",
+     "label": "Still stuck",
+     "links": [
+      {
+       "id": "still.feelings",
+       "why": "In Stillward, 'Still heavy' opens exits instead of a nudge; here this opens three."
+      },
+      {
+       "id": "ds.voi",
+       "why": "Being stuck often points at the one fact missing."
+      }
+     ]
+    },
+    {
+     "id": "worse",
+     "label": "Worse",
+     "links": [
+      {
+       "id": "rule.say_cant_tell",
+       "why": "'Then this didn't help yet.' No cheerleading, and no blame placed on the person."
+      },
+      {
+       "id": "ds.decision_vs_result",
+       "why": "A worse feeling says little yet about whether the decision was sound."
+      }
+     ]
+    },
+    {
+     "id": "differently",
+     "label": "Talk it through differently",
+     "links": [
+      {
+       "id": "alg.bandit",
+       "why": "A different route is the exploration slice."
+      },
+      {
+       "id": "loop.learning",
+       "why": "Another pass of the loop, not the same argument."
+      }
+     ]
+    },
+    {
+     "id": "save",
+     "label": "Just save it",
+     "links": [
+      {
+       "id": "rule.one_thing",
+       "why": "A way to stop that keeps what exists."
+      }
+     ]
+    },
+    {
+     "id": "conduct_exit",
+     "label": "This isn't a conversation problem",
+     "links": [
+      {
+       "id": "rule.safety_flag",
+       "why": "The person can say so at any time and the advice changes register."
+      },
+      {
+       "id": "ds.power",
+       "why": "Some problems are not fixed by better words."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "conduct",
+   "phase": "Conduct",
+   "title": "This is a different kind of situation",
+   "app": "conduct: three things, outside help, keep or delete.",
+   "trust": {
+    "knows": "The words you used that point at conduct or retaliation.",
+    "cannot": "Whether a law was broken or what your employer's policy says. It is not HR and not a lawyer.",
+    "controls": "Keep or delete what you wrote, here, whenever you like."
+   },
+   "links": [
+    {
+     "id": "rule.safety_flag",
+     "why": "No explanations exercise, no openers, only the record, a copy outside work and the people with the duty to act."
+    },
+    {
+     "id": "rule.no_diagnosis",
+     "why": "No guessing at the other person's intent."
+    },
+    {
+     "id": "ds.power",
+     "why": "The person with more power may control the systems and the story."
+    },
+    {
+     "id": "force.trust",
+     "why": "'What truth are people least likely to tell me' points here towards those with the duty to act."
+    }
+   ],
+   "options": [
+    {
+     "id": "write",
+     "label": "Write down what happened",
+     "links": [
+      {
+       "id": "rule.safety_flag",
+       "why": "Plain facts with dates and the words used."
+      },
+      {
+       "id": "ds.hindsight_outcome",
+       "why": "Recorded now, before memory settles into a story."
+      }
+     ]
+    },
+    {
+     "id": "copy",
+     "label": "Keep a copy outside work systems",
+     "links": [
+      {
+       "id": "ds.power",
+       "why": "The records at work may be reachable by the person involved; your own copy is not."
+      }
+     ]
+    },
+    {
+     "id": "duty",
+     "label": "Find who holds the duty to act",
+     "links": [
+      {
+       "id": "force.trust",
+       "why": "Candour only works with someone who can act on it."
+      },
+      {
+       "id": "ds.power",
+       "why": "Choose someone above or outside the line of the person involved."
+      }
+     ]
+    },
+    {
+     "id": "outside",
+     "label": "Outside your organization",
+     "links": [
+      {
+       "id": "rule.safety_flag",
+       "why": "Outside bodies exist for exactly this; the app names them and does not call them for you."
+      }
+     ]
+    },
+    {
+     "id": "keep",
+     "label": "Keep what I wrote",
+     "links": [
+      {
+       "id": "rule.private",
+       "why": "Stays in this browser, nowhere else."
+      }
+     ]
+    },
+    {
+     "id": "delete",
+     "label": "Delete what I wrote",
+     "links": [
+      {
+       "id": "rule.private",
+       "why": "Deleted means gone from the browser; no other copy exists."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "due",
+   "phase": "Return",
+   "title": "Open and Ready to look back",
+   "app": "home: open, due, look back, it already happened.",
+   "trust": {
+    "knows": "Only the dates you chose.",
+    "cannot": "What has happened since. It does not check on the other person.",
+    "controls": "You open a situation when you want. Nothing is overdue."
+   },
+   "links": [
+    {
+     "id": "loop.learning",
+     "why": "A situation reaches the last stage of the loop only when the person comes back to it."
+    },
+    {
+     "id": "rule.counts",
+     "why": "A list of what exists, not a to-do list."
+    },
+    {
+     "id": "rule.one_thing",
+     "why": "Each row has one action."
+    }
+   ],
+   "options": [
+    {
+     "id": "open",
+     "label": "Open",
+     "links": [
+      {
+       "id": "rule.counts",
+       "why": "Open means exists, not behind."
+      }
+     ]
+    },
+    {
+     "id": "due",
+     "label": "Ready to look back",
+     "links": [
+      {
+       "id": "loop.learning",
+       "why": "The date the person set has arrived; looking back is their move."
+      }
+     ]
+    },
+    {
+     "id": "early",
+     "label": "It already happened",
+     "links": [
+      {
+       "id": "ds.hindsight_outcome",
+       "why": "Looking back early is allowed; the sooner, the less memory has bent."
+      }
+     ]
+    },
+    {
+     "id": "pickup",
+     "label": "Pick up",
+     "links": [
+      {
+       "id": "rule.one_thing",
+       "why": "Returns to the exact screen left, with what exists."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lookback_blind",
+   "phase": "Look back",
+   "title": "Two answers from memory, before you see what you wrote",
+   "app": "lookback: expected and happened, blind.",
+   "trust": {
+    "knows": "What you wrote then, which stays hidden until you answer.",
+    "cannot": "What actually happened. It relies on your memory and says so.",
+    "controls": "'I didn't know' and 'Can't tell yet' are real answers."
+   },
+   "links": [
+    {
+     "id": "dos.commit",
+     "why": "Decision OS never shows the answer before the pick; the order is the same here."
+    },
+    {
+     "id": "ds.hindsight_outcome",
+     "why": "Asking from memory first exposes how far memory has moved."
+    },
+    {
+     "id": "fr.outcome",
+     "why": "Friction's outcome step compares predicted with observed."
+    },
+    {
+     "id": "still.lookback",
+     "why": "A line of curiosity before the answers, with no instruction."
+    }
+   ],
+   "options": [
+    {
+     "id": "e_works",
+     "label": "Expected: It would work",
+     "links": [
+      {
+       "id": "ds.hindsight_outcome",
+       "why": "Recorded from memory before the reveal, so it can be compared and not shaped by what was written."
+      }
+     ]
+    },
+    {
+     "id": "e_partly",
+     "label": "Expected: Partly",
+     "links": [
+      {
+       "id": "ds.hindsight_outcome",
+       "why": "A partial expectation is an honest one; it is compared, not scored."
+      }
+     ]
+    },
+    {
+     "id": "e_wouldnt",
+     "label": "Expected: It wouldn't",
+     "links": [
+      {
+       "id": "ds.decision_vs_result",
+       "why": "Doing it anyway is a choice to judge by what was known then."
+      }
+     ]
+    },
+    {
+     "id": "e_dunno",
+     "label": "Expected: I didn't know",
+     "links": [
+      {
+       "id": "rule.say_cant_tell",
+       "why": "Not knowing is a recorded answer, not a gap."
+      }
+     ]
+    },
+    {
+     "id": "h_yes",
+     "label": "Happened: It happened",
+     "links": [
+      {
+       "id": "fr.outcome",
+       "why": "The observed half of predicted versus observed."
+      },
+      {
+       "id": "ds.decision_vs_result",
+       "why": "That it happened says little by itself about whether the step caused it."
+      }
+     ]
+    },
+    {
+     "id": "h_part",
+     "label": "Happened: Part of it",
+     "links": [
+      {
+       "id": "fr.outcome",
+       "why": "Kept as part, not rounded to a yes."
+      }
+     ]
+    },
+    {
+     "id": "h_no",
+     "label": "Happened: It didn't",
+     "links": [
+      {
+       "id": "ds.decision_vs_result",
+       "why": "Says something about the outcome, little about the decision."
+      }
+     ]
+    },
+    {
+     "id": "h_cant",
+     "label": "Happened: Can't tell yet",
+     "links": [
+      {
+       "id": "rule.say_cant_tell",
+       "why": "Ends in a later look, not a verdict."
+      }
+     ]
+    },
+    {
+     "id": "detail",
+     "label": "A line, if you want",
+     "links": [
+      {
+       "id": "ds.hindsight_outcome",
+       "why": "A line from memory is kept apart from the line from then."
+      }
+     ]
+    },
+    {
+     "id": "reveal",
+     "label": "Show me what I wrote",
+     "links": [
+      {
+       "id": "dos.commit",
+       "why": "The reveal comes only after both answers are in."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lookback_reveal",
+   "phase": "Look back",
+   "title": "What you wrote then and what you say now",
+   "app": "lookback: then, now, matched.",
+   "trust": {
+    "knows": "Two things: what you wrote then and what you say now.",
+    "cannot": "Why they differ.",
+    "controls": "Nothing is graded. You can leave here."
+   },
+   "links": [
+    {
+     "id": "ds.hindsight_outcome",
+     "why": "Both are shown together so drift is visible and not corrected."
+    },
+    {
+     "id": "fr.outcome",
+     "why": "Predicted next to observed."
+    },
+    {
+     "id": "rule.honest_inference",
+     "why": "The comparison is stated plainly and no more."
+    }
+   ],
+   "options": [
+    {
+     "id": "then",
+     "label": "What you wrote then",
+     "links": [
+      {
+       "id": "dos.commit",
+       "why": "Shown exactly as written, in the person's words."
+      }
+     ]
+    },
+    {
+     "id": "now",
+     "label": "What you say now",
+     "links": [
+      {
+       "id": "ds.hindsight_outcome",
+       "why": "Next to it, so a shift towards the result is visible."
+      }
+     ]
+    },
+    {
+     "id": "matched",
+     "label": "It happened / Part / It didn't / Can't tell yet",
+     "links": [
+      {
+       "id": "fr.outcome",
+       "why": "Four states, as Friction's Improved, No change, Worse, with an honest fourth."
+      },
+      {
+       "id": "rule.say_cant_tell",
+       "why": "'Can't tell yet' is a state, not a failure."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lookback_inference",
+   "phase": "Look back",
+   "title": "What one outcome can tell you",
+   "app": "lookback: inference and one line for next time.",
+   "trust": {
+    "knows": "Your two sets of answers and the case.",
+    "cannot": "Whether the approach was good. One outcome cannot say.",
+    "controls": "Write a lesson or add nothing."
+   },
+   "links": [
+    {
+     "id": "rule.honest_inference",
+     "why": "Never claims one outcome proves an approach."
+    },
+    {
+     "id": "ds.decision_vs_result",
+     "why": "The decision is judged by what was known, the result is partial evidence."
+    },
+    {
+     "id": "ds.regression_mean",
+     "why": "Luck, mood and other events are in the mix; a bad week often eases by itself."
+    },
+    {
+     "id": "loop.learning",
+     "why": "The lesson is the Learning stage, in the person's own words."
+    }
+   ],
+   "options": [
+    {
+     "id": "inference",
+     "label": "What one outcome can tell you",
+     "links": [
+      {
+       "id": "rule.honest_inference",
+       "why": "Two sentences, specific to this case."
+      },
+      {
+       "id": "ds.regression_mean",
+       "why": "Names the plain alternatives to 'the step worked' or 'failed'."
+      }
+     ]
+    },
+    {
+     "id": "lesson",
+     "label": "One line for next time",
+     "links": [
+      {
+       "id": "loop.learning",
+       "why": "A lesson in the person's words becomes what changes the next cycle."
+      }
+     ]
+    },
+    {
+     "id": "keep",
+     "label": "Keep the lesson",
+     "links": [
+      {
+       "id": "ds.one_vs_pattern",
+       "why": "Tagged to the kind of situation so two or three similar ones can start to say something."
+      }
+     ]
+    },
+    {
+     "id": "nothing",
+     "label": "Nothing to add",
+     "links": [
+      {
+       "id": "rule.one_thing",
+       "why": "A way to stop that keeps what exists."
+      }
+     ]
+    },
+    {
+     "id": "earlier",
+     "label": "You've written this before",
+     "links": [
+      {
+       "id": "ds.one_vs_pattern",
+       "why": "A lesson that comes back with a matching tag is the first sign of a pattern."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "record",
+   "phase": "Return",
+   "title": "Your record",
+   "app": "home.record and page.",
+   "trust": {
+    "knows": "Counts of what exists in this browser.",
+    "cannot": "How you are doing, or whether anything improved overall.",
+    "controls": "Delete everything, any time."
+   },
+   "links": [
+    {
+     "id": "rule.counts",
+     "why": "Counts only grow and are never turned into a score."
+    },
+    {
+     "id": "rule.private",
+     "why": "The record lives only in this browser."
+    },
+    {
+     "id": "path.agency",
+     "why": "The record is the person's own evidence of acting and learning."
+    }
+   ],
+   "options": [
+    {
+     "id": "counts",
+     "label": "Thought through, looked back on, happened as written, lessons",
+     "links": [
+      {
+       "id": "rule.counts",
+       "why": "Four counts. No streak, no score."
+      },
+      {
+       "id": "ds.one_vs_pattern",
+       "why": "'Happened as written' means little until there are several."
+      }
+     ]
+    },
+    {
+     "id": "page",
+     "label": "Teamwork page",
+     "links": [
+      {
+       "id": "path.agency",
+       "why": "Account, wish, sort, readings, step, words and what I'll look for, on one page."
+      }
+     ]
+    },
+    {
+     "id": "delete_all",
+     "label": "Delete everything here",
+     "links": [
+      {
+       "id": "rule.private",
+       "why": "Removes every situation from this browser; there is no copy anywhere else."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "relations": [
+  {
+   "from": "ds.base_rates",
+   "to": "alg.bayes",
+   "kind": "supports",
+   "why": "The prior in an update is the base rate, so the rule has nothing to start from without it."
+  },
+  {
+   "from": "alg.voi",
+   "to": "ds.voi",
+   "kind": "specializes",
+   "why": "Decision OS's valueOfInformation is the worked form: value a check against the action you already lean towards."
+  },
+  {
+   "from": "fr.voi",
+   "to": "ds.voi",
+   "kind": "specializes",
+   "why": "Friction applies the same idea by simulating each answer and asking only if one could change the recommendation."
+  },
+  {
+   "from": "rule.one_question",
+   "to": "ds.voi",
+   "kind": "supports",
+   "why": "The 'one question, only if it changes the advice' rule is the idea turned into a protocol line."
+  },
+  {
+   "from": "alg.forecast",
+   "to": "ds.decision_vs_result",
+   "kind": "supports",
+   "why": "Keeping a forecast apart from a decision is how a good choice is told from a lucky outcome."
+  },
+  {
+   "from": "dos.commit",
+   "to": "ds.hindsight_outcome",
+   "kind": "supports",
+   "why": "Writing the call before the result is the practical guard against remembering that you knew."
+  },
+  {
+   "from": "ds.hindsight_outcome",
+   "to": "rule.honest_inference",
+   "kind": "supports",
+   "why": "If memory bends towards the result, one remembered outcome cannot carry a claim about the approach."
+  },
+  {
+   "from": "ds.decision_vs_result",
+   "to": "rule.honest_inference",
+   "kind": "supports",
+   "why": "Judging the decision by what was known is why the look-back refuses to say the approach worked or failed."
+  },
+  {
+   "from": "ds.regression_mean",
+   "to": "rule.honest_inference",
+   "kind": "supports",
+   "why": "A bad stretch easing by itself is one of the plain reasons one outcome cannot prove the step."
+  },
+  {
+   "from": "ds.one_vs_pattern",
+   "to": "rule.own_part",
+   "kind": "supports",
+   "why": "The own-part question waits for the account to point at the same habit twice."
+  },
+  {
+   "from": "ds.one_vs_pattern",
+   "to": "rule.happened_told",
+   "kind": "supports",
+   "why": "Naming the behaviour before the trait is the same move as keeping happened apart from concluded."
+  },
+  {
+   "from": "fr.weighting",
+   "to": "rule.happened_told",
+   "kind": "supports",
+   "why": "Friction's weights are the numeric form of 'happened in full, told at a discount, concluded as hypothesis'."
+  },
+  {
+   "from": "fr.required",
+   "to": "fr.weighting",
+   "kind": "supports",
+   "why": "Always asking for the last time something happened is what gives the weighting events to weigh."
+  },
+  {
+   "from": "fr.outcome",
+   "to": "loop.learning",
+   "kind": "supports",
+   "why": "Comparing predicted with observed is the Learning stage in a form that can be repeated."
+  },
+  {
+   "from": "fr.null",
+   "to": "rule.say_cant_tell",
+   "kind": "specializes",
+   "why": "Friction's 'no clear constraint' answer is what saying can't tell looks like when it is built into a product."
+  },
+  {
+   "from": "fr.confidence",
+   "to": "rule.say_cant_tell",
+   "kind": "supports",
+   "why": "Labels such as Early signal keep a weak reading from being heard as a finding."
+  },
+  {
+   "from": "rule.define_outcome",
+   "to": "dos.commit",
+   "kind": "specializes",
+   "why": "A dated, observable sentence written before acting is commit-before-you-see applied to one situation."
+  },
+  {
+   "from": "dos.commit",
+   "to": "loop.learning",
+   "kind": "supports",
+   "why": "Without a prediction written first, the cycle has nothing to learn against."
+  },
+  {
+   "from": "path.agency",
+   "to": "loop.learning",
+   "kind": "specializes",
+   "why": "The final stage of the Path to Agency is the action and learning end of the loop, seen from the person acting."
+  },
+  {
+   "from": "path.knowledge",
+   "to": "path.understanding",
+   "kind": "supports",
+   "why": "Facts settled with the person are the ground the readings stand on."
+  },
+  {
+   "from": "path.understanding",
+   "to": "path.judgment",
+   "kind": "supports",
+   "why": "A step is chosen between readings, not before them."
+  },
+  {
+   "from": "path.judgment",
+   "to": "path.agency",
+   "kind": "supports",
+   "why": "Agency is a chosen step acted on and then checked."
+  },
+  {
+   "from": "alg.utility",
+   "to": "dos.tension",
+   "kind": "specializes",
+   "why": "Decision OS's utility lesson is the maths of two values pulling apart: change the weights and the winner changes."
+  },
+  {
+   "from": "ds.fae",
+   "to": "rule.non_character",
+   "kind": "supports",
+   "why": "The tendency to explain others by trait is the main reason a setup reading is always carried."
+  },
+  {
+   "from": "ds.system_person",
+   "to": "rule.non_character",
+   "kind": "supports",
+   "why": "The rule is this question made mandatory."
+  },
+  {
+   "from": "ds.fae",
+   "to": "rule.happened_told",
+   "kind": "supports",
+   "why": "Because we infer traits from single acts, the concluded column is treated as a hypothesis."
+  },
+  {
+   "from": "lens.system",
+   "to": "ds.system_person",
+   "kind": "supports",
+   "why": "The owner's System lens is the habit of looking at conditions before people."
+  },
+  {
+   "from": "fr.states",
+   "to": "ds.system_person",
+   "kind": "specializes",
+   "why": "Friction's fifteen states are the vocabulary for naming a setup problem in a way that can be tested."
+  },
+  {
+   "from": "force.incentives",
+   "to": "ds.system_person",
+   "kind": "supports",
+   "why": "What a person is measured on is the most common setup cause."
+  },
+  {
+   "from": "force.conditions",
+   "to": "ds.system_person",
+   "kind": "supports",
+   "why": "If the conditions make the behaviour nearly inevitable, a person explanation is the wrong first stop."
+  },
+  {
+   "from": "case.one-explanation",
+   "to": "ds.system_person",
+   "kind": "specializes",
+   "why": "Decision OS's case says 'before you explain a person, rule out the situation', which is this idea in the owner's words."
+  },
+  {
+   "from": "case.metrics-reward-the-wrong-thing",
+   "to": "force.incentives",
+   "kind": "specializes",
+   "why": "People do what the number pays for; fix yours first."
+  },
+  {
+   "from": "book.pca",
+   "to": "rule.non_character",
+   "kind": "supports",
+   "why": "In the owner's reading, using more than one model is what stops a familiar pattern passing for the whole picture."
+  },
+  {
+   "from": "habit.narrow",
+   "to": "book.pca",
+   "kind": "specializes",
+   "why": "Settling on the first story that fits is the person-level form of the first-conclusion tendency."
+  },
+  {
+   "from": "book.hom",
+   "to": "lens.system",
+   "kind": "supports",
+   "why": "Clear expectations, processes and metrics are the owner's reading of what the System lens looks at."
+  },
+  {
+   "from": "book.hgw",
+   "to": "lens.system",
+   "kind": "supports",
+   "why": "Environment, information and decision rights are what the System lens says to design."
+  },
+  {
+   "from": "book.tdc",
+   "to": "lens.people",
+   "kind": "supports",
+   "why": "Trust and honest feedback are the owner's reading of what helps people do their best work."
+  },
+  {
+   "from": "book.ceo",
+   "to": "lens.business",
+   "kind": "supports",
+   "why": "The number a manager is reacting to is the Business lens at the scale of one person."
+  },
+  {
+   "from": "force.leverage",
+   "to": "book.hom",
+   "kind": "supports",
+   "why": "Finding where one change moves many is the owner's reading of Grove's leverage."
+  },
+  {
+   "from": "lens.multiplier",
+   "to": "path.understanding",
+   "kind": "supports",
+   "why": "Understanding means the three lenses reinforcing one another, not any one of them winning."
+  },
+  {
+   "from": "force.trust",
+   "to": "ds.psych_safety",
+   "kind": "supports",
+   "why": "The Trust force's healthy state, people telling the truth and recovering from mistakes, describes what psychological safety makes possible."
+  },
+  {
+   "from": "book.hgw",
+   "to": "ds.psych_safety",
+   "kind": "supports",
+   "why": "The owner's reading of Google names psychological safety among the conditions that let people act."
+  },
+  {
+   "from": "case.team-agrees",
+   "to": "ds.psych_safety",
+   "kind": "specializes",
+   "why": "Silence is not agreement; ask what disagreeing with you costs."
+  },
+  {
+   "from": "fr.states",
+   "to": "ds.psych_safety",
+   "kind": "supports",
+   "why": "Friction's trust state, it is not safe to raise problems, is the setup form of the same idea."
+  },
+  {
+   "from": "ds.power",
+   "to": "ds.psych_safety",
+   "kind": "supports",
+   "why": "How safe it is to speak depends on who holds power over the speaker."
+  },
+  {
+   "from": "ds.power",
+   "to": "rule.safety_flag",
+   "kind": "supports",
+   "why": "Retaliation by someone with power is why some cases leave the advice path altogether."
+  },
+  {
+   "from": "force.awareness",
+   "to": "rule.own_part",
+   "kind": "supports",
+   "why": "The Awareness force is the question the rule asks."
+  },
+  {
+   "from": "book.ccl",
+   "to": "rule.own_part",
+   "kind": "supports",
+   "why": "In the owner's reading, curiosity and owning your reaction are professional skills, so asking about your part is ordinary."
+  },
+  {
+   "from": "dos.pause",
+   "to": "rule.own_part",
+   "kind": "supports",
+   "why": "A pause question for yourself before the choice is the screen where the part is asked."
+  },
+  {
+   "from": "dos.before",
+   "to": "rule.own_part",
+   "kind": "supports",
+   "why": "The five questions ask about your part before you ask anything of them."
+  },
+  {
+   "from": "dos.habits",
+   "to": "rule.own_part",
+   "kind": "supports",
+   "why": "The eight habit families give the question a precise shape."
+  },
+  {
+   "from": "case.defensive-in-review",
+   "to": "habit.blame",
+   "kind": "specializes",
+   "why": "Own it in one sentence before you explain it."
+  },
+  {
+   "from": "habit.control",
+   "to": "dos.before",
+   "kind": "specializes",
+   "why": "'Am I confusing accountability with punishment?' is the pre-conversation question about this habit."
+  },
+  {
+   "from": "ds.base_rates",
+   "to": "rule.safety_flag",
+   "kind": "tension",
+   "why": "A reassuring base rate must never talk anyone out of recording or reporting conduct."
+  },
+  {
+   "from": "ds.fae",
+   "to": "rule.safety_flag",
+   "kind": "tension",
+   "why": "Looking for a situational cause suits a missed deadline and is wrong for harassment."
+  },
+  {
+   "from": "rule.non_character",
+   "to": "rule.safety_flag",
+   "kind": "tension",
+   "why": "The non-character explanation is switched off on the conduct path, by design."
+  },
+  {
+   "from": "ds.one_vs_pattern",
+   "to": "rule.safety_flag",
+   "kind": "tension",
+   "why": "Waiting for a pattern is sound for an interruption and a mistake for a serious single act."
+  },
+  {
+   "from": "ds.voi",
+   "to": "ds.power",
+   "kind": "tension",
+   "why": "Asking is not free when the answer could expose the person to the one who holds power."
+  },
+  {
+   "from": "ds.regression_mean",
+   "to": "ds.power",
+   "kind": "tension",
+   "why": "'It may ease by itself' is poor advice to someone being pushed out."
+  },
+  {
+   "from": "ds.decision_vs_result",
+   "to": "ds.one_vs_pattern",
+   "kind": "tension",
+   "why": "Do not blame the decision for one bad result; do not excuse it after three."
+  },
+  {
+   "from": "ds.system_person",
+   "to": "book.tdc",
+   "kind": "tension",
+   "why": "A setup reading can delay saying a true hard thing early and kindly to a person."
+  },
+  {
+   "from": "ds.power",
+   "to": "book.tdc",
+   "kind": "tension",
+   "why": "Candour with care assumes it is safe to be candid, which is least true from below."
+  },
+  {
+   "from": "book.hom",
+   "to": "book.ccl",
+   "kind": "tension",
+   "why": "Output as the measure and how a leader shows up can give different verdicts on the same person."
+  },
+  {
+   "from": "book.tdc",
+   "to": "book.hom",
+   "kind": "tension",
+   "why": "Kind, early feedback can soften a miss that a useful metric would have shown plainly."
+  },
+  {
+   "from": "book.hgw",
+   "to": "book.pca",
+   "kind": "tension",
+   "why": "Trust and transparency as conditions against Munger's warning that incentives quietly override whatever trust was built."
+  },
+  {
+   "from": "book.tdc",
+   "to": "book.ceo",
+   "kind": "tension",
+   "why": "Care for the person and the number the business must hit often point at different moves."
+  },
+  {
+   "from": "force.trust",
+   "to": "force.incentives",
+   "kind": "tension",
+   "why": "A team can have real trust and still behave as the incentives pay it to."
+  },
+  {
+   "from": "alg.bandit",
+   "to": "alg.ev",
+   "kind": "tension",
+   "why": "An experiment with a low chance now looks poor on expected value and is the one that teaches you most."
+  },
+  {
+   "from": "dos.tension",
+   "to": "rule.one_step",
+   "kind": "tension",
+   "why": "Showing both good values and recommending one step pull against each other; the app shows the tension, then picks one move."
+  },
+  {
+   "from": "loop.activity",
+   "to": "loop.learning",
+   "kind": "tension",
+   "why": "Same inputs, opposite ends: one repeats the work, the other changes what happens next."
+  },
+  {
+   "from": "rule.safety_flag",
+   "to": "rule.one_step",
+   "kind": "tension",
+   "why": "On the conduct path there is no single conversation step; the step is the record and the route to the people with the duty to act."
+  }
+ ],
+ "principles": [
+  {
+   "id": "force.awareness",
+   "kind": "force",
+   "label": "Awareness",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, Path to Agency card",
+   "summary": "See your own part. Before solving the problem, examine your own role in creating or maintaining it.",
+   "ask": "What might I be contributing that I can't currently see?",
+   "used": true
+  },
+  {
+   "id": "force.trust",
+   "kind": "force",
+   "label": "Trust",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, Path to Agency card",
+   "summary": "Create the conditions for people to do their best work. Reward candor, especially when the information is uncomfortable.",
+   "ask": "What truth are people least likely to tell me?",
+   "used": true
+  },
+  {
+   "id": "force.conditions",
+   "kind": "force",
+   "label": "Conditions",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, Path to Agency card",
+   "summary": "Design the environment, not just the behavior. Change the environment that produces the behavior.",
+   "ask": "What are our current conditions making almost inevitable?",
+   "used": true
+  },
+  {
+   "id": "force.value",
+   "kind": "force",
+   "label": "Value",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, Path to Agency card",
+   "summary": "Know what actually creates value. Trace work all the way to the customer or business outcome.",
+   "ask": "If we stopped doing this, who would actually lose value?",
+   "used": false
+  },
+  {
+   "id": "force.incentives",
+   "kind": "force",
+   "label": "Incentives",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, Path to Agency card",
+   "summary": "Look at what the system actually rewards. Examine what gets rewarded, promoted, measured, celebrated, and tolerated.",
+   "ask": "What behavior are we unintentionally paying people to produce?",
+   "used": true
+  },
+  {
+   "id": "force.leverage",
+   "kind": "force",
+   "label": "Leverage",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, Path to Agency card",
+   "summary": "Find where effort multiplies. Find the point where changing one thing changes many things.",
+   "ask": "Where would one hour of attention create the greatest downstream impact?",
+   "used": true
+  },
+  {
+   "id": "loop.activity",
+   "kind": "loop",
+   "label": "The Activity Loop",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, The Blind Spot",
+   "summary": "Activity can look like progress yet results remain unchanged.",
+   "used": true
+  },
+  {
+   "id": "loop.learning",
+   "kind": "loop",
+   "label": "The Learning Loop",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, The Blind Spot",
+   "summary": "Each cycle builds on the last, turning better decisions into better results over time.",
+   "used": true
+  },
+  {
+   "id": "lens.business",
+   "kind": "lens",
+   "label": "Business lens: Create Value",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, The Three Lenses",
+   "summary": "Blind spot: Optimizing individual results without understanding how they contribute to the whole.",
+   "used": true
+  },
+  {
+   "id": "lens.system",
+   "kind": "lens",
+   "label": "System lens: Create Leverage",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, The Three Lenses",
+   "summary": "Blind spot: Expecting better results from people while leaving the conditions that shape their work unchanged.",
+   "used": true
+  },
+  {
+   "id": "lens.people",
+   "kind": "lens",
+   "label": "People lens: Create Capability",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, The Three Lenses",
+   "summary": "Blind spot: Expecting people to compensate indefinitely for systems that make good performance difficult.",
+   "used": true
+  },
+  {
+   "id": "lens.leadership",
+   "kind": "lens",
+   "label": "Leadership (Business + People)",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, The Three Lenses",
+   "summary": "A clear direction only matters when it changes what the organization does.",
+   "used": false
+  },
+  {
+   "id": "lens.capability",
+   "kind": "lens",
+   "label": "Capability (System + People)",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, The Three Lenses",
+   "summary": "Potential becomes performance when people have the conditions to apply what they know.",
+   "used": false
+  },
+  {
+   "id": "lens.scale",
+   "kind": "lens",
+   "label": "Scale (Business + System)",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, The Three Lenses",
+   "summary": "Growth becomes sustainable when the organization can reproduce results without reproducing the same problems.",
+   "used": false
+  },
+  {
+   "id": "lens.multiplier",
+   "kind": "lens",
+   "label": "Multiplier (Business + System + People)",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, The Three Lenses",
+   "summary": "The whole is greater when the parts work together.",
+   "used": true
+  },
+  {
+   "id": "path.knowledge",
+   "kind": "path",
+   "label": "Knowledge",
+   "lane": "shared",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, The Path to Agency",
+   "summary": "What happened, what was told, what was concluded: sorted and checked with the person.",
+   "used": true
+  },
+  {
+   "id": "path.understanding",
+   "kind": "path",
+   "label": "Understanding",
+   "lane": "shared",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, The Path to Agency",
+   "summary": "Two or three readings held open, including one about the setup, with the fact that would tell them apart.",
+   "used": true
+  },
+  {
+   "id": "path.judgment",
+   "kind": "path",
+   "label": "Judgment",
+   "lane": "shared",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, The Path to Agency",
+   "summary": "One next step with its assumption, its risk and an alternative, chosen by the person.",
+   "used": true
+  },
+  {
+   "id": "path.agency",
+   "kind": "path",
+   "label": "Agency",
+   "lane": "shared",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, The Path to Agency",
+   "summary": "The person acts, writes what they expect, and later compares it with what happened.",
+   "used": true
+  },
+  {
+   "id": "book.hgw",
+   "kind": "book",
+   "label": "How Google Works",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, Reading (owner's takeaway, not a quotation)",
+   "summary": "Culture is an operating system. Conditions vocabulary for the setup explanation: context over control, transparency, decision rights.",
+   "used": true
+  },
+  {
+   "id": "book.ccl",
+   "kind": "book",
+   "label": "The 15 Commitments of Conscious Leadership",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, Reading (owner's takeaway, not a quotation)",
+   "summary": "Self-awareness is a professional skill. The stance behind the self question: curiosity over being right, responsibility without blame. Separating fact from story is a practice in this book as widely reported.",
+   "used": true
+  },
+  {
+   "id": "book.tdc",
+   "kind": "book",
+   "label": "Trillion Dollar Coach",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, Reading (owner's takeaway, not a quotation)",
+   "summary": "Your job is to make the people around you better. Relational moves: honest feedback early, asked before told, trust and challenge together. Governs the step when the person manages the other party.",
+   "used": true
+  },
+  {
+   "id": "book.ceo",
+   "kind": "book",
+   "label": "What the CEO Wants You to Know",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, Reading (owner's takeaway, not a quotation)",
+   "summary": "Understand the business underneath the job. The business reading: the other person may be reacting to a number you cannot see.",
+   "used": true
+  },
+  {
+   "id": "book.pca",
+   "kind": "book",
+   "label": "Poor Charlie's Almanack",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, Reading (owner's takeaway, not a quotation)",
+   "summary": "Think in models, not formulas. The reason the advisor never settles on one story: more than one model, incentives first, inversion, and the first-conclusion tendency.",
+   "used": true
+  },
+  {
+   "id": "book.hom",
+   "kind": "book",
+   "label": "High Output Management",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Matthew Schmidt site, Reading (owner's takeaway, not a quotation)",
+   "summary": "Build systems, not heroics. Output over activity, clear expectations, useful metrics; a process problem often wears a person's face.",
+   "used": true
+  },
+  {
+   "id": "book.fdt",
+   "kind": "book",
+   "label": "The Five Dysfunctions of a Team",
+   "lane": "organizational_behaviour",
+   "status": "widely_reported",
+   "source": "Widely reported idea only. No owner material.",
+   "summary": "As widely reported: absence of trust, fear of conflict, lack of commitment, avoidance of accountability and inattention to results, each resting on the one before. This book is not in the owner's Reading section and no owner takeaway exists.",
+   "thin": true,
+   "used": true
+  },
+  {
+   "id": "alg.bayes",
+   "kind": "algorithm",
+   "label": "Bayesian updating",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Decision OS, bayesUpdate(prior, evidence)",
+   "summary": "Start from the base rate. Let each clue move you by how much likelier it is if you are right than if you are wrong. Strong clues move you a lot, cheap talk a little. Nothing moves you to certainty.",
+   "applies_when": "Someone has a belief about another person or a situation and gets a new fact: a reply, a missed meeting, a kind word. The question is how far that fact should move them.",
+   "misleads_when": "Reps under-move on good evidence and over-move on the last thing they heard. At work: one cold email or one warm hallway comment is read as the whole story.",
+   "used": true
+  },
+  {
+   "id": "alg.voi",
+   "kind": "algorithm",
+   "label": "Value of information",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Decision OS, valueOfInformation(causes, actions, diagnostics, leaning)",
+   "summary": "Before any check, ask which result would make you do something different, and what that is worth. If no result would, skip the check. A check is valued against the action you are already leaning towards.",
+   "applies_when": "Deciding whether to ask the one question, wait, or gather more before acting.",
+   "misleads_when": "Checks that only confirm what you would do anyway still cost something. The mirror trap: acting without the one cheap check whose answer would flip the move.",
+   "used": true
+  },
+  {
+   "id": "alg.ev",
+   "kind": "algorithm",
+   "label": "Expected value",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Decision OS, expectedValue({p, value, cost})",
+   "summary": "Chance times prize, minus the cost of chasing it. Rank options by that number, not by the size of the prize.",
+   "applies_when": "Choosing between a large unlikely win and a modest likely one, for example escalating a long shot against fixing a smaller thing that will probably work.",
+   "misleads_when": "Big equals important. A likely small win can be worth about twice an unlikely big one. The cost of your own time is part of the cost.",
+   "used": true
+  },
+  {
+   "id": "alg.tree",
+   "kind": "algorithm",
+   "label": "Decision tree",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Decision OS, evaluateTree(node, payoffs)",
+   "summary": "Lay out the branches, weigh each by its odds, roll the value back to today. Then compare that with what pursuing costs. The branch that carries most of the value is the fact to verify first.",
+   "applies_when": "A choice that depends on one unknown, such as whether the other person has the information or the authority.",
+   "misleads_when": "Precision is less important than order of magnitude, and the tree tells you which uncertainty matters most. Drawing it carefully for a minor uncertainty is wasted care.",
+   "used": true
+  },
+  {
+   "id": "alg.utility",
+   "kind": "algorithm",
+   "label": "Utility and trade-offs",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Decision OS, utilityRank(options, weights)",
+   "summary": "State what you are optimizing for before you compare options. The best option is the best option for a stated objective. When two people disagree on the answer, check whether they disagree on the weights.",
+   "applies_when": "Two people want different things from the same decision: speed against care, results against rest, the standard against the exception.",
+   "misleads_when": "Arguing the options when the real disagreement is the objective. Also: an option that loses on every objective cannot be rescued by any weights.",
+   "used": true
+  },
+  {
+   "id": "alg.bandit",
+   "kind": "algorithm",
+   "label": "Explore and exploit",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Decision OS, ucbScores(arms, c), allocateHours(arms, hours, c)",
+   "summary": "Spend most of your time where you know it pays. Keep a slice for what you do not understand, sized by how long you will be around to use the answer. Update an estimate, do not replace it, after one bad week.",
+   "applies_when": "A person has settled into a routine with a colleague or manager and has stopped testing whether a different approach would work.",
+   "misleads_when": "Overreacting to the last result in either direction.",
+   "used": true
+  },
+  {
+   "id": "alg.forecast",
+   "kind": "algorithm",
+   "label": "Prediction versus decision",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Decision OS, (lesson: prediction-vs-decision)",
+   "summary": "A forecast tells you what might happen. A decision tells you what to do about it. Break headline numbers into the drivers you can act on, then judge those drivers against the objective.",
+   "applies_when": "Someone says 'this will never change' or 'it will be fine'. Either is a forecast, and neither is a plan.",
+   "misleads_when": "A confident prediction with a bad payoff model produces confident mistakes.",
+   "used": true
+  },
+  {
+   "id": "ds.base_rates",
+   "kind": "idea",
+   "label": "Base rates",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Decision OS, Bayesian Updating lesson ('Start from the base rate').",
+   "summary": "Before the details of this case, ask how often situations like it turn out each way. The case in front of you feels unique and most are not.",
+   "applies_when": "The person is sure of a story from one angle ('he always does this', 'this will never get done') and the advisor needs a sober starting point before weighing new facts.",
+   "misleads_when": "There is no honest reference group, or the group is unlike this team. Also when it is used to wave away a person who is describing something that happened: most bosses are fine is no answer to one boss who is not.",
+   "used": true
+  },
+  {
+   "id": "ds.voi",
+   "kind": "idea",
+   "label": "Value of information",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Decision OS, Value of Information lesson and valueOfInformation(); Friction asks a question only if some answer could change the recommendation.",
+   "summary": "A question is worth asking only if some answer would change what you do. Otherwise the answer is trivia and the asking costs the person energy.",
+   "applies_when": "Deciding whether the advisor asks its one question, and whether the person should find something out before acting.",
+   "misleads_when": "Waiting costs more than knowing is worth (a deadline, a safety issue). Also when asking is itself the right act: 'what reason did you have?' is information and a gesture.",
+   "used": true
+  },
+  {
+   "id": "ds.hindsight_outcome",
+   "kind": "idea",
+   "label": "Hindsight and outcome bias",
+   "lane": "decision_science",
+   "status": "widely_reported",
+   "source": "Widely reported in the judgment-and-decision literature. Not drawn from the owner's material.",
+   "summary": "Once we know how something turned out, we remember having expected it (hindsight), and we judge the decision by its result (outcome bias).",
+   "applies_when": "At the look-back, when the person recalls what they expected after already knowing what happened.",
+   "misleads_when": "Used to dismiss a warning someone actually wrote down at the time. The written line is the guard against the bias, not a casualty of it.",
+   "used": true
+  },
+  {
+   "id": "ds.decision_vs_result",
+   "kind": "idea",
+   "label": "The decision versus the result",
+   "lane": "decision_science",
+   "status": "widely_reported",
+   "source": "Widely reported. Decision OS's prediction-versus-decision lesson is a neighbour, not the source.",
+   "summary": "A good decision can end badly and a poor one can end well. Judge the decision by what was known and how it was reasoned. Treat the result as partial evidence about it.",
+   "applies_when": "After a conversation that went badly, or went well by luck, when the person is deciding whether to repeat the approach.",
+   "misleads_when": "It becomes a way never to update. Three similar situations that end the same way are evidence about the approach, not three unlucky draws.",
+   "used": true
+  },
+  {
+   "id": "ds.regression_mean",
+   "kind": "idea",
+   "label": "Regression to the mean",
+   "lane": "decision_science",
+   "status": "widely_reported",
+   "source": "Widely reported statistical idea.",
+   "summary": "Extreme days tend to be followed by more ordinary ones with no help from anyone. The worst week and the best week are poor guides to what is typical.",
+   "applies_when": "The person acted right after the worst meeting and things then improved, or reads one terrible interaction as the new normal.",
+   "misleads_when": "Something real changed (a new manager, a reorganization, a promise broken). Then the extreme is a new level, not noise.",
+   "used": true
+  },
+  {
+   "id": "ds.one_vs_pattern",
+   "kind": "idea",
+   "label": "One observation versus a pattern",
+   "lane": "decision_science",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis. The 'twice' threshold is a protocol choice, not a research finding.",
+   "summary": "One event is one draw. A pattern needs several, in different places and at different times. Name the behaviour you saw before you name a trait.",
+   "applies_when": "'He cut me off twice' is behaviour. 'He doesn't respect me' is a trait inferred from it. The advisor raises an own-part pattern only when the account points at it twice.",
+   "misleads_when": "The first event is serious. A single act of harassment, retaliation or a threat is enough to act on and waiting for a second is the mistake.",
+   "used": true
+  },
+  {
+   "id": "ds.fae",
+   "kind": "idea",
+   "label": "The fundamental attribution error",
+   "lane": "organizational_behaviour",
+   "status": "widely_reported",
+   "source": "Widely reported social-psychology idea. Decision OS's 'before you explain a person, rule out the situation' case is the owner's reading of the same move.",
+   "summary": "We tend to explain other people's behaviour by what they are like and our own by what we were up against. The other person is doing the same to us.",
+   "applies_when": "'She is lazy', 'he is a control freak'. Before the character explanation, ask what the situation would produce in nearly anyone.",
+   "misleads_when": "Treated as a law. Character is sometimes the answer, and how strong this tendency is varies across studies and settings. It is a reason to check the situation, not a reason to rule character out.",
+   "used": true
+  },
+  {
+   "id": "ds.psych_safety",
+   "kind": "idea",
+   "label": "Psychological safety",
+   "lane": "organizational_behaviour",
+   "status": "widely_reported",
+   "source": "Widely reported (Amy Edmondson's concept). Appears in the owner's reading of How Google Works.",
+   "summary": "People speak up, ask and admit mistakes when they believe it will not cost them. When they do not believe that, silence is a rational reply and not a sign of agreement.",
+   "applies_when": "Problems surface late, everyone agrees in the room and disagrees afterwards, or the person fears raising the issue with the other party.",
+   "misleads_when": "Read as comfort or niceness, or as proof that no one is accountable. It is also not something one person can declare for a team.",
+   "used": true
+  },
+  {
+   "id": "ds.power",
+   "kind": "idea",
+   "label": "Power asymmetry",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from widely reported organizational behaviour. Not in the owner's material, which is mostly written from the manager's seat.",
+   "summary": "The same sentence costs different people different amounts. The person with less power risks more by speaking, and the person with more often cannot see the cost.",
+   "applies_when": "The other person controls the person's pay, project or reviews, or the person controls theirs. It changes which step is safe, not only which is wise.",
+   "misleads_when": "It makes the person feel they can do nothing, so they skip steps that are within their control. It also hides that managers are constrained from above.",
+   "used": true
+  },
+  {
+   "id": "ds.system_person",
+   "kind": "idea",
+   "label": "Setup problem or person problem",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from the Three Lenses, Friction's states and Decision OS's one-explanation case.",
+   "summary": "Before explaining a person, ask what this setup would produce in almost anyone placed in it: the workload, the number, the unclear owner, the information that never arrived.",
+   "applies_when": "The same thing happens with several people, started when something changed, or follows an incentive or a handoff.",
+   "misleads_when": "One person is the common factor across different setups, or the setup explanation lets real conduct pass. A setup reading no fact could ever test is a story, not an explanation.",
+   "used": true
+  },
+  {
+   "id": "fr.weighting",
+   "kind": "friction",
+   "label": "Events outweigh impressions",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Friction, js/content.js and js/engine.js",
+   "summary": "Reassuring answers about a general impression count for less than reassuring answers about something that happened; admissions about your own part count more.",
+   "used": true
+  },
+  {
+   "id": "fr.states",
+   "kind": "friction",
+   "label": "Fifteen setup states",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Friction, js/content.js and js/engine.js",
+   "summary": "A vocabulary for naming what in the setup might be producing the friction: direction, economics, capability, trust, loss, pressure, focus, information, decision rights, conflict avoidance, blame, centralization, execution, leverage, talent.",
+   "used": true
+  },
+  {
+   "id": "fr.voi",
+   "kind": "friction",
+   "label": "Ask only if an answer could change the advice",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Friction, js/content.js and js/engine.js",
+   "summary": "Friction simulates each answer and asks only when one could change the recommendation.",
+   "used": true
+  },
+  {
+   "id": "fr.required",
+   "kind": "friction",
+   "label": "Always ask for the last time it happened",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Friction, js/content.js and js/engine.js",
+   "summary": "Seven questions are always asked before the engine may stop; six of them are about an event.",
+   "used": true
+  },
+  {
+   "id": "fr.confidence",
+   "kind": "friction",
+   "label": "Confidence is a label, not a number",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Friction, js/content.js and js/engine.js",
+   "summary": "High confidence, Strong pattern, Emerging pattern, Early signal: each with a plain sentence about what it does and does not mean.",
+   "used": true
+  },
+  {
+   "id": "fr.null",
+   "kind": "friction",
+   "label": "The honest null",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Friction, js/content.js and js/engine.js",
+   "summary": "'Your answers didn't point to a constraint' does not rule one out; ask other people the same questions and compare.",
+   "used": true
+  },
+  {
+   "id": "fr.outcome",
+   "kind": "friction",
+   "label": "The outcome step lets the read change",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Friction, js/content.js and js/engine.js",
+   "summary": "After an experiment, Improved, No change or Worse is compared with what was predicted and the read can move.",
+   "used": true
+  },
+  {
+   "id": "dos.commit",
+   "kind": "decision-os",
+   "label": "Commit before you see",
+   "lane": "decision_science",
+   "status": "owner_reading",
+   "source": "Decision OS, scenarios3.js and the Learn lessons",
+   "summary": "Commit before you see. Write the call, then see the reasoning. In Teamwork: The blind look-back and the written expectation.",
+   "used": true
+  },
+  {
+   "id": "dos.pause",
+   "kind": "decision-os",
+   "label": "One pause question before the choice, asked of yourself",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, scenarios3.js and the Learn lessons",
+   "summary": "One pause question before the choice, asked of yourself. In Teamwork: The self question on the read screen.",
+   "used": true
+  },
+  {
+   "id": "dos.before",
+   "kind": "decision-os",
+   "label": "Five questions a manager asks before a hard performance conversation",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, scenarios3.js and the Learn lessons",
+   "summary": "Five questions a manager asks before a hard performance conversation. In Teamwork: The manager questions on the step screen.",
+   "used": true
+  },
+  {
+   "id": "dos.tension",
+   "kind": "decision-os",
+   "label": "Every management case is two good values pulling apart, with the lesson behind the strong move and the lesson pulling the other way",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, scenarios3.js and the Learn lessons",
+   "summary": "Every management case is two good values pulling apart, with the lesson behind the strong move and the lesson pulling the other way. In Teamwork: The tension line on the read screen.",
+   "used": true
+  },
+  {
+   "id": "dos.habits",
+   "kind": "decision-os",
+   "label": "Eight habit families: rescuing, avoiding, controlling, pleasing, over-promising, defending, grinding, one explanation",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, scenarios3.js and the Learn lessons",
+   "summary": "Eight habit families: rescuing, avoiding, controlling, pleasing, over-promising, defending, grinding, one explanation. In Teamwork: Own-part questions, raised only when the account points at one twice.",
+   "used": true
+  },
+  {
+   "id": "case.loved-not-delivering",
+   "kind": "case",
+   "label": "Delayed kindness is a loan she repays with interest.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'loved-not-delivering' (owner's reading of: Trillion Dollar Coach)",
+   "summary": "Compare commit and actual for every rep. Book the talk.",
+   "pause": "Who should tell Dana: you now, or your director in January?",
+   "tension": "Useful metrics keep misses visible.",
+   "used": false
+  },
+  {
+   "id": "case.top-rep-cuts-corners",
+   "kind": "case",
+   "label": "What you allow in your best rep becomes everyone's rule.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'top-rep-cuts-corners' (owner's reading of: High Output Management)",
+   "summary": "Walk three “executed” displays you haven't seen.",
+   "pause": "What will the team learn from your next move?",
+   "tension": "Honest feedback only works inside trust.",
+   "used": false
+  },
+  {
+   "id": "case.inherited-slack-habits",
+   "kind": "case",
+   "label": "A standard with a reason survives its first bad Friday.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'inherited-slack-habits' (owner's reading of: High Output Management)",
+   "summary": "Pick one inherited routine. Cut every unused field.",
+   "pause": "Could you explain this rule, or only enforce it?",
+   "tension": "Give people context to decide.",
+   "used": false
+  },
+  {
+   "id": "case.exception-request",
+   "kind": "case",
+   "label": "A rule only your best person can skip is a perk.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'exception-request' (owner's reading of: High Output Management)",
+   "summary": "Ask each rep: what is Monday's call for?",
+   "pause": "Would your answer change for a middle performer?",
+   "tension": "Autonomy and context let strong people act.",
+   "used": false
+  },
+  {
+   "id": "case.veteran-gone-quiet",
+   "kind": "case",
+   "label": "Say what you've seen, then ask what's changed.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'veteran-gone-quiet' (owner's reading of: Trillion Dollar Coach)",
+   "summary": "Book a long lunch with the person who changed.",
+   "pause": "What would Ray want you to ask him?",
+   "tension": "Stay curious; your story may be a reaction.",
+   "used": false
+  },
+  {
+   "id": "case.spouse-is-ill",
+   "kind": "case",
+   "label": "Ask what someone needs before deciding what's kind.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'spouse-is-ill' (owner's reading of: The 15 Commitments of Conscious Leadership)",
+   "summary": "Learn today what leave and flexible-schedule options exist.",
+   "pause": "What do you know Tom needs, and what do you assume?",
+   "tension": "Transparency helps a team decide together.",
+   "used": false
+  },
+  {
+   "id": "case.promoted-over-friend",
+   "kind": "case",
+   "label": "How you hold a friend to a rule shows your word's worth.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'promoted-over-friend' (owner's reading of: The 15 Commitments of Conscious Leadership)",
+   "summary": "List the three people you go easiest on. Book one talk.",
+   "pause": "Which costs more: some friendship, or the team's belief you're fair?",
+   "tension": "Honest feedback builds trust, even between friends.",
+   "used": false
+  },
+  {
+   "id": "case.distributor-rep-slipped",
+   "kind": "case",
+   "label": "Be honest soonest with those you depend on most.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'distributor-rep-slipped' (owner's reading of: Trillion Dollar Coach)",
+   "summary": "Learn what's on your key distributor reps' plates first.",
+   "pause": "What do you owe someone you depend on and underpay?",
+   "tension": "Know how the other side makes money.",
+   "used": false
+  },
+  {
+   "id": "case.ready-for-promotion",
+   "kind": "case",
+   "label": "A vague promise is a debt. Pay it with specifics.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'ready-for-promotion' (owner's reading of: Trillion Dollar Coach)",
+   "summary": "List every “next cycle” you've said. Make each a date or a no.",
+   "pause": "What did Lena hear in “next cycle”? What did you mean?",
+   "tension": "Take responsibility for your part.",
+   "used": false
+  },
+  {
+   "id": "case.you-keep-rescuing",
+   "kind": "case",
+   "label": "Weekly fixes are a process problem, not a favor.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'you-keep-rescuing' (owner's reading of: High Output Management)",
+   "summary": "List the last five things you fixed. Write a checklist for the commonest.",
+   "pause": "Whose proposal is this, and what does the team learn?",
+   "tension": "Helping people perform can mean being slower today.",
+   "used": false
+  },
+  {
+   "id": "case.hero-holds-the-account",
+   "kind": "case",
+   "label": "One-person dependence isn't loyalty. It's a risk he carries alone.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'hero-holds-the-account' (owner's reading of: High Output Management)",
+   "summary": "List your five biggest accounts and who else could run each.",
+   "pause": "Is it loyal to leave him carrying this alone?",
+   "tension": "Trust built over years earns the right to ask for more.",
+   "used": false
+  },
+  {
+   "id": "case.metrics-reward-the-wrong-thing",
+   "kind": "case",
+   "label": "People do what the number pays for. Fix yours first.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'metrics-reward-the-wrong-thing' (owner's reading of: What the CEO Wants You to Know)",
+   "summary": "For each number you pay on, ask how a clever rep could game it.",
+   "pause": "What does telling your director now risk, and what does waiting risk?",
+   "tension": "Pay shapes behavior; bring psychology and economics.",
+   "used": true
+  },
+  {
+   "id": "case.context-not-permission",
+   "kind": "case",
+   "label": "Give context and a limit, not permission case by case.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'context-not-permission' (owner's reading of: How Google Works)",
+   "summary": "Ask a rep what they skipped for fear of not being allowed.",
+   "pause": "What are you protecting by approving $900?",
+   "tension": "Useful metrics let you check what was decided.",
+   "used": true
+  },
+  {
+   "id": "case.says-all-set",
+   "kind": "case",
+   "label": "Trust the person, check the work, check everyone alike.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'says-all-set' (owner's reading of: Trillion Dollar Coach)",
+   "summary": "Pick one status you accept on someone's word. Spot-check it.",
+   "pause": "Can you check his work without him hearing that you doubt him?",
+   "tension": "Clear expectations and useful metrics apply to everyone.",
+   "used": true
+  },
+  {
+   "id": "case.lock-that-isnt",
+   "kind": "case",
+   "label": "Confidence is a feeling. Evidence is what the buyer did.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'lock-that-isnt' (owner's reading of: Poor Charlie's Almanack)",
+   "summary": "Tally each rep's “locks” against closes. Show them quarterly.",
+   "pause": "Would Dave bet his own money on it?",
+   "tension": "Building trust helps talented people do their best.",
+   "used": false
+  },
+  {
+   "id": "case.team-agrees",
+   "kind": "case",
+   "label": "Silence isn't agreement. Ask what disagreeing with you costs.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'team-agrees' (owner's reading of: How Google Works)",
+   "summary": "Ask “what's the weakest part of this plan?” and wait.",
+   "pause": "What does disagreeing with you cost a rep?",
+   "tension": "More perspectives keep you from missing the whole picture.",
+   "used": true
+  },
+  {
+   "id": "case.one-explanation",
+   "kind": "case",
+   "label": "Before you explain a person, rule out the situation.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'one-explanation' (owner's reading of: Poor Charlie's Almanack)",
+   "summary": "When numbers move, list three causes that aren't the person.",
+   "pause": "What would you see if it weren't effort?",
+   "tension": "Stay curious; notice when ego writes the story.",
+   "used": true
+  },
+  {
+   "id": "case.q4-fatigue",
+   "kind": "case",
+   "label": "Tired is a business risk. Protect rest like a key account.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'q4-fatigue' (owner's reading of: The 15 Commitments of Conscious Leadership)",
+   "summary": "Block next week's non-negotiables first: sleep, one evening, one meal.",
+   "pause": "What would you tell a friend running on five hours' sleep?",
+   "tension": "A team with context can carry some of the load.",
+   "used": false
+  },
+  {
+   "id": "case.defensive-in-review",
+   "kind": "case",
+   "label": "Own it in one sentence before you explain it.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'defensive-in-review' (owner's reading of: The 15 Commitments of Conscious Leadership)",
+   "summary": "Write the one sentence you'd say after a miss.",
+   "pause": "What would your best rep say first?",
+   "tension": "A good leader welcomes honest feedback.",
+   "used": true
+  },
+  {
+   "id": "case.miss-the-field",
+   "kind": "case",
+   "label": "Keep what you love, and use it to make someone better.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'miss-the-field' (owner's reading of: High Output Management)",
+   "summary": "Book the two overdue one-on-ones first.",
+   "pause": "Who pays when your hours go to what you love?",
+   "tension": "How you show up matters; notice what drives you.",
+   "used": false
+  },
+  {
+   "id": "case.vacation-text",
+   "kind": "case",
+   "label": "Rest works when the team knows who decides.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'vacation-text' (owner's reading of: How Google Works)",
+   "summary": "Before time off, write who decides what and who covers.",
+   "pause": "If you never replied, who would decide?",
+   "tension": "Notice whether your reaction serves the work or your ego.",
+   "used": false
+  },
+  {
+   "id": "case.sure-of-the-plan",
+   "kind": "case",
+   "label": "When you're most sure, look hardest for how you're wrong.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'sure-of-the-plan' (owner's reading of: Poor Charlie's Almanack)",
+   "summary": "Before a big plan, write what you'd see in 30 days if wrong.",
+   "pause": "What would show you were wrong in 30 days?",
+   "tension": "Ask good questions so the team can improve the plan.",
+   "used": false
+  },
+  {
+   "id": "case.friday-6pm-email",
+   "kind": "case",
+   "label": "Ask what a deadline is for before giving up a weekend.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'friday-6pm-email' (owner's reading of: The 15 Commitments of Conscious Leadership)",
+   "summary": "When a deadline lands late, ask what decision it supports.",
+   "pause": "What is the deadline for? Do you know?",
+   "tension": "Context helps people decide, and a request's purpose is context.",
+   "used": false
+  },
+  {
+   "id": "case.number-you-cant-hit",
+   "kind": "case",
+   "label": "Bad news worsens weekly. Bring the range, the drivers, the ask.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'number-you-cant-hit' (owner's reading of: What the CEO Wants You to Know)",
+   "summary": "Write today's honest range and its drivers. Send it first.",
+   "pause": "What would your VP want to know, and when?",
+   "tension": "Notice fear or defensiveness before it writes your answer.",
+   "used": false
+  },
+  {
+   "id": "case.reorg-rumor",
+   "kind": "case",
+   "label": "Say what you can and can't. Never say what isn't so.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'reorg-rumor' (owner's reading of: How Google Works)",
+   "summary": "Write three sentences: what you can say, can't, and when you'll update.",
+   "pause": "Will they remember what you said, or that you said it?",
+   "tension": "Think through what each person will do when they hear it.",
+   "used": false
+  },
+  {
+   "id": "case.win-that-costs-supply",
+   "kind": "case",
+   "label": "A win that costs another team isn't yet the company's win.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'win-that-costs-supply' (owner's reading of: What the CEO Wants You to Know)",
+   "summary": "Before closing a big deal, ask who else needs what it uses.",
+   "pause": "Whose call is it which one runs?",
+   "tension": "Share context early so affected people can decide with you.",
+   "used": false
+  },
+  {
+   "id": "case.rookie-overpromises",
+   "kind": "case",
+   "label": "Whoever made the promise fixes it, with you beside them.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'rookie-overpromises' (owner's reading of: Trillion Dollar Coach)",
+   "summary": "Write three questions to ask before promising a date or display.",
+   "pause": "Whose call is this, and who learns most from it?",
+   "tension": "Clear expectations keep outcomes from depending on one person.",
+   "used": false
+  },
+  {
+   "id": "case.quiet-says-fine",
+   "kind": "case",
+   "label": "A rep who says “fine” five times is telling you something.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'quiet-says-fine' (owner's reading of: Trillion Dollar Coach)",
+   "summary": "Ask a rep you've only asked “how are you?”: “What's the least fun part of your week?”",
+   "pause": "What haven't you asked because you fear the answer?",
+   "tension": "Stay curious about what you have avoided asking.",
+   "used": false
+  },
+  {
+   "id": "case.ask-dont-answer",
+   "kind": "case",
+   "label": "Ask first, answer second, and only if they're stuck.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'ask-dont-answer' (owner's reading of: Trillion Dollar Coach)",
+   "summary": "Next five times he asks, answer “what do you think?” first.",
+   "pause": "Which would Ben remember: your answer, or his?",
+   "tension": "Develop people so your time reaches further.",
+   "used": false
+  },
+  {
+   "id": "case.burned-out-star",
+   "kind": "case",
+   "label": "Celebrate results, not hours.",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, Module 3 case 'burned-out-star' (owner's reading of: Trillion Dollar Coach)",
+   "summary": "Check the timestamps on your team's emails and yours.",
+   "pause": "What are you teaching the team about what you notice?",
+   "tension": "Take responsibility for how your own reactions land, praise included.",
+   "used": false
+  },
+  {
+   "id": "habit.rescue",
+   "kind": "habit",
+   "label": "Rescuing",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, families3",
+   "summary": "You step in and fix it, or give the answer before you have asked. It works today and teaches the team to wait for you.",
+   "used": false
+  },
+  {
+   "id": "habit.avoid",
+   "kind": "habit",
+   "label": "Avoiding",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, families3",
+   "summary": "You wait, soften, or hand it off. The conversation you skip is usually the one that matters.",
+   "used": false
+  },
+  {
+   "id": "habit.control",
+   "kind": "habit",
+   "label": "Controlling",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, families3",
+   "summary": "You reach for a rule, a check or a consequence where a conversation would do.",
+   "used": true
+  },
+  {
+   "id": "habit.please",
+   "kind": "habit",
+   "label": "Pleasing",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, families3",
+   "summary": "You protect how people feel about you, or decide what they can handle.",
+   "used": false
+  },
+  {
+   "id": "habit.promise",
+   "kind": "habit",
+   "label": "Over-promising",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, families3",
+   "summary": "You commit, or cheer a commitment, past what the evidence supports.",
+   "used": false
+  },
+  {
+   "id": "habit.blame",
+   "kind": "habit",
+   "label": "Defending",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, families3",
+   "summary": "You explain or point elsewhere before saying what is yours.",
+   "used": true
+  },
+  {
+   "id": "habit.grind",
+   "kind": "habit",
+   "label": "Grinding",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, families3",
+   "summary": "You answer pressure with more hours and call it dedication.",
+   "used": false
+  },
+  {
+   "id": "habit.narrow",
+   "kind": "habit",
+   "label": "One explanation",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, families3",
+   "summary": "You settle on the first story that fits and stop looking.",
+   "used": true
+  },
+  {
+   "id": "skill.standard",
+   "kind": "skill",
+   "label": "Standards",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, skills3",
+   "summary": "Say what good looks like, and hold it for everyone.",
+   "used": false
+  },
+  {
+   "id": "skill.candor",
+   "kind": "skill",
+   "label": "Candor",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, skills3",
+   "summary": "Say the true thing, early, and kindly.",
+   "used": false
+  },
+  {
+   "id": "skill.system",
+   "kind": "skill",
+   "label": "Systems",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, skills3",
+   "summary": "Build it so results don't depend on a hero.",
+   "used": false
+  },
+  {
+   "id": "skill.trust",
+   "kind": "skill",
+   "label": "Trust and verify",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, skills3",
+   "summary": "Give trust freely. Check what matters, the same way for everyone.",
+   "used": false
+  },
+  {
+   "id": "skill.self",
+   "kind": "skill",
+   "label": "Leading yourself",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, skills3",
+   "summary": "Own your reactions, your fears and your rest.",
+   "used": false
+  },
+  {
+   "id": "skill.across",
+   "kind": "skill",
+   "label": "Up and across",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, skills3",
+   "summary": "Carry the truth up, the context down, and a fair view sideways.",
+   "used": false
+  },
+  {
+   "id": "skill.grow",
+   "kind": "skill",
+   "label": "Growing people",
+   "lane": "organizational_behaviour",
+   "status": "owner_reading",
+   "source": "Decision OS, skills3",
+   "summary": "Ask first. Help them get better, not just get it done.",
+   "used": false
+  },
+  {
+   "id": "rule.happened_told",
+   "kind": "rule",
+   "label": "Happened, told, concluded",
+   "lane": "decision_science",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 1 (server/protocol.md)",
+   "summary": "Keep what happened, what was told and what was concluded apart. Happened counts in full, told at a discount, concluded as a hypothesis.",
+   "used": true
+  },
+  {
+   "id": "rule.no_diagnosis",
+   "kind": "rule",
+   "label": "Never diagnose the absent person",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 2 (server/protocol.md)",
+   "summary": "One account from one side. Describe reported behaviour. Do not assign motives, traits or diagnoses to someone who is not there.",
+   "used": true
+  },
+  {
+   "id": "rule.non_character",
+   "kind": "rule",
+   "label": "Always carry a non-character cause",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 3 (server/protocol.md)",
+   "summary": "At least one explanation is about the setup, not anyone's character, until facts rule it out.",
+   "used": true
+  },
+  {
+   "id": "rule.own_part",
+   "kind": "rule",
+   "label": "The person's part is a question",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 4 (server/protocol.md)",
+   "summary": "Raised as a question the person can ask themselves. Never a verdict, never a clean bill.",
+   "used": true
+  },
+  {
+   "id": "rule.one_question",
+   "kind": "rule",
+   "label": "One question, only if it changes the advice",
+   "lane": "decision_science",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 5 (server/protocol.md)",
+   "summary": "Ask nothing if nothing would change. Ask about facts, not judgments.",
+   "used": true
+  },
+  {
+   "id": "rule.one_step",
+   "kind": "rule",
+   "label": "One step, with its assumption, its risk and an alternative",
+   "lane": "shared",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 6 (server/protocol.md)",
+   "summary": "A single next move, the words, and honest costs. No menu.",
+   "used": true
+  },
+  {
+   "id": "rule.define_outcome",
+   "kind": "rule",
+   "label": "Define the outcome before acting",
+   "lane": "decision_science",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 7 (server/protocol.md)",
+   "summary": "One observable sentence and a date, written before the person acts.",
+   "used": true
+  },
+  {
+   "id": "rule.honest_inference",
+   "kind": "rule",
+   "label": "Honest inference at the look-back",
+   "lane": "decision_science",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 8 (server/protocol.md)",
+   "summary": "One outcome cannot prove an approach worked or failed. Two or three similar situations can start to tell.",
+   "used": true
+  },
+  {
+   "id": "rule.say_cant_tell",
+   "kind": "rule",
+   "label": "Say 'can't tell'",
+   "lane": "decision_science",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 9 (server/protocol.md)",
+   "summary": "Uncertainty stated plainly is more useful than confidence invented.",
+   "used": true
+  },
+  {
+   "id": "rule.books_plain",
+   "kind": "rule",
+   "label": "Books enter as plain ideas",
+   "lane": "shared",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 10 (server/protocol.md)",
+   "summary": "Lightly attributed if at all, never as proof, never quoted, never cited by page.",
+   "used": true
+  },
+  {
+   "id": "rule.safety_flag",
+   "kind": "rule",
+   "label": "The safety flag",
+   "lane": "shared",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 11 (server/protocol.md)",
+   "summary": "Harassment, retaliation, threats, pressure to do something illegal or unsafe: stop giving conversation advice, help record facts, keep copies outside work systems, find who has the duty to act.",
+   "used": true
+  },
+  {
+   "id": "rule.plain_voice",
+   "kind": "rule",
+   "label": "Plain voice",
+   "lane": "shared",
+   "status": "synthesis",
+   "source": "Teamwork protocol, standing rule 12 (server/protocol.md)",
+   "summary": "Short sentences, plain words, no jargon, no therapy voice, no em dashes. Speak as a calm, exact colleague.",
+   "used": true
+  },
+  {
+   "id": "rule.one_thing",
+   "kind": "rule",
+   "label": "One thing per screen, always a way back and a way to stop",
+   "lane": "shared",
+   "status": "synthesis",
+   "source": "Teamwork CLAUDE.md rules; one-thing and counts rules follow Stillward's practice",
+   "summary": "Every screen asks one thing. Every screen has a way back and a way to stop that keeps what exists.",
+   "used": true
+  },
+  {
+   "id": "rule.counts",
+   "kind": "rule",
+   "label": "Counts, never scores",
+   "lane": "shared",
+   "status": "synthesis",
+   "source": "Teamwork CLAUDE.md rules; one-thing and counts rules follow Stillward's practice",
+   "summary": "Counts only grow. No streaks, no reminders from us, no score on a person or on the user.",
+   "used": true
+  },
+  {
+   "id": "rule.private",
+   "kind": "rule",
+   "label": "It stays in this browser",
+   "lane": "shared",
+   "status": "synthesis",
+   "source": "Teamwork CLAUDE.md rules; one-thing and counts rules follow Stillward's practice",
+   "summary": "The server stores nothing and logs no content. The only copy is the person's.",
+   "used": true
+  },
+  {
+   "id": "still.arrival",
+   "kind": "stillward",
+   "label": "Ram Dass: \"The quieter you become, the more you can hear.\"",
+   "lane": "shared",
+   "status": "owner_reading",
+   "source": "Stillward, as attributed there. Not workplace evidence.",
+   "summary": "The first screen, for someone who arrives worn down. One line, no instruction attached.",
+   "used": true
+  },
+  {
+   "id": "still.after_step",
+   "kind": "stillward",
+   "label": "Peter Crone: \"Awareness is the beginning of change.\"",
+   "lane": "shared",
+   "status": "owner_reading",
+   "source": "Stillward, as attributed there. Not workplace evidence.",
+   "summary": "After the person has chosen a step and written what they expect, as relief from having to solve everything at once.",
+   "used": true
+  },
+  {
+   "id": "still.lookback",
+   "kind": "stillward",
+   "label": "A.H. Almaas: \"Inquiry is not a technique. It is a way of being.\"",
+   "lane": "shared",
+   "status": "owner_reading",
+   "source": "Stillward, as attributed there. Not workplace evidence.",
+   "summary": "Before the blind answers, when memory is most likely to bend towards the result. It asks for curiosity about what happened, not a verdict.",
+   "used": true
+  },
+  {
+   "id": "still.feelings",
+   "kind": "stillward",
+   "label": "The done screen's feelings, with honest exits",
+   "lane": "shared",
+   "status": "owner_reading",
+   "source": "Stillward, done screen (Lighter, Calmer, Clearer, Tender, Unchanged, Still heavy)",
+   "summary": "A feeling is kept as a feeling, never scored, and the honest negative answer opens exits instead of a nudge.",
+   "used": true
   }
  ]
 }
