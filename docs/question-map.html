@@ -105,9 +105,18 @@
   .chip:hover { border-color:var(--c); }
   .chip.on { background:#E6DCC8; border-color:var(--text); }
   .chip.rel { background:#26305c; }
-  .chip.dim { opacity:.3; }
+  .chip.dim { opacity:.3; } .cw:has(.chip.dim) .srcl { opacity:.3; }
   .chip .g { flex:none; font-size:11px; padding-top:3px; color:var(--text-2); }
   .chip.sel { outline:2px solid var(--amber); outline-offset:1px; }
+  .cw { display:flex; align-items:center; gap:6px; margin:0 0 6px; }
+  .cw .chip { margin:0; flex:1 1 auto; width:auto; min-width:0; }
+  .reason .cw, .rels .cw { display:inline-flex; margin:0 0 4px; }
+  .reason .cw .chip, .rels .cw .chip { flex:0 1 auto; }
+  .srcl { flex:none; font-size:12px; line-height:1; color:var(--blue); text-decoration:underline; text-underline-offset:3px; padding:8px 4px; border-radius:6px; }
+  .srcl:hover { color:var(--text); }
+  .srcl:focus-visible { outline:3px solid var(--focus, var(--amber)); outline-offset:2px; }
+  #detail .srcline { margin:0 0 8px; }
+  #detail .srcline a { color:var(--blue); font-size:14px; }
   svg.edges { position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:none; overflow:visible; }
   svg.edges path { fill:none; stroke-width:1.6; }
   .lane-ds { --c:var(--ds); } .lane-ob { --c:var(--ob); } .lane-sh { --c:var(--sh); }
@@ -239,6 +248,12 @@
 
   // ---- shared pieces ----
   function chip(pid, extra) {
+    var w = el("div", "cw"), b = chipBtn(pid, extra);
+    var a = el("a", "srcl", "Sources"); a.href = "source-map.html#idea=" + pid;
+    a.setAttribute("aria-label", "Sources for " + P[pid].label); a.title = "Where this idea comes from, on the Sources page";
+    w.append(b, a); return w;
+  }
+  function chipBtn(pid, extra) {
     var p = P[pid], l = laneOf(pid);
     var b = el("button", "chip lane-" + l.cls + (extra ? " " + extra : ""));
     b.type = "button"; b.dataset.pid = pid;
@@ -464,6 +479,7 @@
       tg.append(el("span", "badge lane lane-" + l.cls, l.name), el("span", "badge", STATUS[p.status].g + " " + STATUS[p.status].t));
       if (p.thin) tg.append(el("span", "badge", "Thin: no owner material"));
       d.append(tg, el("p", null, p.summary));
+      var sl = el("p", "srcline"), sa = el("a", null, "Sources: where this idea comes from"); sa.href = "source-map.html#idea=" + p.id; sl.append(sa); d.append(sl);
       d.append(el("h3", null, "Source"), el("p", null, p.source));
       if (p.applies_when) d.append(el("h3", null, "Applies when"), el("p", null, p.applies_when));
       if (p.misleads_when) d.append(el("h3", null, "Misleads when"), el("p", null, p.misleads_when));
@@ -576,12 +592,27 @@
     if (/^step=/.test(h)) {
       var m = h.match(/^step=([\w]+)(?:&opt=([\w]+))?/);
       if (m && stepById[m[1]]) { S.step = m[1]; var st = stepById[m[1]]; if (m[2] && st.options.some(function (o) { return o.id === m[2]; })) { S.opt = m[2]; S.pin = { t: "opt", step: S.step, id: S.opt }; } }
-    } else if (/^ideas/.test(h)) {
-      S.mode = "ideas"; var q = h.split("=")[1]; if (q && P[q]) S.pin = { t: "idea", id: q };
+    } else if (/^ideas?(=|$)/.test(h)) {
+      S.mode = "ideas"; var q = h.split("=")[1]; if (q) q = decodeURIComponent(q);
+      if (q && P[q]) { S.pin = { t: "idea", id: q }; if (!P[q].used) S.unused = true; }
     }
     syncDetails(); if (!wide.matches) $("stepsDetails").open = false;
     render();
+    if (S.mode === "ideas" && S.pin && S.pin.t === "idea") revealIdea();
   })();
+  function revealIdea() {
+    var b = document.querySelector('#ideaLanes .chip[data-pid="' + S.pin.id + '"]');
+    if (b) { b.scrollIntoView({ block: "center" }); }
+    if (!wide.matches) showSheet(true);
+    drawEdges();
+  }
+  window.addEventListener("hashchange", function () {
+    var m = location.hash.match(/^#ideas?=([^&]+)/);
+    if (!m) return;
+    var q = decodeURIComponent(m[1]); if (!P[q]) return;
+    if (!P[q].used) S.unused = true;
+    S.mode = "ideas"; S.pin = { t: "idea", id: q }; preview = null; render(); revealIdea();
+  });
 })();
 </script>
 <footer class="site-foot">
