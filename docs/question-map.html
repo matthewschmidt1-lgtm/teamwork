@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teamwork question map</title>
+<meta name="description" content="Every question and answer in Teamwork, and what each one draws on: the seven books, Friction, Decision OS, Stillward and the website.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..600,0..100&family=DM+Sans:opsz,wght@9..40,400..600&display=swap">
+<style>
+  :root { --ground:#0B1020; --surface:#161D38; --text:#F4EBDD; --text-2:#A9B2CC; --hair:rgba(244,235,221,.14); --amber:#FFB84D; --teal:#6FD3C0; --orchid:#F08FAE; --book:#C9B6FF; --friction:#6FD3C0; --dos:#FFB84D; --still:#F08FAE; --site:#8FB8FF; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--ground); color:var(--text); font:16px/1.5 "DM Sans",system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  header { padding:40px clamp(20px,5vw,80px) 8px; }
+  h1 { font:380 clamp(30px,4vw,48px)/1.1 "Fraunces",Georgia,serif; font-variation-settings:"opsz" 72,"SOFT" 50; margin:0 0 12px; }
+  .lede { color:var(--text-2); max-width:62ch; margin:0 0 10px; }
+  .key { display:flex; flex-wrap:wrap; gap:8px 18px; margin:16px 0 0; font-size:14px; color:var(--text-2); }
+  .key span::before { content:""; display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; vertical-align:-1px; background:var(--c); }
+  .map { position:relative; display:grid; grid-template-columns: minmax(180px, 1fr) minmax(320px, 2fr) minmax(180px, 1fr); gap:40px; padding:24px clamp(20px,5vw,80px) 80px; align-items:start; }
+  svg.lines { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+  svg.lines path { fill:none; stroke-width:1.2; opacity:.28; transition:opacity .2s, stroke-width .2s; }
+  svg.lines path.on { opacity:.95; stroke-width:2; }
+  svg.lines path.off { opacity:.06; }
+  .col h2 { font:600 12px/1 "DM Sans",sans-serif; letter-spacing:.12em; text-transform:uppercase; color:var(--text-2); margin:0 0 16px; }
+  .src { border-left:3px solid var(--c); padding:6px 0 6px 12px; margin-bottom:22px; transition:opacity .2s; }
+  .src b { display:block; font:400 18px/1.25 "Fraunces",Georgia,serif; font-variation-settings:"opsz" 36,"SOFT" 50; }
+  .src small { display:block; color:var(--text-2); font-size:13px; line-height:1.4; margin-top:4px; }
+  .step { position:relative; background:var(--surface); border:1px solid var(--hair); border-radius:12px; padding:14px 16px 12px; margin-bottom:18px; cursor:default; transition:border-color .2s; }
+  .step:hover, .step.on { border-color:var(--amber); }
+  .step .n { position:absolute; left:-30px; top:14px; color:var(--text-2); font-size:12px; }
+  .step h3 { margin:0 0 6px; font:400 19px/1.25 "Fraunces",Georgia,serif; font-variation-settings:"opsz" 36,"SOFT" 50; }
+  .step .opts { margin:0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:6px; }
+  .step .opts li { font-size:13px; color:var(--text-2); border:1px solid var(--hair); border-radius:999px; padding:3px 10px; }
+  .step .opts li.sage { color:var(--teal); border-color:rgba(111,211,192,.4); } .step .opts li.rose { color:var(--orchid); border-color:rgba(240,143,174,.4); } .step .opts li.amber { color:var(--amber); border-color:rgba(255,184,77,.4); }
+  .step .why { margin:10px 0 0; font-size:13px; color:var(--text-2); line-height:1.45; }
+  .dim { opacity:.3; }
+  @media (max-width: 56rem) { .map { grid-template-columns:1fr; } svg.lines { display:none; } .step .n { position:static; display:block; margin-bottom:4px; } .src { margin-bottom:12px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Every question Teamwork asks, and where it comes from</h1>
+  <p class="lede">The middle column is the whole experience in order, with every fixed answer. Hover a step to see its lines. Books enter as widely reported ideas and Matthew's own readings, not as quotations. Friction, Decision OS, Stillward and the website are the four live projects; each contributes a rule the step obeys.</p>
+  <p class="key"><span style="--c:var(--book)">Books</span><span style="--c:var(--friction)">Friction</span><span style="--c:var(--dos)">Decision OS</span><span style="--c:var(--still)">Stillward</span><span style="--c:var(--site)">Website</span></p>
+</header>
+<div class="map" id="map">
+  <svg class="lines" id="lines" aria-hidden="true"></svg>
+  <div class="col" id="left"><h2>The seven books</h2></div>
+  <div class="col" id="mid"><h2>The experience, in order</h2></div>
+  <div class="col" id="right"><h2>The projects</h2></div>
+</div>
+<script>
+const SOURCES = {
+  ccl:  { col:"left", c:"var(--book)", name:"The 15 Commitments of Conscious Leadership", note:"Fact versus story, curiosity over being right, your own part without blame. Matthew's takeaway: self-awareness is a professional skill." },
+  fdt:  { col:"left", c:"var(--book)", name:"The Five Dysfunctions of a Team", note:"Trust, conflict, commitment, accountability, results, in that order. The only book absent from the rest of the family; needs source material." },
+  tdc:  { col:"left", c:"var(--book)", name:"Trillion Dollar Coach", note:"Candour and care at once; feedback early; the manager's job is making others better." },
+  hgw:  { col:"left", c:"var(--book)", name:"How Google Works", note:"Context over control; decision rights; the environment shapes the behaviour." },
+  ceo:  { col:"left", c:"var(--book)", name:"What the CEO Wants You to Know", note:"Cash, margin, velocity, growth, customers: the number your manager is reacting to that you cannot see." },
+  pca:  { col:"left", c:"var(--book)", name:"Poor Charlie's Almanack", note:"More than one model; incentive-caused bias; the first-conclusion tendency; one result cannot tell skill from luck." },
+  hom:  { col:"left", c:"var(--book)", name:"High Output Management", note:"Output is the measure; task-relevant maturity; one-on-ones; a process problem often wears a person's face." },
+  fric: { col:"right", c:"var(--friction)", name:"Friction", note:"Happened outweighs impression (events in full, reassurance at .6, admissions at 1.25). Fifteen system states. Ask a question only if some answer could change the recommendation. One experiment, a watch list, and an outcome step that lets the read change." },
+  dos:  { col:"right", c:"var(--dos)", name:"Decision OS", note:"Commit before you see. Before you explain a person, rule out the situation. A pause question before the choice. Two values in tension. Habit families: rescuing, avoiding, controlling, pleasing, over-promising, defending, grinding, one explanation. Speak only with enough data." },
+  stil: { col:"right", c:"var(--still)", name:"Stillward", note:"One thing per screen, the tap advances. No streaks, no reminders from us, counts that only grow. The done screen's six feelings, where \"still heavy\" opens three exits. Your own evidence is the only proof." },
+  site: { col:"right", c:"var(--site)", name:"The website", note:"The Two Loops (activity versus learning: Signal, Understanding, Decision, Action, Learning). The Three Lenses: Business, System, People. Six forces as diagnostic cards: Awareness, Trust, Conditions, Value, Incentives, Leverage." },
+};
+const STEPS = [
+  { q:"Who is this about?", opts:["My manager","Someone I manage","A colleague","My team","Someone else"], why:"One tap, one screen. Who is answering shapes the read more than the facts do, which is Friction's hardest-won QA finding.", src:["stil","fric","site"] },
+  { q:"What's happening?", opts:["They keep missing deadlines","They shift the goalposts, then blame me","They cut me off or dismiss my ideas","We keep having the same argument","I think I might be the problem","Something else","I'm being harassed, or punished for saying no"], why:"Five patterns from the team and self vocabularies, a quiet catch-all, and a conduct line that bypasses the advisor entirely.", src:["fdt","ccl","dos","stil"] },
+  { q:"What do you need right now?", opts:["To understand what's going on","To decide what to do","To get ready for a conversation","To recover from one that went badly","To decide whether to escalate or step away"], why:"The Learning Loop as five needs: understanding, decision, action, recovery, and the exit.", src:["site","hom","dos"] },
+  { q:"Anything specific?", opts:["One optional line"], why:"Friction's second-look brief: a frame in the person's own words, carried verbatim and never inferred from.", src:["fric","stil"] },
+  { q:"Did I get that right?", opts:[{t:"Happened",k:"sage"},"Told",{t:"Concluded",k:"rose"},"Tap a line to move, edit, remove"], why:"The sort is Friction's weighting made visible: what happened counts in full, what was told at a discount, what was concluded is a hypothesis. Fact versus story is also a Conscious Leadership practice, and the first-conclusion tendency is Munger's.", src:["fric","ccl","pca"] },
+  { q:"A month from now, what's different?", opts:["I know where I stand","They do what they said","Decisions come with a reason","We agree on who decides","I stop dreading the next meeting","I understand my own part","Or in your words"], why:"Define the outcome before acting. Decision OS makes you commit before it shows the answer; Grove measures output, not activity; the website's Learning Loop ends in learning, not another meeting.", src:["dos","hom","site"] },
+  { q:"The advisor's one question", opts:["Asked only if an answer would change the advice","Answer chips","Or in your words","I don't know"], why:"Friction's value-of-information rule: simulate each answer and ask only if one could change the recommendation. Decision OS's leaning rule says a check is worthless if no result would change the action.", src:["fric","dos"] },
+  { q:"Two ways this could be true", opts:[{t:"About them",k:"rose"},"About your part",{t:"About the setup",k:"sage"},"Show why","What would tell"], why:"Three kinds of cause, held open: the Three Lenses as a rule. Before you explain a person, rule out the situation (Decision OS, from Munger). The setup vocabulary is Friction's fifteen states; the business reading is Charan's number you cannot see; the conditions reading is Google's.", src:["site","dos","pca","fric","ceo","hgw"] },
+  { q:"Worth asking yourself", opts:["One question, never a verdict"], why:"The Awareness force: what might I be contributing that I can't see. Conscious Leadership's responsibility without blame. Decision OS's pause question before the choice.", src:["site","ccl","dos"] },
+  { q:"One next step", opts:["The move","Words you could use",{t:"Check before you do this",k:"amber"},"Why this one","It assumes","How it could go wrong","If not this","Before the conversation, since you manage them"], why:"One move with its assumption and risk, like Friction's one experiment. The words follow Campbell's candour with care and Grove's one-on-one. Two values in tension is Decision OS's case shape; the manager questions are its pre-meeting list.", src:["fric","tdc","hom","dos","fdt"] },
+  { q:"If this worked, what would you see?", opts:[{t:"The sentence, as a quote",k:"amber"},"Edit","a week","two weeks","a month"], why:"The post: observable, first person, dated. Decision OS's commit-before-you-see and Friction's watch list in one sentence. No reminders from us, only a calendar file, which is Stillward's rule.", src:["dos","fric","stil","site"] },
+  { q:"Kept. How do you feel about it now?", opts:["Clearer","Steadier","Still stuck","Worse","Talk it through differently","Just save it","This isn't a conversation problem"], why:"Stillward's done screen: a feeling check where the honest negative answer opens exits instead of a nudge.", src:["stil"] },
+  { q:"This is a different kind of situation", opts:["Write down what happened","Keep a copy outside work systems","Find who holds the duty to act","Keep what I wrote","Delete what I wrote"], why:"The conduct path. No two-explanations exercise, no openers. The Trust force's question, what truth are people least likely to tell, points the other way here: toward the people with the duty to act.", src:["site","stil"] },
+  { q:"Looking back", opts:["What did you expect? It would work, Partly, It wouldn't, I didn't know","What happened? It happened, Part of it, It didn't, Can't tell yet","Show me what I wrote"], why:"Blind first, then the reveal: Decision OS never shows the answer before the pick. Friction's outcome step compares predicted with observed and lets the read change. Munger: one result cannot tell a good approach from luck.", src:["dos","fric","pca","stil"] },
+  { q:"One line for next time", opts:["Keep the lesson","Nothing to add","Your record: counts, not a score"], why:"Learning retained in the person's own words and surfaced when a later situation matches. Counts that only grow, never a score, is Stillward's rule and the website's loop closing.", src:["site","stil","hom"] },
+];
+const left = document.getElementById("left"), right = document.getElementById("right"), mid = document.getElementById("mid");
+const nodes = {};
+for (const [id, s] of Object.entries(SOURCES)) {
+  const d = document.createElement("div"); d.className = "src"; d.style.setProperty("--c", s.c); d.dataset.id = id;
+  d.innerHTML = "<b></b><small></small>"; d.querySelector("b").textContent = s.name; d.querySelector("small").textContent = s.note;
+  (s.col === "left" ? left : right).append(d); nodes[id] = d;
+}
+STEPS.forEach((st, i) => {
+  const d = document.createElement("div"); d.className = "step"; d.dataset.i = i;
+  const h = document.createElement("h3"); h.textContent = st.q;
+  const n = document.createElement("span"); n.className = "n"; n.textContent = String(i + 1).padStart(2, "0");
+  const ul = document.createElement("ul"); ul.className = "opts";
+  st.opts.forEach((o) => { const li = document.createElement("li"); if (typeof o === "object") { li.textContent = o.t; li.className = o.k; } else li.textContent = o; ul.append(li); });
+  const why = document.createElement("p"); why.className = "why"; why.textContent = st.why;
+  d.append(n, h, ul, why); mid.append(d);
+  d.addEventListener("mouseenter", () => focus(i)); d.addEventListener("mouseleave", () => focus(null));
+});
+const svg = document.getElementById("lines"), map = document.getElementById("map");
+function draw() {
+  svg.innerHTML = ""; const m = map.getBoundingClientRect();
+  STEPS.forEach((st, i) => {
+    const sb = mid.children[i + 1].getBoundingClientRect();
+    st.src.forEach((id) => {
+      const s = nodes[id]; const b = s.getBoundingClientRect(); const leftSide = SOURCES[id].col === "left";
+      const x1 = leftSide ? sb.left - m.left : sb.right - m.left, y1 = sb.top - m.top + 24;
+      const x2 = leftSide ? b.right - m.left : b.left - m.left, y2 = b.top - m.top + 16;
+      const cx = (x1 + x2) / 2;
+      const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      p.setAttribute("d", `M${x1},${y1} C${cx},${y1} ${cx},${y2} ${x2},${y2}`); p.setAttribute("stroke", SOURCES[id].c); p.dataset.i = i; p.dataset.id = id;
+      svg.append(p);
+    });
+  });
+}
+function focus(i) {
+  const on = i != null;
+  svg.querySelectorAll("path").forEach((p) => { p.classList.toggle("on", on && +p.dataset.i === i); p.classList.toggle("off", on && +p.dataset.i !== i); });
+  mid.querySelectorAll(".step").forEach((d) => d.classList.toggle("on", on && +d.dataset.i === i));
+  const used = on ? new Set(STEPS[i].src) : null;
+  Object.entries(nodes).forEach(([id, d]) => d.classList.toggle("dim", on && !used.has(id)));
+}
+draw(); window.addEventListener("resize", draw); document.fonts && document.fonts.ready.then(draw);
+</script>
+</body>
+</html>
