@@ -32,7 +32,7 @@ Verified: 390 px and 1440 px headless screenshots in `qa/out/`; the header no lo
 
 ## 6. What was not verified
 
-Real device testing, a screen reader pass, and the fonts' exact transferred size on a cold cache. The canonical URL assumes the Railway domain will be `teamwork-production.up.railway.app`; change it once the domain exists.
+Real device testing, a screen reader pass, and the fonts' exact transferred size on a cold cache. The canonical URL is the Railway domain, teamwork-production-team.up.railway.app, live since 19 October 2026.
 
 ## What is cinematic about it, and what it refuses
 
