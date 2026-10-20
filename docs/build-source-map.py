@@ -173,7 +173,7 @@ for n, st in enumerate(lib["steps"], 1):
             used_by[l["id"]].append({"step": st["id"], "opt": o["id"], "why": l["why"]})
     steps_out.append({"id": st["id"], "n": n, "title": st["title"], "options": {o["id"]: o["label"] for o in st["options"]}})
 POP = {
-    "ideas": {pid: {"label": p["label"], "kind": p["kind"], "status": p["status"], "summary": p["summary"], "source": p["source"], "mat": material(p),
+    "ideas": {pid: {"label": p["label"], "kind": p["kind"], "status": p["status"], "summary": p["summary"], "source": p["source"], "mat": material(p), "seat": p.get("seat", "any"),
                     "used": used_by.get(pid, [])} for pid, p in P.items()},
     "rels": [{"from": e["from"], "to": e["to"], "kind": e["kind"], "why": e["why"]} for e in edges],
     "steps": {s_["id"]: s_ for s_ in steps_out},
@@ -204,6 +204,7 @@ CSS_EXTRA = """
   dialog#pop li.r { border-left:3px solid var(--text-2); padding-left:10px; }
   dialog#pop li.r.tension { border-left-style:dashed; border-color:var(--ember); }
   dialog#pop li.r.specializes { border-left-style:dotted; }
+  dialog#pop li.r.override { border-left-style:solid; border-color:var(--violet, #5B4B8A); }
   dialog#pop li.r.reading { border-color:#8A6D3B; }
   dialog#pop .rt { font-size:13px; font-weight:600; color:var(--text-2); margin:0 0 2px; }
   dialog#pop li p.why { font-size:14px; margin:4px 0 0; }
@@ -231,9 +232,11 @@ JS_EXTRA = r"""
     supports: { out: "Supports", "in": "Is supported by" },
     tension: { out: "Pulls against", "in": "Pulls against" },
     specializes: { out: "Is a narrower form of", "in": "Has a narrower form" },
+    override: { out: "Overrides", "in": "Is overridden by" },
     reading: { out: "Is the owner's reading of", "in": "Is read in the case" }
   };
-  var ORDER = ["supports", "tension", "specializes", "reading"];
+  var ORDER = ["override", "supports", "tension", "specializes", "reading"];
+  var SEAT = { manager: "Seat: you manage them", report: "Seat: you report to them", peer: "Seat: a colleague", team_lead: "Seat: you lead the team", team_member: "Seat: you are on the team" };
   var narrow = window.matchMedia("(max-width:44rem)");
   var cur = null; // { type: "idea"|"mat", id }
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
@@ -271,7 +274,9 @@ JS_EXTRA = r"""
       var p = POP.ideas[c.id], m2 = POP.mats[p.mat];
       f = header(p.kind, p.label);
       var b1 = el("span", "badge mat", m2.name); b1.style.setProperty("--bc", m2.color);
-      f.append(b1, el("span", "badge", STATUS[p.status]), el("p", null, p.summary));
+      f.append(b1, el("span", "badge", STATUS[p.status]));
+      if (p.seat && p.seat !== "any") f.append(el("span", "badge", SEAT[p.seat] || p.seat));
+      f.append(el("p", null, p.summary));
       f.append(el("h3", null, "Source"), el("p", null, p.source));
       var rs = [];
       POP.rels.forEach(function (r) {
@@ -410,7 +415,7 @@ html = f'''<!doctype html>
   .lede {{ color:var(--text-2); max-width:70ch; margin:0 0 8px; }}
   .key {{ display:flex; flex-wrap:wrap; gap:8px 20px; margin:12px 0 20px; font-size:14px; color:var(--text-2); }}
   .key i {{ display:inline-block; width:22px; height:0; border-top:2px solid var(--text-2); vertical-align:middle; margin-right:8px; }}
-  .key i.tension {{ border-top:2px dashed #A9533F; }} .key i.specializes {{ border-top:2px dotted #5B4B8A; }} .key i.supports {{ border-top-color:#2F6F5E; }} .key i.reading {{ border-top:2px solid #8A6D3B; opacity:.6; }}
+  .key i.tension {{ border-top:2px dashed #A9533F; }} .key i.specializes {{ border-top:2px dotted #5B4B8A; }} .key i.override {{ border-top:3px solid #5B4B8A; }} .key i.supports {{ border-top-color:#2F6F5E; }} .key i.reading {{ border-top:2px solid #8A6D3B; opacity:.6; }}
   .frame {{ background:var(--surface); border:1px solid var(--hair); border-radius:16px; padding:12px; overflow:auto; }}
   .svg {{ width:100%; height:auto; display:block; font-family:"DM Sans",system-ui,sans-serif; }}
   .svg.detail {{ min-width:1100px; }}
@@ -421,7 +426,7 @@ html = f'''<!doctype html>
   .cluster {{ fill:var(--ground); stroke-width:1.5; opacity:.9; }}
   .cluster-name {{ font:600 12px/1 "DM Sans",sans-serif; letter-spacing:.1em; text-transform:uppercase; }}
   .edge {{ fill:none; stroke-width:1.1; opacity:.5; }}
-  .edge.supports {{ stroke:#2F6F5E; }} .edge.tension {{ stroke:#A9533F; stroke-dasharray:6 4; }} .edge.specializes {{ stroke:#5B4B8A; stroke-dasharray:2 3; }} .edge.reading {{ stroke:#8A6D3B; opacity:.25; }}
+  .edge.supports {{ stroke:#2F6F5E; }} .edge.tension {{ stroke:#A9533F; stroke-dasharray:6 4; }} .edge.specializes {{ stroke:#5B4B8A; stroke-dasharray:2 3; }} .edge.override {{ stroke:#5B4B8A; stroke-width:2; }} .edge.reading {{ stroke:#8A6D3B; opacity:.25; }}
   .edge.on {{ opacity:1; stroke-width:2.4; }} .edge.off {{ opacity:.06; }}
   .node rect {{ fill:var(--surface); stroke-width:1.2; }}
   .node:hover rect, .node:focus rect, .node.on rect {{ stroke-width:2.4; fill:var(--ground); }}
@@ -464,7 +469,7 @@ html = f'''<!doctype html>
   <div class="frame">{"".join(ov)}</div>
 
   <h2>Every idea, every relationship</h2>
-  <p class="key"><span><i class="supports"></i>supports ({kinds["supports"]})</span><span><i class="tension"></i>pulls against ({kinds["tension"]})</span><span><i class="specializes"></i>is a narrower form of ({kinds["specializes"]})</span><span><i class="reading"></i>case is a reading of a book ({kinds["reading"]})</span><span>● owner's reading   ○ widely reported   ◆ Teamwork's synthesis</span></p>
+  <p class="key"><span><i class="supports"></i>supports ({kinds["supports"]})</span><span><i class="tension"></i>pulls against ({kinds["tension"]})</span><span><i class="specializes"></i>is a narrower form of ({kinds["specializes"]})</span><span><i class="override"></i>rule overrides ({kinds["override"]})</span><span><i class="reading"></i>case is a reading of a book ({kinds["reading"]})</span><span>● owner's reading   ○ widely reported   ◆ Teamwork's synthesis</span></p>
   <div class="frame">{"".join(det)}</div>
   <p id="detailNote">Hover or focus an idea to read what it connects to.</p>
   <p class="lede">Books enter as Matthew's readings and widely reported ideas, never as quotations. The Decision OS cases are his readings of six of the seven books, which is why that cluster has so many lines back to the books. Nothing here has been tested with users.</p>

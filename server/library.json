@@ -1,5 +1,5 @@
 {
- "note": "Principle library for Teamwork, version 2. The original keys are unchanged so server/app.py's library_digest() still works: 'forces' are the website's Path to Agency cards (ideaData); 'cases' are the thirty Module 3 management cases from Decision OS (scenarios3.js); 'habits', 'skills', 'before_questions', 'books' and 'friction_states' as before. Added in version 2: loops, lenses, path, books_takeaways, books_unsourced, algorithms, decision_science, friction, stillward_lines, dos_practice, rules, steps, relations and a flat 'principles' index. Every entry carries a status: owner_reading (the owner's own words or readings, from the website, Decision OS, Friction or Stillward), widely_reported (a widely reported idea, not checked against a text), or synthesis (Teamwork's own reasoning). Book ideas are never quotations and carry no page numbers. Stillward quotes are as attributed inside Stillward and are not workplace evidence.",
+ "note": "Principle library for Teamwork, version 2. The original keys are unchanged so server/app.py's library_digest() still works: 'forces' are the website's Path to Agency cards (ideaData); 'cases' are the thirty Module 3 management cases from Decision OS (scenarios3.js); 'habits', 'skills', 'before_questions', 'books' and 'friction_states' as before. Added in version 2: loops, lenses, path, books_takeaways, books_unsourced, algorithms, decision_science, friction, stillward_lines, dos_practice, rules, steps, relations and a flat 'principles' index. Every entry carries a status: owner_reading (the owner's own words or readings, from the website, Decision OS, Friction or Stillward), widely_reported (a widely reported idea, not checked against a text), or synthesis (Teamwork's own reasoning). Book ideas are never quotations and carry no page numbers. Stillward quotes are as attributed inside Stillward and are not workplace evidence. Relation direction: supports runs from the supporting idea to the supported one; specializes runs from the narrower idea to the broader one; tension is symmetric; override runs from the rule that wins to the idea it overrides. Seat: every case and every idea whose advice depends on who the user is carries a seat, one of manager, report, peer, team_lead, team_member or any, naming the seat the user holds (report means the user reports to the other party). The server sends Module 3 cases only to a manager or team lead, and the from-below ideas only to a report or team member.",
  "books": {
   "HGW": "How Google Works",
   "CCL": "The 15 Commitments of Conscious Leadership",
@@ -190,7 +190,8 @@
    "weak_habits": [
     "rule",
     "wait"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "top-rep-cuts-corners",
@@ -215,7 +216,8 @@
    "weak_habits": [
     "pass",
     "wait"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "inherited-slack-habits",
@@ -239,7 +241,8 @@
    "strong_move": "Say what the report is for, and cut it to three fields.",
    "weak_habits": [
     "rule"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "exception-request",
@@ -263,7 +266,8 @@
    "strong_move": "Rebuild the call around one real problem first.",
    "weak_habits": [
     "please"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "veteran-gone-quiet",
@@ -287,7 +291,8 @@
    "strong_move": "Take Ray to lunch and ask what's changed.",
    "weak_habits": [
     "wait"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "spouse-is-ill",
@@ -312,7 +317,8 @@
    "weak_habits": [
     "please",
     "rule"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "promoted-over-friend",
@@ -337,7 +343,8 @@
    "weak_habits": [
     "friend",
     "punish"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "distributor-rep-slipped",
@@ -362,7 +369,8 @@
    "weak_habits": [
     "please",
     "punish"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "ready-for-promotion",
@@ -387,7 +395,8 @@
    "weak_habits": [
     "soften",
     "wait"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "you-keep-rescuing",
@@ -412,7 +421,8 @@
    "weak_habits": [
     "drop",
     "rescue"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "hero-holds-the-account",
@@ -436,7 +446,8 @@
    "strong_move": "Ask Sam to design his own backup, starting with why.",
    "weak_habits": [
     "hero"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "metrics-reward-the-wrong-thing",
@@ -461,7 +472,8 @@
    "weak_habits": [
     "blame",
     "hope"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "context-not-permission",
@@ -486,7 +498,8 @@
    "weak_habits": [
     "drop",
     "rule"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "says-all-set",
@@ -510,7 +523,8 @@
    "strong_move": "Visit two stores and ask which were hardest.",
    "weak_habits": [
     "check"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "lock-that-isnt",
@@ -534,7 +548,8 @@
    "strong_move": "Count Safeway at half until the buyer sets a date.",
    "weak_habits": [
     "cheer"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "team-agrees",
@@ -558,7 +573,8 @@
    "strong_move": "Reopen the plan by owning how you cut off pushback.",
    "weak_habits": [
     "assume"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "one-explanation",
@@ -582,7 +598,8 @@
    "strong_move": "Check her numbers against the re-cut and pay plan.",
    "weak_habits": [
     "label"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "q4-fatigue",
@@ -606,7 +623,8 @@
    "strong_move": "Sleep seven hours a night until the 31st.",
    "weak_habits": [
     "grind"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "defensive-in-review",
@@ -630,7 +648,8 @@
    "strong_move": "Say: “I championed this program, and it missed.”",
    "weak_habits": [
     "defend"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "miss-the-field",
@@ -655,7 +674,8 @@
    "weak_habits": [
     "grind",
     "rule"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "vacation-text",
@@ -680,7 +700,8 @@
    "weak_habits": [
     "drop",
     "grind"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "sure-of-the-plan",
@@ -704,7 +725,8 @@
    "strong_move": "Pilot 15% of effort in three markets for six weeks.",
    "weak_habits": [
     "defend"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "friday-6pm-email",
@@ -729,7 +751,8 @@
    "weak_habits": [
     "grind",
     "please"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "number-you-cant-hit",
@@ -753,7 +776,8 @@
    "strong_move": "Give her your honest range now: likely 94, best 96.",
    "weak_habits": [
     "overpromise"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "reorg-rumor",
@@ -778,7 +802,8 @@
    "weak_habits": [
     "please",
     "soften"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "win-that-costs-supply",
@@ -802,7 +827,8 @@
    "strong_move": "Bring supply chain and West's lead to one table.",
    "weak_habits": [
     "lock"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "rookie-overpromises",
@@ -827,7 +853,8 @@
    "weak_habits": [
     "drop",
     "rule"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "quiet-says-fine",
@@ -852,7 +879,8 @@
    "weak_habits": [
     "assume",
     "pass"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "ask-dont-answer",
@@ -876,7 +904,8 @@
    "strong_move": "Ask him to bring you his own answer by tomorrow.",
    "weak_habits": [
     "lecture"
-   ]
+   ],
+   "seat": "manager"
   },
   {
    "id": "burned-out-star",
@@ -900,7 +929,8 @@
    "strong_move": "Tell Zoe what you've seen, including your own praise.",
    "weak_habits": [
     "applaud"
-   ]
+   ],
+   "seat": "manager"
   }
  ],
  "version": 2,
@@ -1363,7 +1393,8 @@
     "ds.base_rates",
     "ds.voi",
     "ds.regression_mean",
-    "book.tdc"
+    "book.tdc",
+    "ds.psych_safety"
    ],
    "status": "synthesis",
    "source": "Teamwork's synthesis from widely reported organizational behaviour. Not in the owner's material, which is mostly written from the manager's seat.",
@@ -1794,7 +1825,7 @@
    "id": "who",
    "phase": "Arrive",
    "title": "Who is this about?",
-   "app": "home.who: five seats.",
+   "app": "home.who: six answers.",
    "trust": {
     "knows": "Which seat the person says the other party holds. Nothing more.",
     "cannot": "How the other person sees the relationship, or whether a seat says anything about fault.",
@@ -1830,6 +1861,22 @@
       {
        "id": "ds.psych_safety",
        "why": "A manager's reaction decides how costly the truth is to say, so the step is sized to what the person can safely raise."
+      },
+      {
+       "id": "seat.upward_candour",
+       "why": "Upward, a hard true thing costs the person more to say than the other party to hear, so the step is shaped as a question or a record."
+      },
+      {
+       "id": "seat.ask_first",
+       "why": "Asking first gets the reason behind what happened without accusing someone who holds power over the person."
+      },
+      {
+       "id": "seat.written_facts",
+       "why": "Where the other party controls reviews or projects, facts written down with dates protect the person if the accounts later differ."
+      },
+      {
+       "id": "seat.manager_constraints",
+       "why": "A manager may be passing on something they did not choose, which is worth ruling out before reading the behaviour as aimed at the person."
       }
      ]
     },
@@ -1857,21 +1904,33 @@
      "links": [
       {
        "id": "ds.power",
-       "why": "With no formal power either way, direct candour is more often safe and the step can ask more of the person."
+       "why": "A colleague holds no formal authority over you, but informal influence and competition for the same recognition still shape what is safe to say, so the step is an agreement and not an instruction."
       },
       {
        "id": "force.incentives",
        "why": "Peers often pull against each other because of what each is measured on, so check the number before the person."
+      },
+      {
+       "id": "seat.peer_agreement",
+       "why": "A colleague cannot be instructed, so the usable move is a proposal for how the two of you will work."
+      },
+      {
+       "id": "seat.peer_informal_power",
+       "why": "Equal rank does not mean equal standing, so even a peer step is shaped for what is safe."
+      },
+      {
+       "id": "seat.peer_tell_first",
+       "why": "If the matter later goes to a shared manager, telling the colleague first keeps the relationship."
       }
      ]
     },
     {
-     "id": "team",
-     "label": "My team",
+     "id": "team_lead",
+     "label": "A team I lead",
      "links": [
       {
        "id": "case.team-agrees",
-       "why": "With a group, silence is the thing to read: it is not agreement until someone has been asked what disagreeing would cost."
+       "why": "With a group you lead, silence is the thing to read: it is not agreement until someone has been asked what disagreeing with you costs."
       },
       {
        "id": "ds.psych_safety",
@@ -1880,6 +1939,28 @@
       {
        "id": "book.fdt",
        "why": "Team-level patterns such as avoided conflict can be named in plain words, widely reported, never attributed or used as a verdict."
+      }
+     ]
+    },
+    {
+     "id": "team_member",
+     "label": "A team I'm part of",
+     "links": [
+      {
+       "id": "ds.psych_safety",
+       "why": "A quiet team is first a question about whether speaking is safe, not about willingness."
+      },
+      {
+       "id": "book.fdt",
+       "why": "Team-level patterns such as avoided conflict can be named in plain words, widely reported, never attributed or used as a verdict."
+      },
+      {
+       "id": "seat.decision_rights_gap",
+       "why": "From inside a team, a repeated argument is first a question about who decides, before it is a question about any one person."
+      },
+      {
+       "id": "seat.team_ask_who_decides",
+       "why": "A team member has no authority over the team's process, so the usable move is a question about how it decides."
       }
      ]
     },
@@ -1934,7 +2015,11 @@
       },
       {
        "id": "case.metrics-reward-the-wrong-thing",
-       "why": "People do what the number pays for. Check the incentive before the person."
+       "why": "When the person manages the other party, check what that person's own number pays for before judging them. It does not apply to a peer or a manager, who set no number of yours."
+      },
+      {
+       "id": "seat.rank_priorities",
+       "why": "When the person reports to the other party, a missed deadline is often two demands colliding, so ask which comes first."
       }
      ]
     },
@@ -1943,16 +2028,24 @@
      "label": "They shift the goalposts, then blame me",
      "links": [
       {
-       "id": "ds.hindsight_outcome",
-       "why": "'The goalposts moved' is partly a memory question: after an outcome, both sides remember agreeing to more than they did."
-      },
-      {
        "id": "book.hom",
        "why": "The owner's Grove reading puts clear expectations first, so the first move is what was agreed, in what words, and when."
       },
       {
        "id": "rule.happened_told",
        "why": "'Then blame me' is a conclusion; what was said and when is what happened."
+      },
+      {
+       "id": "dos.commit",
+       "why": "A goal can only be shown to have moved if the earlier goal was written down with a date, which is commit-before-you-see applied to a target."
+      },
+      {
+       "id": "seat.confirm_in_writing",
+       "why": "A short written summary of the current goal turns a moving target into a dated one without accusing anyone."
+      },
+      {
+       "id": "seat.written_facts",
+       "why": "Writing down what was said and when keeps a dispute about what was agreed on facts and not memories."
       }
      ]
     },
@@ -1971,6 +2064,14 @@
       {
        "id": "ds.power",
        "why": "Being cut off by someone senior and by a peer are different events with different safe responses."
+      },
+      {
+       "id": "seat.ask_first",
+       "why": "When the person is below the one who cut them off, a question about the reason is safer than a protest."
+      },
+      {
+       "id": "seat.peer_informal_power",
+       "why": "A colleague who talks over you may hold informal influence, which changes how directly it is safe to answer."
       }
      ]
     },
@@ -1989,6 +2090,14 @@
       {
        "id": "habit.narrow",
        "why": "One explanation, the first story that fits, is the habit that keeps an argument going."
+      },
+      {
+       "id": "seat.decision_rights_gap",
+       "why": "A repeated argument in a team is often nobody having said who decides."
+      },
+      {
+       "id": "seat.peer_agreement",
+       "why": "Between peers, a repeated clash is ended by an agreement about who decides what, not by winning it again."
       }
      ]
     },
@@ -2039,6 +2148,10 @@
       {
        "id": "ds.power",
        "why": "Retaliation after refusing is a power problem, which is why no conversation advice is offered."
+      },
+      {
+       "id": "seat.written_facts",
+       "why": "Dated facts in the person's own words are the first thing the people with the duty to act will ask for."
       }
      ]
     }
@@ -2076,6 +2189,14 @@
       {
        "id": "ds.system_person",
        "why": "Understanding starts by asking what the setup would produce in anyone."
+      },
+      {
+       "id": "seat.manager_constraints",
+       "why": "Understanding a manager's behaviour starts with what they are being pushed on from above."
+      },
+      {
+       "id": "seat.decision_rights_gap",
+       "why": "In a team, understanding a repeated argument starts with who was meant to decide."
       }
      ]
     },
@@ -2090,6 +2211,10 @@
       {
        "id": "path.judgment",
        "why": "Judgment is the third stage of the path: weighing, not just seeing."
+      },
+      {
+       "id": "seat.bring_a_proposal",
+       "why": "Deciding what to do from below usually ends in a specific ask the other person can accept."
       }
      ]
     },
@@ -2104,6 +2229,18 @@
       {
        "id": "book.tdc",
        "why": "Widely reported advice from the book is honest and early with care; the words step draws on it."
+      },
+      {
+       "id": "seat.ask_first",
+       "why": "Preparing to talk to someone above you means preparing questions, not a case."
+      },
+      {
+       "id": "seat.written_facts",
+       "why": "Facts written down before the conversation keep it on what happened."
+      },
+      {
+       "id": "seat.peer_agreement",
+       "why": "Preparing to talk to a peer means preparing a proposal they can agree to."
       }
      ]
     },
@@ -2136,6 +2273,18 @@
       {
        "id": "rule.safety_flag",
        "why": "Escalation can mean the conduct path, so the account is checked for it before any advice."
+      },
+      {
+       "id": "seat.escalation_ladder",
+       "why": "Escalation has an order, and each rung suits a different kind of problem."
+      },
+      {
+       "id": "seat.step_away",
+       "why": "Stepping away is one of the outcomes the person is weighing, and it has costs of its own."
+      },
+      {
+       "id": "seat.peer_tell_first",
+       "why": "Going past a colleague is a different act from going past a manager, and it works better told first."
       }
      ]
     }
@@ -2369,10 +2518,6 @@
       {
        "id": "book.hom",
        "why": "Clear expectations come first in the owner's reading of Grove."
-      },
-      {
-       "id": "ds.power",
-       "why": "Not knowing where you stand is often a gap in who holds the information."
       }
      ]
     },
@@ -2685,10 +2830,6 @@
       {
        "id": "ds.voi",
        "why": "Worth finding out only if it would change the step."
-      },
-      {
-       "id": "ds.base_rates",
-       "why": "'Has he done this to others?' is a base-rate question, and the fact most worth having."
       }
      ]
     },
@@ -2829,7 +2970,7 @@
      "links": [
       {
        "id": "alg.bayes",
-       "why": "Every step bets on a belief; saying it aloud lets a later fact move it by the right amount."
+       "why": "Naming the assumption states what you currently believe, so that what happens next can change it."
       },
       {
        "id": "rule.say_cant_tell",
@@ -3696,16 +3837,10 @@
    "why": "Friction applies the same idea by simulating each answer and asking only if one could change the recommendation."
   },
   {
-   "from": "rule.one_question",
-   "to": "ds.voi",
+   "from": "ds.voi",
+   "to": "rule.one_question",
    "kind": "supports",
-   "why": "The 'one question, only if it changes the advice' rule is the idea turned into a protocol line."
-  },
-  {
-   "from": "alg.forecast",
-   "to": "ds.decision_vs_result",
-   "kind": "supports",
-   "why": "Keeping a forecast apart from a decision is how a good choice is told from a lucky outcome."
+   "why": "The one-question rule is this idea turned into a protocol line: ask only if some answer would change the advice."
   },
   {
    "from": "dos.commit",
@@ -3810,10 +3945,10 @@
    "why": "Agency is a chosen step acted on and then checked."
   },
   {
-   "from": "alg.utility",
-   "to": "dos.tension",
+   "from": "dos.tension",
+   "to": "alg.utility",
    "kind": "specializes",
-   "why": "Decision OS's utility lesson is the maths of two values pulling apart: change the weights and the winner changes."
+   "why": "Showing two values pulling apart is a utility trade-off made visible: change the weights and the winner changes."
   },
   {
    "from": "ds.fae",
@@ -3825,7 +3960,7 @@
    "from": "ds.system_person",
    "to": "rule.non_character",
    "kind": "supports",
-   "why": "The rule is this question made mandatory."
+   "why": "The rule is this question made mandatory: a setup reading is always carried until facts rule it out."
   },
   {
    "from": "ds.fae",
@@ -3849,7 +3984,7 @@
    "from": "force.incentives",
    "to": "ds.system_person",
    "kind": "supports",
-   "why": "What a person is measured on is the most common setup cause."
+   "why": "What a person is measured on is one of the setup causes to check before explaining the person."
   },
   {
    "from": "force.conditions",
@@ -3876,12 +4011,6 @@
    "why": "In the owner's reading, using more than one model is what stops a familiar pattern passing for the whole picture."
   },
   {
-   "from": "habit.narrow",
-   "to": "book.pca",
-   "kind": "specializes",
-   "why": "Settling on the first story that fits is the person-level form of the first-conclusion tendency."
-  },
-  {
    "from": "book.hom",
    "to": "lens.system",
    "kind": "supports",
@@ -3904,18 +4033,6 @@
    "to": "lens.business",
    "kind": "supports",
    "why": "The number a manager is reacting to is the Business lens at the scale of one person."
-  },
-  {
-   "from": "force.leverage",
-   "to": "book.hom",
-   "kind": "supports",
-   "why": "Finding where one change moves many is the owner's reading of Grove's leverage."
-  },
-  {
-   "from": "lens.multiplier",
-   "to": "path.understanding",
-   "kind": "supports",
-   "why": "Understanding means the three lenses reinforcing one another, not any one of them winning."
   },
   {
    "from": "force.trust",
@@ -3944,8 +4061,8 @@
   {
    "from": "ds.power",
    "to": "ds.psych_safety",
-   "kind": "supports",
-   "why": "How safe it is to speak depends on who holds power over the speaker."
+   "kind": "tension",
+   "why": "Psychological safety assumes people can speak without cost; unequal power is the reason that often is not true."
   },
   {
    "from": "ds.power",
@@ -3990,33 +4107,27 @@
    "why": "Own it in one sentence before you explain it."
   },
   {
-   "from": "habit.control",
-   "to": "dos.before",
-   "kind": "specializes",
-   "why": "'Am I confusing accountability with punishment?' is the pre-conversation question about this habit."
-  },
-  {
-   "from": "ds.base_rates",
-   "to": "rule.safety_flag",
-   "kind": "tension",
+   "from": "rule.safety_flag",
+   "to": "ds.base_rates",
+   "kind": "override",
    "why": "A reassuring base rate must never talk anyone out of recording or reporting conduct."
   },
   {
-   "from": "ds.fae",
-   "to": "rule.safety_flag",
-   "kind": "tension",
+   "from": "rule.safety_flag",
+   "to": "ds.fae",
+   "kind": "override",
    "why": "Looking for a situational cause suits a missed deadline and is wrong for harassment."
   },
   {
-   "from": "rule.non_character",
-   "to": "rule.safety_flag",
-   "kind": "tension",
+   "from": "rule.safety_flag",
+   "to": "rule.non_character",
+   "kind": "override",
    "why": "The non-character explanation is switched off on the conduct path, by design."
   },
   {
-   "from": "ds.one_vs_pattern",
-   "to": "rule.safety_flag",
-   "kind": "tension",
+   "from": "rule.safety_flag",
+   "to": "ds.one_vs_pattern",
+   "kind": "override",
    "why": "Waiting for a pattern is sound for an interruption and a mistake for a serious single act."
   },
   {
@@ -4082,8 +4193,8 @@
   {
    "from": "alg.bandit",
    "to": "alg.ev",
-   "kind": "tension",
-   "why": "An experiment with a low chance now looks poor on expected value and is the one that teaches you most."
+   "kind": "specializes",
+   "why": "Explore and exploit is expected value with the value of learning counted in, so it is the narrower case."
   },
   {
    "from": "dos.tension",
@@ -4092,16 +4203,76 @@
    "why": "Showing both good values and recommending one step pull against each other; the app shows the tension, then picks one move."
   },
   {
-   "from": "loop.activity",
-   "to": "loop.learning",
-   "kind": "tension",
-   "why": "Same inputs, opposite ends: one repeats the work, the other changes what happens next."
+   "from": "rule.safety_flag",
+   "to": "rule.one_step",
+   "kind": "override",
+   "why": "On the conduct path there is no single conversation step; the step is the record and the route to the people with the duty to act."
+  },
+  {
+   "from": "seat.upward_candour",
+   "to": "ds.power",
+   "kind": "specializes",
+   "why": "Upward candour is the power asymmetry applied to one act: saying a hard true thing to the person who holds power."
+  },
+  {
+   "from": "seat.peer_informal_power",
+   "to": "ds.power",
+   "kind": "specializes",
+   "why": "Informal influence between peers is a quieter form of the same asymmetry in who can afford to say what."
+  },
+  {
+   "from": "seat.upward_candour",
+   "to": "seat.ask_first",
+   "kind": "supports",
+   "why": "Because speaking up costs more from below, a question is the cheaper way to put the same fact on the table."
+  },
+  {
+   "from": "seat.written_facts",
+   "to": "seat.escalation_ladder",
+   "kind": "supports",
+   "why": "Every rung up needs the facts in writing, so a record made before the first conversation serves each later one."
   },
   {
    "from": "rule.safety_flag",
-   "to": "rule.one_step",
+   "to": "seat.escalation_ladder",
+   "kind": "override",
+   "why": "On the conduct path there is no order of rungs; the person goes straight to those with the duty to act."
+  },
+  {
+   "from": "rule.safety_flag",
+   "to": "seat.manager_constraints",
+   "kind": "override",
+   "why": "Being constrained can explain a decision but never conduct, so the safety flag takes over."
+  },
+  {
+   "from": "seat.escalation_ladder",
+   "to": "seat.step_away",
    "kind": "tension",
-   "why": "On the conduct path there is no single conversation step; the step is the record and the route to the people with the duty to act."
+   "why": "The same time and energy cannot go both into climbing the ladder and into leaving."
+  },
+  {
+   "from": "seat.decision_rights_gap",
+   "to": "ds.system_person",
+   "kind": "specializes",
+   "why": "An unclear decision right is one concrete form of a setup cause, and the first to check in a team that keeps arguing."
+  },
+  {
+   "from": "seat.decision_rights_gap",
+   "to": "seat.team_ask_who_decides",
+   "kind": "supports",
+   "why": "If the argument is a gap in decision rights, the useful move is to ask how the team decides, which names no one."
+  },
+  {
+   "from": "seat.peer_tell_first",
+   "to": "seat.peer_agreement",
+   "kind": "tension",
+   "why": "Taking it to the shared manager skips the agreement the peer step tries first, and trades goodwill for authority."
+  },
+  {
+   "from": "dos.commit",
+   "to": "seat.confirm_in_writing",
+   "kind": "supports",
+   "why": "Writing the goal down before the result is the same move as confirming a change of direction in writing."
   }
  ],
  "principles": [
@@ -4674,7 +4845,8 @@
    "status": "owner_reading",
    "source": "Decision OS, scenarios3.js and the Learn lessons",
    "summary": "Five questions a manager asks before a hard performance conversation. In Teamwork: The manager questions on the step screen.",
-   "used": true
+   "used": true,
+   "seat": "manager"
   },
   {
    "id": "dos.tension",
@@ -4706,7 +4878,8 @@
    "summary": "Compare commit and actual for every rep. Book the talk.",
    "pause": "Who should tell Dana: you now, or your director in January?",
    "tension": "Useful metrics keep misses visible.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.top-rep-cuts-corners",
@@ -4718,7 +4891,8 @@
    "summary": "Walk three “executed” displays you haven't seen.",
    "pause": "What will the team learn from your next move?",
    "tension": "Honest feedback only works inside trust.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.inherited-slack-habits",
@@ -4730,7 +4904,8 @@
    "summary": "Pick one inherited routine. Cut every unused field.",
    "pause": "Could you explain this rule, or only enforce it?",
    "tension": "Give people context to decide.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.exception-request",
@@ -4742,7 +4917,8 @@
    "summary": "Ask each rep: what is Monday's call for?",
    "pause": "Would your answer change for a middle performer?",
    "tension": "Autonomy and context let strong people act.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.veteran-gone-quiet",
@@ -4754,7 +4930,8 @@
    "summary": "Book a long lunch with the person who changed.",
    "pause": "What would Ray want you to ask him?",
    "tension": "Stay curious; your story may be a reaction.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.spouse-is-ill",
@@ -4766,7 +4943,8 @@
    "summary": "Learn today what leave and flexible-schedule options exist.",
    "pause": "What do you know Tom needs, and what do you assume?",
    "tension": "Transparency helps a team decide together.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.promoted-over-friend",
@@ -4778,7 +4956,8 @@
    "summary": "List the three people you go easiest on. Book one talk.",
    "pause": "Which costs more: some friendship, or the team's belief you're fair?",
    "tension": "Honest feedback builds trust, even between friends.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.distributor-rep-slipped",
@@ -4790,7 +4969,8 @@
    "summary": "Learn what's on your key distributor reps' plates first.",
    "pause": "What do you owe someone you depend on and underpay?",
    "tension": "Know how the other side makes money.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.ready-for-promotion",
@@ -4802,7 +4982,8 @@
    "summary": "List every “next cycle” you've said. Make each a date or a no.",
    "pause": "What did Lena hear in “next cycle”? What did you mean?",
    "tension": "Take responsibility for your part.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.you-keep-rescuing",
@@ -4814,7 +4995,8 @@
    "summary": "List the last five things you fixed. Write a checklist for the commonest.",
    "pause": "Whose proposal is this, and what does the team learn?",
    "tension": "Helping people perform can mean being slower today.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.hero-holds-the-account",
@@ -4826,7 +5008,8 @@
    "summary": "List your five biggest accounts and who else could run each.",
    "pause": "Is it loyal to leave him carrying this alone?",
    "tension": "Trust built over years earns the right to ask for more.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.metrics-reward-the-wrong-thing",
@@ -4838,7 +5021,8 @@
    "summary": "For each number you pay on, ask how a clever rep could game it.",
    "pause": "What does telling your director now risk, and what does waiting risk?",
    "tension": "Pay shapes behavior; bring psychology and economics.",
-   "used": true
+   "used": true,
+   "seat": "manager"
   },
   {
    "id": "case.context-not-permission",
@@ -4850,7 +5034,8 @@
    "summary": "Ask a rep what they skipped for fear of not being allowed.",
    "pause": "What are you protecting by approving $900?",
    "tension": "Useful metrics let you check what was decided.",
-   "used": true
+   "used": true,
+   "seat": "manager"
   },
   {
    "id": "case.says-all-set",
@@ -4862,7 +5047,8 @@
    "summary": "Pick one status you accept on someone's word. Spot-check it.",
    "pause": "Can you check his work without him hearing that you doubt him?",
    "tension": "Clear expectations and useful metrics apply to everyone.",
-   "used": true
+   "used": true,
+   "seat": "manager"
   },
   {
    "id": "case.lock-that-isnt",
@@ -4874,7 +5060,8 @@
    "summary": "Tally each rep's “locks” against closes. Show them quarterly.",
    "pause": "Would Dave bet his own money on it?",
    "tension": "Building trust helps talented people do their best.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.team-agrees",
@@ -4886,7 +5073,8 @@
    "summary": "Ask “what's the weakest part of this plan?” and wait.",
    "pause": "What does disagreeing with you cost a rep?",
    "tension": "More perspectives keep you from missing the whole picture.",
-   "used": true
+   "used": true,
+   "seat": "manager"
   },
   {
    "id": "case.one-explanation",
@@ -4898,7 +5086,8 @@
    "summary": "When numbers move, list three causes that aren't the person.",
    "pause": "What would you see if it weren't effort?",
    "tension": "Stay curious; notice when ego writes the story.",
-   "used": true
+   "used": true,
+   "seat": "manager"
   },
   {
    "id": "case.q4-fatigue",
@@ -4910,7 +5099,8 @@
    "summary": "Block next week's non-negotiables first: sleep, one evening, one meal.",
    "pause": "What would you tell a friend running on five hours' sleep?",
    "tension": "A team with context can carry some of the load.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.defensive-in-review",
@@ -4922,7 +5112,8 @@
    "summary": "Write the one sentence you'd say after a miss.",
    "pause": "What would your best rep say first?",
    "tension": "A good leader welcomes honest feedback.",
-   "used": true
+   "used": true,
+   "seat": "manager"
   },
   {
    "id": "case.miss-the-field",
@@ -4934,7 +5125,8 @@
    "summary": "Book the two overdue one-on-ones first.",
    "pause": "Who pays when your hours go to what you love?",
    "tension": "How you show up matters; notice what drives you.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.vacation-text",
@@ -4946,7 +5138,8 @@
    "summary": "Before time off, write who decides what and who covers.",
    "pause": "If you never replied, who would decide?",
    "tension": "Notice whether your reaction serves the work or your ego.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.sure-of-the-plan",
@@ -4958,7 +5151,8 @@
    "summary": "Before a big plan, write what you'd see in 30 days if wrong.",
    "pause": "What would show you were wrong in 30 days?",
    "tension": "Ask good questions so the team can improve the plan.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.friday-6pm-email",
@@ -4970,7 +5164,8 @@
    "summary": "When a deadline lands late, ask what decision it supports.",
    "pause": "What is the deadline for? Do you know?",
    "tension": "Context helps people decide, and a request's purpose is context.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.number-you-cant-hit",
@@ -4982,7 +5177,8 @@
    "summary": "Write today's honest range and its drivers. Send it first.",
    "pause": "What would your VP want to know, and when?",
    "tension": "Notice fear or defensiveness before it writes your answer.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.reorg-rumor",
@@ -4994,7 +5190,8 @@
    "summary": "Write three sentences: what you can say, can't, and when you'll update.",
    "pause": "Will they remember what you said, or that you said it?",
    "tension": "Think through what each person will do when they hear it.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.win-that-costs-supply",
@@ -5006,7 +5203,8 @@
    "summary": "Before closing a big deal, ask who else needs what it uses.",
    "pause": "Whose call is it which one runs?",
    "tension": "Share context early so affected people can decide with you.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.rookie-overpromises",
@@ -5018,7 +5216,8 @@
    "summary": "Write three questions to ask before promising a date or display.",
    "pause": "Whose call is this, and who learns most from it?",
    "tension": "Clear expectations keep outcomes from depending on one person.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.quiet-says-fine",
@@ -5030,7 +5229,8 @@
    "summary": "Ask a rep you've only asked “how are you?”: “What's the least fun part of your week?”",
    "pause": "What haven't you asked because you fear the answer?",
    "tension": "Stay curious about what you have avoided asking.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.ask-dont-answer",
@@ -5042,7 +5242,8 @@
    "summary": "Next five times he asks, answer “what do you think?” first.",
    "pause": "Which would Ben remember: your answer, or his?",
    "tension": "Develop people so your time reaches further.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "case.burned-out-star",
@@ -5054,7 +5255,8 @@
    "summary": "Check the timestamps on your team's emails and yours.",
    "pause": "What are you teaching the team about what you notice?",
    "tension": "Take responsibility for how your own reactions land, praise included.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "habit.rescue",
@@ -5064,7 +5266,8 @@
    "status": "owner_reading",
    "source": "Decision OS, families3",
    "summary": "You step in and fix it, or give the answer before you have asked. It works today and teaches the team to wait for you.",
-   "used": false
+   "used": false,
+   "seat": "manager"
   },
   {
    "id": "habit.avoid",
@@ -5084,7 +5287,8 @@
    "status": "owner_reading",
    "source": "Decision OS, families3",
    "summary": "You reach for a rule, a check or a consequence where a conversation would do.",
-   "used": true
+   "used": true,
+   "seat": "manager"
   },
   {
    "id": "habit.please",
@@ -5394,6 +5598,188 @@
    "status": "owner_reading",
    "source": "Stillward, done screen (Lighter, Calmer, Clearer, Tender, Unchanged, Still heavy)",
    "summary": "A feeling is kept as a feeling, never scored, and the honest negative answer opens exits instead of a nudge.",
+   "used": true
+  },
+  {
+   "id": "seat.upward_candour",
+   "kind": "idea",
+   "label": "Upward candour carries an asymmetric cost",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from widely reported organizational behaviour, written for a seat the owner's material mostly leaves out. Not checked against a text.",
+   "summary": "A hard true thing costs the person below more to say than it costs the person above to hear. The person below can lose standing, a project or a review. The person above rarely sees that cost.",
+   "applies_when": "The person reports to the other party, and what they want to say is critical of that party's decision, plan or behaviour.",
+   "misleads_when": "It can harden into permanent silence. Plenty of managers want the truth and act on it, and the fear may be a guess nobody has tested. It does not govern conduct, where the safety flag does.",
+   "seat": "report",
+   "used": true
+  },
+  {
+   "id": "seat.ask_first",
+   "kind": "idea",
+   "label": "Ask before you assert when you report to them",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from widely reported organizational behaviour, written for a seat the owner's material mostly leaves out. Not checked against a text.",
+   "summary": "A question lets the person above explain, or notice a gap, without feeling accused. It also gets you the reason behind a decision that you may not have.",
+   "applies_when": "The person reports to the other party, does not know the reason behind a decision, and wants to raise it without a confrontation.",
+   "misleads_when": "Questions can become a way of never saying the thing. If the person already has the facts, stating them plainly once is honest. It is the wrong move for conduct, where the step is to record and report.",
+   "seat": "report",
+   "used": true
+  },
+  {
+   "id": "seat.written_facts",
+   "kind": "idea",
+   "label": "Write the facts down before the conversation when power is unequal",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from widely reported organizational behaviour, written for a seat the owner's material mostly leaves out. Not checked against a text.",
+   "summary": "Dates, the words used, what was asked and what was answered, written before anyone talks. It keeps the conversation on what happened and leaves a record if the accounts later differ.",
+   "applies_when": "The other party has a say over the person's pay, project or review, or the two accounts could later differ.",
+   "misleads_when": "It can turn into a file kept to win with, and it records one side only. A note held up as a threat costs trust. Keep it plain and share it only when it helps.",
+   "seat": "report",
+   "used": true
+  },
+  {
+   "id": "seat.escalation_ladder",
+   "kind": "idea",
+   "label": "The escalation ladder",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from widely reported organizational behaviour, written for a seat the owner's material mostly leaves out. Not checked against a text.",
+   "summary": "Four rungs, in order. The person first, when the behaviour can be raised safely. Then the person's manager, when the person cannot or will not change it or the decision sits above them. Then HR or an equivalent, when it is a policy or fairness matter or the manager is the problem and speaking directly did not help. Then outside the organization, such as a lawyer, an ombuds office, a union or a regulator, when something unlawful happened or the inside routes failed or punished the person.",
+   "applies_when": "The person is deciding whether to go past the other party, or whether to stay at all.",
+   "misleads_when": "It is not a rule that you must confront first. On the conduct path the safety flag overrides it and the person goes straight to those with the duty to act. Going over someone's head without telling them can cost trust.",
+   "seat": "report",
+   "used": true
+  },
+  {
+   "id": "seat.manager_constraints",
+   "kind": "idea",
+   "label": "The person above is constrained from above",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from widely reported organizational behaviour, written for a seat the owner's material mostly leaves out. Not checked against a text.",
+   "summary": "A manager is often passing along a decision, a deadline or a number they did not choose. What looks arbitrary from below may be pressure from higher up.",
+   "applies_when": "The person reports to the other party and the behaviour looks arbitrary, inconsistent or unexplained.",
+   "misleads_when": "It can excuse conduct. Being constrained can explain a decision. It never explains harassment, retaliation or being punished for saying no.",
+   "seat": "report",
+   "used": true
+  },
+  {
+   "id": "seat.bring_a_proposal",
+   "kind": "idea",
+   "label": "Bring a small proposal, not only the problem",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from widely reported organizational behaviour, written for a seat the owner's material mostly leaves out. Not checked against a text.",
+   "summary": "To the person above, a problem plus one specific change they can say yes to is easier to act on than a complaint. Put it in terms of what they are measured on.",
+   "applies_when": "The person wants something from the party above, such as time, a priority, a resource or a clearer target.",
+   "misleads_when": "It makes you the owner of fixing something that may not be yours to fix. When the problem is the other person's conduct, a proposal is the wrong shape.",
+   "seat": "report",
+   "used": true
+  },
+  {
+   "id": "seat.confirm_in_writing",
+   "kind": "idea",
+   "label": "Confirm a change of direction in writing, as a summary",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from widely reported organizational behaviour, written for a seat the owner's material mostly leaves out. Not checked against a text.",
+   "summary": "After a target changes in conversation, send a short note: to confirm, the goal is now this by that date, instead of the earlier one. It treats the change as normal and leaves a dated record with no accusation in it.",
+   "applies_when": "Goals or priorities shift by word of mouth, or the person is later measured against something they were never told in writing.",
+   "misleads_when": "A note after every chat can read as distrust. It does not fix a person who denies what was said; at that point the record serves the next rung, not this conversation.",
+   "seat": "report",
+   "used": true
+  },
+  {
+   "id": "seat.rank_priorities",
+   "kind": "idea",
+   "label": "Ask them to rank when priorities collide",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from widely reported organizational behaviour, written for a seat the owner's material mostly leaves out. Not checked against a text.",
+   "summary": "When two demands from the party above cannot both be done well, naming the clash and asking which comes first moves the choice to the person who owns it.",
+   "applies_when": "The person reports to the other party and is missing, or about to miss, a commitment because the demands conflict.",
+   "misleads_when": "It fails when the clash is not real, or when it hands off every hard choice. A manager who answers both every time is telling you something else, and that is the time to consider the next rung.",
+   "seat": "report",
+   "used": true
+  },
+  {
+   "id": "seat.step_away",
+   "kind": "idea",
+   "label": "Stepping away can be a sound answer",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from widely reported organizational behaviour, written for a seat the owner's material mostly leaves out. Not checked against a text.",
+   "summary": "After the sensible steps have been tried, leaving a project, a team or a job is a real option and not a failure. It is weighed by what the person can still change and what staying costs.",
+   "applies_when": "The person has already raised it, the conditions have not changed, and the cost of staying keeps rising.",
+   "misleads_when": "As a first reaction it skips steps that might have worked, and it moves the person without fixing the setup. It is not the answer on the conduct path, where there are people with a duty to act.",
+   "seat": "any",
+   "used": true
+  },
+  {
+   "id": "seat.peer_agreement",
+   "kind": "idea",
+   "label": "A peer has no authority, so the move is an agreement",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from widely reported organizational behaviour, written for a seat the owner's material mostly leaves out. Not checked against a text.",
+   "summary": "You cannot instruct a colleague. What you can do is propose how the two of you will work, who decides what and when you will check, and ask whether they agree.",
+   "applies_when": "The other party is a colleague with no authority over the person, and the trouble is a hand-off, a decision or a repeated clash.",
+   "misleads_when": "An agreement needs both sides willing. If the colleague will not agree, or the matter is conduct, the next move is the shared manager or the people with the duty, not a firmer ask.",
+   "seat": "peer",
+   "used": true
+  },
+  {
+   "id": "seat.peer_informal_power",
+   "kind": "idea",
+   "label": "Peers still hold informal power",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from widely reported organizational behaviour, written for a seat the owner's material mostly leaves out. Not checked against a text.",
+   "summary": "A colleague has no formal authority but can hold influence through relationships, knowledge, history with the boss or being the person others listen to. Peers can also be competing for the same recognition.",
+   "applies_when": "The other party is a colleague and the person assumes that speaking directly is safe, or assumes it is not.",
+   "misleads_when": "It can breed suspicion of a peer who is simply busy or unaware. It does not say a colleague is acting in bad faith.",
+   "seat": "peer",
+   "used": true
+  },
+  {
+   "id": "seat.peer_tell_first",
+   "kind": "idea",
+   "label": "Tell a peer before going to the shared manager",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from widely reported organizational behaviour, written for a seat the owner's material mostly leaves out. Not checked against a text.",
+   "summary": "Going to a shared boss without telling the colleague is a different act from going to your own manager. Telling them first, and offering to go together, usually keeps the working relationship intact.",
+   "applies_when": "The two share a manager and speaking to the colleague alone has not worked.",
+   "misleads_when": "Not when telling them first would put the person at risk, or when the matter is conduct. Then the person goes to those with the duty to act without warning.",
+   "seat": "peer",
+   "used": true
+  },
+  {
+   "id": "seat.decision_rights_gap",
+   "kind": "idea",
+   "label": "A team member's recurring argument is usually a decision-rights gap",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from widely reported organizational behaviour, written for a seat the owner's material mostly leaves out. Not checked against a text.",
+   "summary": "When the same argument keeps coming back inside a team, the cause is more often that nobody has said who decides than that a person is difficult. The argument is about the decision, and each person is acting reasonably from where they sit.",
+   "applies_when": "The person is part of the team and not leading it, and the same disagreement keeps returning.",
+   "misleads_when": "It can cover for someone who really is obstructing, or for conduct. Check whether the argument ends once the decision-maker is named. If it does not, look at the other explanations.",
+   "seat": "team_member",
+   "used": true
+  },
+  {
+   "id": "seat.team_ask_who_decides",
+   "kind": "idea",
+   "label": "Ask how the team decides, not who is wrong",
+   "lane": "organizational_behaviour",
+   "status": "synthesis",
+   "source": "Teamwork's synthesis from widely reported organizational behaviour, written for a seat the owner's material mostly leaves out. Not checked against a text.",
+   "summary": "A team member can raise the pattern as a question about how decisions get made, which asks for a rule everyone can follow. It names no person and needs no authority.",
+   "applies_when": "The person is part of the team, sees the same friction repeat, and has no say over the team's process.",
+   "misleads_when": "Raising process can read as dodging a personal problem. If the trouble is one person's behaviour towards you, it has to be said about that behaviour.",
+   "seat": "team_member",
    "used": true
   }
  ]

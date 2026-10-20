@@ -7,8 +7,10 @@ Standard library only. Stores nothing. Logs method, path, status and duration, n
     ANTHROPIC_API_KEY=... python3 server/app.py     # real model
     TEAMWORK_MOCK=1 python3 server/app.py           # canned answers from server/fixtures/
 """
+import functools
 import json
 import os
+import re
 import sys
 import time
 import urllib.request
@@ -94,21 +96,316 @@ def load_text(name):
     return (SERVER_DIR / name).read_text(encoding="utf-8")
 
 
+@functools.lru_cache(maxsize=1)
+def load_library():
+    return json.loads(load_text("library.json"))
+
+
 def library_digest():
-    """A compact rendering of the library for the system prompt."""
-    lib = json.loads(load_text("library.json"))
+    """The general part of the library, the same for every request, so it can sit in the cached prefix.
+
+    Cases are not here. They are seat-bound (Module 3 is written from the manager's side), so they
+    arrive per request in the knowledge slice, only for the seats they suit.
+    """
+    lib = load_library()
     lines = ["## Principle library (synthesis; attribute lightly, never as proof)", ""]
     lines.append("Forces, each with pattern, move and the question to ask:")
     for f in lib["forces"].values():
         lines.append("- %s. Pattern: %s Move: %s Ask: %s" % (f["name"], f["pattern"], f["move"], f["ask"]))
-    lines.append("")
-    lines.append("Management cases, each a principle with the two values in tension and the lesson behind it:")
-    for c in lib["cases"]:
-        lens = c["lens"]["lesson"] if c.get("lens") else ""
-        tension = c["tension"]["lesson"] if c.get("tension") else ""
-        lines.append("- %s. Pause: %s Next move: %s Behind it: %s Pulling the other way: %s"
-                     % (c["principle"], c["pause"], c["next_move"], lens, tension))
     return "\n".join(lines)
+
+
+# ---------------------------------------------------------------------------------------------
+# The knowledge slice: the part of the library that governs this one answer, built per request.
+# It rides in the user message, after the step instruction, so the cached system prefix never changes.
+# ---------------------------------------------------------------------------------------------
+
+SLICE_CAP = 6000
+STATUS_WORDS = {
+    "owner_reading": "the owner's reading",
+    "widely_reported": "widely reported, not checked against a text",
+    "synthesis": "Teamwork's synthesis",
+}
+
+# Which seat the user holds, from the option they tapped on "Who is this about?". "My manager" means
+# the user reports to the other party, so the user's seat is report; "Someone I manage" makes them the manager.
+WHO_SEAT = {"manager": "report", "report": "manager", "colleague": "peer",
+            "team_lead": "team_lead", "team_member": "team_member", "other": "any"}
+# Which idea seats a user seat receives. Module 3 cases are tagged manager, so only a manager or a team
+# lead gets them; the from-below ideas (tagged report) reach a report or a team member.
+RECEIVES = {
+    "manager": {"manager", "any"},
+    "team_lead": {"team_lead", "manager", "any"},
+    "report": {"report", "any"},
+    "team_member": {"team_member", "report", "peer", "any"},
+    "peer": {"peer", "any"},
+    "any": {"any"},
+}
+
+# For each model step: the earlier screens the person has passed, and the screens being written now.
+SCREENS = {
+    "reflect": (("who", "what", "need", "detail"), ("reflect",)),
+    "question": (("who", "what", "need", "detail", "reflect", "want"), ("question",)),
+    "read": (("who", "what", "need", "detail", "reflect", "want"), ("read", "step", "post")),
+    "lookback": (("who", "what", "need", "detail", "reflect", "want", "read", "step", "post"),
+                 ("lookback_blind", "lookback_reveal", "lookback_inference")),
+}
+CHOICE_SCREENS = ("who", "what", "need")
+
+
+def _norm(text):
+    return " ".join(str(text).replace("\u2019", "'").lower().split()).rstrip(".")
+
+
+def _screen(lib, step_id):
+    for st in lib["steps"]:
+        if st["id"] == step_id:
+            return st
+    return None
+
+
+def resolve_choices(situation):
+    """Option ids for who, what and need from the tapped labels. Unknown or missing ones are left out."""
+    lib = load_library()
+    ch = situation.get("choices") if isinstance(situation, dict) else None
+    if isinstance(ch, dict) and isinstance(ch.get("labels"), dict):
+        ch = ch["labels"]
+    found = {}
+    if not isinstance(ch, dict):
+        return found
+    for sid in CHOICE_SCREENS:
+        value = ch.get(sid)
+        screen = _screen(lib, sid)
+        if not isinstance(value, str) or not screen:
+            continue
+        for o in screen["options"]:
+            if _norm(value) in (_norm(o["label"]), o["id"]):
+                found[sid] = o["id"]
+                break
+    return found
+
+
+def resolve_want(situation):
+    """Option ids on the want screen that the person's words match, plus 'other' for free text."""
+    text = situation.get("want") if isinstance(situation, dict) else None
+    if not isinstance(text, str) or not text.strip():
+        return []
+    screen = _screen(load_library(), "want")
+    rest = _norm(text)
+    ids = []
+    for o in screen["options"]:
+        if o["id"] in ("other", "skip"):
+            continue
+        label = _norm(o["label"])
+        if label in rest:
+            ids.append(o["id"])
+            rest = rest.replace(label, " ")
+    if re.search(r"[a-z]", rest):
+        ids.append("other")
+    return ids
+
+
+def user_seat(choices):
+    return WHO_SEAT.get(choices.get("who"), "any")
+
+
+def _seat_ok(principle, seat):
+    return principle.get("seat", "any") in RECEIVES.get(seat, {"any"})
+
+
+def _clip(text, n):
+    return text if len(text) <= n else text[:n].rsplit(" ", 1)[0].rstrip(",;:") + "..."
+
+
+def _render_idea(p, whys, cases_by_id, density="full"):
+    """One idea as a short block: label, status in words, summary, guards, and why it matters here.
+
+    density 'full' adds applies_when; 'compact' keeps label, status, a clipped summary, the guard and the
+    why; 'whole' is for the safety flag and clips nothing. The guard (misleads_when) is never clipped.
+    """
+    status = STATUS_WORDS.get(p.get("status"), "status not given")
+    clip = (lambda t, n: t) if density == "whole" else _clip
+    if p["kind"] == "case":
+        c = cases_by_id.get(p["id"][len("case."):], {})
+        bits = ["Case, written for a manager's seat: %s (%s)." % (p["label"], status)]
+        if p.get("pause"):
+            bits.append("Pause: %s" % p["pause"])
+        bits.append("Next move: %s" % p["summary"])
+        if density == "full" and (c.get("lens") or {}).get("lesson"):
+            bits.append("Behind it: %s" % c["lens"]["lesson"])
+        if (c.get("tension") or {}).get("lesson"):
+            bits.append("Pulling the other way: %s" % c["tension"]["lesson"])
+    else:
+        bits = ["%s (%s): %s" % (p["label"], status, clip(p["summary"], 170 if density == "full" else 110))]
+        if density == "full" and p.get("applies_when"):
+            bits.append("Applies when: %s" % clip(p["applies_when"], 150))
+        if p.get("misleads_when"):
+            bits.append("Misleads when: %s" % p["misleads_when"])
+    if whys:
+        bits.append("Here: %s" % " ".join(whys))
+    return "- " + " ".join(bits)
+
+
+def _render_relation(r, label):
+    a, b = label(r["from"]), label(r["to"])
+    if r["kind"] == "supports":
+        return "- %s supports %s: %s" % (a, b, r["why"])
+    if r["kind"] == "specializes":
+        return "- %s is a narrower form of %s: %s" % (a, b, r["why"])
+    return "- %s and %s pull against each other: %s" % (a, b, r["why"])
+
+
+def _gather(step, situation, choices, seat, P):
+    """Ideas linked from this answer, by level: 'answer' (the options the person tapped), 'step'
+    (links on the screens being written, and on the reflect screen), 'part' (options of the screens
+    being written). Each maps id -> list of why-sentences. Seat-bound ideas for other seats are dropped."""
+    lib = load_library()
+    passed, current = SCREENS[step]
+    levels = {"answer": {}, "step": {}, "part": {}}
+    if not choices:
+        return levels
+    selected = {sid: [oid] for sid, oid in choices.items()}
+    selected["want"] = resolve_want(situation)
+
+    def add(level, link):
+        p = P.get(link["id"])
+        if not p or p["kind"] in ("rule", "stillward") or not _seat_ok(p, seat):
+            return
+        whys = levels[level].setdefault(link["id"], [])
+        if link["why"] not in whys:
+            whys.append(link["why"])
+
+    for sid in passed + current:
+        screen = _screen(lib, sid)
+        if not screen:
+            continue
+        if sid in current or sid == "reflect":
+            for l in screen["links"]:
+                add("step", l)
+        for o in screen["options"]:
+            if o["id"] in selected.get(sid, []):
+                for l in o["links"]:
+                    add("answer", l)
+            elif sid in current:
+                for l in o["links"]:
+                    add("part", l)
+    return levels
+
+
+def knowledge_slice(step, situation):
+    return slice_detail(step, situation)["text"]
+
+
+def slice_detail(step, situation):
+    """The slice of the library that governs this answer, at most SLICE_CAP characters.
+
+    Always: the safety flag and the standing rules. Then, while room lasts: the ideas linked from the
+    options the person tapped (answer level), the tensions and overrides among them, the ideas linked
+    from the screens being written (step level), and the remaining relations. Cases reach only a manager
+    or team lead; from-below ideas only a report or team member. Unknown choices give the rules alone.
+    """
+    lib = load_library()
+    P = {p["id"]: p for p in lib["principles"]}
+    cases_by_id = {c["id"]: c for c in lib["cases"]}
+    situation = situation if isinstance(situation, dict) else {}
+    choices = resolve_choices(situation)
+    seat = user_seat(choices)
+    levels = _gather(step, situation, choices, seat, P)
+    rules = [p for p in lib["principles"] if p["kind"] == "rule"]
+    label = lambda pid: P[pid]["label"]  # noqa: E731
+
+    budget = [SLICE_CAP - 330]  # room for the header, the section titles and the blank lines
+
+    def take(text):
+        if len(text) + 1 <= budget[0]:
+            budget[0] -= len(text) + 1
+            return True
+        return False
+
+    safety_text = "Safety (this overrides everything below when it applies):\n" + _render_idea(P["rule.safety_flag"], [], cases_by_id, "whole")
+    rules_text = "Standing rules, always in force (the protocol holds the detail): " + \
+        "; ".join(r["label"] for r in rules if r["id"] != "rule.safety_flag") + "."
+    take(safety_text)
+    take(rules_text)
+
+    shown, left_out, lines = [], [], {}
+
+    def why_text(whys):
+        return [_clip(whys[0], 230)] + ([_clip(whys[1], 140)] if len(whys) > 1 and len(whys[0]) < 200 else [])
+
+    def add_ideas(level):
+        for pid, whys in levels[level].items():
+            if pid in shown or pid in left_out:
+                continue
+            line = _render_idea(P[pid], why_text(whys), cases_by_id, "compact")
+            if take(line):
+                shown.append(pid)
+                lines[pid] = line
+            else:
+                left_out.append(pid)
+
+    def enrich(level):
+        """Spend what is left on fuller renderings of the answer-level ideas, in order."""
+        for pid in [x for x in shown if x in levels[level]]:
+            full = _render_idea(P[pid], why_text(levels[level][pid]), cases_by_id, "full")
+            extra = len(full) - len(lines[pid])
+            if extra <= 0:
+                continue
+            if extra <= budget[0]:
+                budget[0] -= extra
+                lines[pid] = full
+
+    rel_lines, used_rel, announced = [], set(), set()
+
+    def add_relations(kinds):
+        universe = set(shown) | {r["id"] for r in rules}
+        todo = [(i, r) for i, r in enumerate(lib["relations"])
+                if i not in used_rel and r["kind"] in kinds and r["from"] in universe and r["to"] in universe
+                and not (r["from"].startswith("rule.") and r["to"].startswith("rule.") and r["kind"] != "override")]
+        if "override" in kinds:
+            groups = {}
+            for i, r in todo:
+                if r["kind"] == "override":
+                    groups.setdefault(r["from"], []).append((i, r))
+            for src, rs in groups.items():
+                lead = "- %s: This overrides the others when it applies. It overrides" % label(src) if src not in announced \
+                    else "- %s also overrides" % label(src)
+                line = "%s %s." % (lead, "; ".join(label(r["to"]) for _, r in rs))
+                if take(line):
+                    rel_lines.append(line)
+                    announced.add(src)
+                    used_rel.update(i for i, _ in rs)
+        for i, r in todo:
+            if r["kind"] != "override" and r["kind"] in kinds:
+                line = _render_relation(r, label)
+                if take(line):
+                    rel_lines.append(line)
+                    used_rel.add(i)
+
+    add_relations(("override",))  # the safety flag over the standing rules comes before any idea
+    add_ideas("answer")
+    add_relations(("override", "tension"))
+    add_ideas("step")
+    enrich("answer")
+    add_ideas("part")
+    add_relations(("override", "tension", "specializes", "supports"))
+
+    head = "Knowledge slice for this answer (the person's seat: %s). %d ideas shown" % (seat, len(shown))
+    if left_out:
+        head += ", %d left out to stay within the limit" % len(left_out)
+    head += ". Weigh each idea by its status. Its guard says when it misleads."
+    parts = [head, safety_text, rules_text]
+    if shown:
+        parts.append("Ideas that govern this answer:\n" + "\n".join(lines[x] for x in shown))
+    if rel_lines:
+        parts.append("How they relate:\n" + "\n".join(rel_lines))
+    text = "\n\n".join(parts)
+    while len(text) > SLICE_CAP and rel_lines:  # belt and braces: never past the cap, drop relations first
+        rel_lines.pop()
+        parts[-1] = "How they relate:\n" + "\n".join(rel_lines)
+        text = "\n\n".join(parts)
+    return {"text": text[:SLICE_CAP], "seat": seat, "choices": choices, "levels": levels,
+            "shown": shown, "left_out": left_out}
 
 
 def build_request(step, situation):
@@ -119,7 +416,8 @@ def build_request(step, situation):
         {"type": "text", "text": load_text("protocol.md")},
         {"type": "text", "text": library_digest(), "cache_control": {"type": "ephemeral"}},
     ]
-    user = STEP_INSTRUCTIONS[step] + "\n\nEverything the person has given so far, as JSON:\n" + \
+    user = STEP_INSTRUCTIONS[step] + "\n\n" + knowledge_slice(step, situation) + \
+        "\n\nEverything the person has given so far, as JSON:\n" + \
         json.dumps(situation, ensure_ascii=False, indent=1)
     return {
         "model": MODEL,

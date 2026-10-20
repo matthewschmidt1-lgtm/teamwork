@@ -32,6 +32,8 @@ def main():
     for r in lib["relations"]:
         if r["from"] not in ids or r["to"] not in ids:
             sys.exit("unknown principle id in relations: %s" % r)
+        if r["kind"] not in ("supports", "specializes", "tension", "override"):
+            sys.exit("unknown relation kind: %s" % r)
     ds = {d["id"]: {"conflicts_with": d["conflicts_with"], "teamwork_use": d["teamwork_use"]} for d in lib["decision_science"]}
     data = {
         "version": lib["version"],

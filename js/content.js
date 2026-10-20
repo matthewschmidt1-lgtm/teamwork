@@ -11,7 +11,7 @@ export const COPY = {
       title: "Who is this about?",
       options: [
         ["manager", "My manager"], ["report", "Someone I manage"], ["colleague", "A colleague"],
-        ["team", "My team"], ["other", "Someone else"],
+        ["team_lead", "A team I lead"], ["team_member", "A team I'm part of"], ["other", "Someone else"],
       ],
     },
     what: {
