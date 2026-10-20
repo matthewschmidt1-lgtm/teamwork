@@ -1,15 +1,17 @@
 /* The Teamwork site. A dark room, one lamp, and the light comes toward you as you scroll. */
 
 :root {
-  --ground: #15110F;
-  --text: #F3E9DA;
-  --text-2: #BFAE98;
-  --hair: rgba(243, 233, 218, 0.14);
-  --amber: #F2A33A;
-  --sage: #7FB0A3;
-  --rose: #D98C7A;
-  --pool: #3A2D22;
-  --pool-alpha: rgba(242, 163, 58, 0.18);
+  --ground: #0B1020;
+  --text: #F4EBDD;
+  --text-2: #A9B2CC;
+  --hair: rgba(244, 235, 221, 0.14);
+  --amber: #FFB84D;
+  --ember: #D9622B;
+  --core: 255, 193, 94;      /* #FFC15E, the lamp's hot core */
+  --core-warm: 255, 213, 138; /* #FFD58A, where the core eases to by the end */
+  --shadow: 27, 42, 92;      /* #1B2A5C, the cool wash around the light */
+  --sage: #6FD3C0;
+  --rose: #F08FAE;
   --serif: "Fraunces", "Iowan Old Style", "Palatino", Georgia, serif;
   --sans: "DM Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   --gutter: clamp(20px, 6vw, 120px);
@@ -23,12 +25,19 @@ html { background: var(--ground); scroll-behavior: smooth; -webkit-text-size-adj
 body { margin: 0; color: var(--text); background: var(--ground); font-family: var(--sans); font-size: 18px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
 @media (min-width: 60rem) { body { font-size: 20px; } }
 
-/* The lamp. Size and warmth follow --progress. It switches on at load. */
+/* The lamp: a hot core, an ember mid, a cool wash, and a faint floor bounce. Size and warmth follow --progress. */
 .lamp {
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background: radial-gradient(
-    calc(52rem + 60rem * var(--progress)) calc(30rem + 34rem * var(--progress)) at 50% calc(-16rem + 4rem * var(--progress)),
-    var(--pool) 0%, var(--pool-alpha) 40%, transparent 72%);
+  background:
+    radial-gradient(calc(18rem + 12rem * var(--progress)) calc(10rem + 7rem * var(--progress)) at 50% -4rem,
+      rgba(var(--core), calc(0.55 * (1 - var(--progress)))) 0%, transparent 100%),
+    radial-gradient(calc(18rem + 12rem * var(--progress)) calc(10rem + 7rem * var(--progress)) at 50% -4rem,
+      rgba(var(--core-warm), calc(0.6 * var(--progress))) 0%, transparent 100%),
+    radial-gradient(calc(40rem + 34rem * var(--progress)) calc(26rem + 20rem * var(--progress)) at 50% -6rem,
+      rgba(217, 98, 43, 0.22) 0%, transparent 70%),
+    radial-gradient(calc(90rem + 30rem * var(--progress)) calc(55rem + 22rem * var(--progress)) at 50% 8rem,
+      rgba(var(--shadow), 0.45) 0%, transparent 70%),
+    radial-gradient(30rem 12rem at 50% 100%, rgba(var(--core), 0.06) 0%, transparent 70%);
   opacity: 0; animation: switch-on 1600ms var(--ease) 200ms forwards;
 }
 @keyframes switch-on { to { opacity: 1; } }
@@ -40,6 +49,7 @@ body { margin: 0; color: var(--text); background: var(--ground); font-family: va
 .mark { font-family: var(--serif); font-variation-settings: "opsz" 36, "SOFT" 50; font-weight: 450; font-size: 18px; color: var(--text); text-decoration: none; }
 .open { color: var(--text-2); text-decoration: none; font-size: 16px; min-height: 44px; display: inline-flex; align-items: center; padding: 0 4px; }
 .open:hover { color: var(--amber); }
+:is(a, button):focus-visible { outline: 2px solid var(--ember); outline-offset: 4px; }
 :is(a, button):focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
 
 main { position: relative; z-index: 1; }

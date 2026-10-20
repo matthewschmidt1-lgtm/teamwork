@@ -2,19 +2,19 @@
    Five text styles per screen. Colour as a rule or a dot, never a fill. Amber only where the light touches. */
 
 :root {
-  --ground: #1F1A17;
-  --surface: #2B2420;
-  --pool: #3A2D22;
-  --text: #F3E9DA;
-  --text-2: #BFAE98;
-  --hair: rgba(243, 233, 218, 0.12);
-  --hair-strong: rgba(243, 233, 218, 0.28);
-  --amber: #F2A33A;
-  --sage: #7FB0A3;
-  --rose: #D98C7A;
-  --on-amber: #1F1A17;
-  --pool-alpha: rgba(242, 163, 58, 0.16);
-  --shadow: none;
+  --ground: #111730;
+  --surface: #161D38;
+  --text: #F4EBDD;
+  --text-2: #A9B2CC;
+  --hair: rgba(244, 235, 221, 0.12);
+  --hair-strong: rgba(244, 235, 221, 0.3);
+  --amber: #FFB84D;
+  --ember: #D9622B;
+  --core: 255, 193, 94;
+  --shadow: 27, 42, 92;
+  --sage: #6FD3C0;
+  --rose: #F08FAE;
+  --on-amber: #111730;
 
   --serif: "Fraunces", "Iowan Old Style", "Palatino", Georgia, serif;
   --sans: "DM Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -24,18 +24,17 @@
   --fast: 220ms; --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 :root[data-theme="paper"] {
-  --ground: #F6EFE3;
-  --surface: #FBF6EC;
-  --pool: #F0DEC2;
-  --text: #2A211B;
-  --text-2: #6B5F53;
-  --hair: rgba(42, 33, 27, 0.14);
-  --hair-strong: rgba(42, 33, 27, 0.32);
-  --amber: #B5651D;
-  --sage: #3F7D6E;
-  --rose: #A9533F;
+  --ground: #F4EEE3;
+  --surface: #EAE2D3;
+  --text: #1B2036;
+  --text-2: #4A506B;
+  --hair: rgba(27, 32, 54, 0.14);
+  --hair-strong: rgba(27, 32, 54, 0.32);
+  --amber: #9A4F0C;
+  --ember: #9A4F0C;
+  --sage: #1F6F63;
+  --rose: #A23B5E;
   --on-amber: #FFFFFF;
-  --pool-alpha: rgba(181, 101, 29, 0.14);
 }
 
 * { box-sizing: border-box; }
@@ -48,13 +47,17 @@ body {
 }
 @media (min-width: 48rem) { body { font-size: 18px; } }
 
-/* The lamp: one pool of light, anchored at the top. The only light source. */
+/* The lamp: a hot core, an ember mid and a cool wash, anchored at the top. The only light source. */
 .lamp {
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background: radial-gradient(72rem 40rem at 50% -14rem, var(--pool) 0%, var(--pool-alpha) 38%, transparent 70%);
+  background:
+    radial-gradient(22rem 12rem at 50% -5rem, rgba(var(--core), 0.5) 0%, transparent 100%),
+    radial-gradient(48rem 30rem at 50% -8rem, rgba(217, 98, 43, 0.2) 0%, transparent 70%),
+    radial-gradient(100rem 60rem at 50% 6rem, rgba(var(--shadow), 0.5) 0%, transparent 70%);
   opacity: 0.9; transition: opacity 900ms var(--ease), transform 900ms var(--ease);
   animation: breathe 16s ease-in-out infinite alternate;
 }
+:root[data-theme="paper"] .lamp { display: none; }
 body[data-thinking="1"] .lamp { opacity: 1; transform: scale(1.06); }
 body[data-lit="full"] .lamp { opacity: 1; transform: scale(1.18) translateY(4%); }
 @keyframes breathe { from { transform: translateX(-1%); } to { transform: translateX(1%) translateY(1%); } }
@@ -73,7 +76,7 @@ body[data-lit="full"] .lamp { opacity: 1; transform: scale(1.18) translateY(4%);
 .top-right { display: flex; align-items: center; gap: var(--s3); }
 .wick { display: flex; gap: 10px; align-items: center; }
 .wick i { width: 8px; height: 8px; border-radius: 50%; background: var(--hair-strong); display: block; transition: background var(--fast), box-shadow var(--fast); }
-.wick i.lit { background: var(--amber); box-shadow: 0 0 10px var(--pool-alpha); }
+.wick i.lit { background: var(--amber); box-shadow: 0 0 10px rgba(var(--core), 0.35); }
 .theme { background: none; border: 0; color: var(--text-2); font: inherit; font-size: 15px; min-height: 44px; padding: 0 var(--s1); cursor: pointer; }
 .theme:hover { color: var(--text); }
 .foot { margin-top: auto; padding-top: var(--s5); padding-bottom: var(--s4); color: var(--text-2); font-size: 15px; line-height: 1.45; }
@@ -119,7 +122,7 @@ textarea, input[type="text"], input[type="date"] {
 textarea { resize: vertical; line-height: 1.5; }
 textarea.yours { font-size: 20px; }
 textarea::placeholder, input::placeholder { color: var(--text-2); opacity: 0.8; }
-:is(textarea, input, select, button, a, summary):focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+:is(textarea, input, select, button, a, summary):focus-visible { outline: 2px solid var(--ember); outline-offset: 3px; }
 textarea:focus, input:focus { border-color: var(--hair-strong); }
 label { display: block; margin-bottom: var(--s1); color: var(--text-2); font-size: 15px; }
 .field { margin-bottom: var(--s3); }
