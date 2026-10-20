@@ -1,0 +1,39 @@
+/* Display settings shared by the site and the app. Variables are the page's own, so the panel matches wherever it opens. */
+
+/* Text size: five steps. Zoom scales the page's pixel sizes together. */
+:root[data-size="1"] body { zoom: 0.9; }
+:root[data-size="3"] body { zoom: 1.15; }
+:root[data-size="4"] body { zoom: 1.3; }
+:root[data-size="5"] body { zoom: 1.5; }
+
+/* Line spacing */
+:root[data-leading="open"] body { line-height: 1.8; }
+:root[data-leading="open"] p, :root[data-leading="open"] li { line-height: 1.8; }
+
+/* Motion, as a choice in the panel as well as the system setting. */
+:root[data-motion="reduce"] *, :root[data-motion="reduce"] *::before, :root[data-motion="reduce"] *::after {
+  animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; scroll-behavior: auto !important;
+}
+:root[data-motion="reduce"] .js .reveal, :root[data-motion="reduce"].js .reveal { opacity: 1 !important; transform: none !important; }
+
+/* The trigger and the dialog */
+.a11y-trigger { font: 600 15px/1 "DM Sans", -apple-system, sans-serif; letter-spacing: 0.02em; background: transparent; color: var(--text-2, var(--ink-2)); border: 1px solid var(--hair, var(--rule)); border-radius: 999px; min-width: 44px; min-height: 36px; padding: 0 12px; cursor: pointer; }
+.a11y-trigger:hover { color: var(--text, var(--ink)); border-color: var(--text, var(--ink)); }
+.a11y { border: 1px solid var(--hair, var(--rule)); border-radius: 16px; padding: 20px 22px 18px; width: min(26rem, calc(100vw - 32px)); background: var(--surface, var(--paper)); color: var(--text, var(--ink)); font: 16px/1.5 "DM Sans", -apple-system, sans-serif; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18); }
+.a11y::backdrop { background: rgba(23, 32, 27, 0.35); }
+.a11y-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.a11y-head h2 { margin: 0; font: 400 22px/1.2 "Fraunces", Georgia, serif; font-variation-settings: "opsz" 36, "SOFT" 50; }
+.a11y-close { background: transparent; border: 0; color: var(--text-2, var(--ink-2)); font-size: 22px; min-width: 44px; min-height: 44px; cursor: pointer; border-radius: 999px; }
+.a11y-close:hover { color: var(--text, var(--ink)); }
+.a11y-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--hair, var(--rule)); }
+.a11y-label { font-size: 15px; color: var(--text-2, var(--ink-2)); }
+.a11y-seg { display: flex; gap: 6px; align-items: center; }
+.a11y-opt { font: inherit; font-size: 14px; background: transparent; color: var(--text, var(--ink)); border: 1px solid var(--hair, var(--rule)); border-radius: 999px; min-height: 36px; padding: 0 12px; cursor: pointer; }
+.a11y-opt:hover { border-color: var(--text, var(--ink)); }
+.a11y-opt[aria-pressed="true"] { background: var(--text, var(--ink)); color: var(--ground, var(--paper)); border-color: var(--text, var(--ink)); }
+.a11y-size { font-size: 13px; color: var(--text-2, var(--ink-2)); min-width: 4.5rem; text-align: center; }
+.a11y-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 12px; border-top: 1px solid var(--hair, var(--rule)); }
+.a11y-reset { font: inherit; font-size: 14px; background: none; border: 0; color: var(--text-2, var(--ink-2)); text-decoration: underline; text-underline-offset: 4px; min-height: 36px; padding: 0; cursor: pointer; }
+.a11y-reset:hover { color: var(--text, var(--ink)); }
+.a11y-note { font-size: 12px; color: var(--text-2, var(--ink-2)); }
+:is(.a11y-trigger, .a11y-opt, .a11y-close, .a11y-reset):focus-visible { outline: 2px solid var(--ember, var(--brick)); outline-offset: 3px; }

@@ -36,6 +36,17 @@
   --on-amber: #17201B;
 }
 
+:root[data-contrast="high"] {
+  --ground: #FFFFFF; --surface: #FFFFFF; --text: #000000; --text-2: #1F1F1F;
+  --hair: rgba(0, 0, 0, 0.4); --hair-strong: rgba(0, 0, 0, 0.7); --amber: #000000; --ember: #8E2A1E;
+  --sage: #0F5A49; --rose: #8E2A1E; --green: #0B3324; --on-amber: #FFFFFF;
+}
+:root[data-theme="night"][data-contrast="high"] {
+  --ground: #000000; --surface: #000000; --text: #FFFFFF; --text-2: #E0E0E0;
+  --hair: rgba(255, 255, 255, 0.4); --hair-strong: rgba(255, 255, 255, 0.7); --amber: #FFFFFF; --ember: #FFB09A;
+  --sage: #9FE3D1; --rose: #FFB09A; --green: #E6F2EC; --on-amber: #000000;
+}
+
 * { box-sizing: border-box; }
 html { background: var(--ground); -webkit-text-size-adjust: 100%; }
 body {
