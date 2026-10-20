@@ -2328,10 +2328,6 @@
       {
        "id": "path.knowledge",
        "why": "Confirmation is what lets later steps weigh each line by its kind."
-      },
-      {
-       "id": "dos.commit",
-       "why": "The first thing the person commits to is the account, before any advice is on the page."
       }
      ]
     }
@@ -2963,12 +2959,7 @@
     {
      "id": "d7",
      "label": "a week",
-     "links": [
-      {
-       "id": "ds.regression_mean",
-       "why": "Fits a change that should show fast; too short and a bad week passes for a result."
-      }
-     ]
+     "links": []
     },
     {
      "id": "d14",
